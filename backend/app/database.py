@@ -1,5 +1,8 @@
 from app.config import Settings
 from sqlmodel import create_engine, SQLModel, Session
+from app.models.command import Command
+from app.models.alert import Alert
+from app.models.reading import Reading
 
 settings = Settings()
 
