@@ -112,7 +112,7 @@ On the interval from `config.py`, call `tick()` on the live `TankState` before r
 **Builds on:** Increment 6's `tick()`, since the danger condition depends on the same state it operates on.
 **Files:** `plant_server/physics.py`
 
-Add danger-condition checking into `TankState` — using the thresholds from `config.py` (Increment 1), detect when pump is on and valve is closed for longer than the configured tolerance, or when water level is at/near 100 with the valve closed. This doesn't need to *do* anything yet (no alerting lives here — that's the Backend's Detector, a separate system entirely) — it just needs to be a fact the state can report about itself, e.g., an `is_in_danger` property or similar, useful for your own testing and for the Plant's own console output.
+Add danger-condition checking into `TankState` — using the thresholds from `config.py` (Increment 1), detect when pump is on and valve is closed for longer than the configured tolerance, or when water level is at/near 100 with the valve closed. This doesn't need to _do_ anything yet (no alerting lives here — that's the Backend's Detector, a separate system entirely) — it just needs to be a fact the state can report about itself, e.g., an `is_in_danger` property or similar, useful for your own testing and for the Plant's own console output.
 
 **Done when:** manually driving a `TankState` into the danger condition (pump on, valve closed, several ticks passed) correctly reports the danger flag as true, and a normal running state correctly reports false.
 
@@ -181,6 +181,7 @@ The entry point — runs the operator cycle indefinitely, the same way `plant_se
 **Files:** revisit `plant_server/modbus_server.py`, `legit_client/operator.py`
 
 Confirm reasonable behavior in the situations most likely to actually happen during a live demo:
+
 - A client disconnects mid-session — the Plant server shouldn't crash, it should just keep running for whoever reconnects next.
 - The Backend is temporarily unreachable when the Legit Client tries to report a command — this shouldn't crash the operator loop; log the failure and keep going, since the Plant/Modbus side of the command still succeeded regardless.
 - The Plant is restarted mid-demo — confirm it comes back up cleanly at a sensible default state (e.g., empty tank, pump/valve off), not whatever it happened to be at when it stopped.
