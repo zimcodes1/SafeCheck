@@ -3,5 +3,6 @@ from datetime import datetime
 from app.schemas.plant import PlantLiveResponse
 
 class ReadingOut(PlantLiveResponse):
-    """Response model for reading"""
-    pass
+    """Response model for historical reading records."""
+    id: int
+    source: str = "plant"

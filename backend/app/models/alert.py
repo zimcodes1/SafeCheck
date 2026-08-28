@@ -19,11 +19,14 @@ class ConfidenceEnum(str, Enum):
     NEEDS_REVIEW='needs_review'
 
 class Alert(SQLModel, table=True):
-    id: int|None = Field(primary_key=True)
-    timestamp: datetime = Field(nullable=False, default_factory=lambda:datetime.now(timezone.utc))
+    """Database model for detected security alerts."""
+    __tablename__ = "alerts"
+
+    id: int | None = Field(default=None, primary_key=True)
+    timestamp: datetime = Field(nullable=False, default_factory=lambda: datetime.now(timezone.utc))
     severity: SeverityEnum = Field(nullable=False)
     rule_triggered: RulesEnum = Field(nullable=False)
-    related_command_id: int = Field(nullable=True, foreign_key="command.id")
-    related_command: Command = Relationship(back_populates='alert')
+    related_command_id: int | None = Field(default=None, nullable=True, foreign_key="commands.id")
+    related_command: Command | None = Relationship(back_populates="alerts")
     message: str = Field(nullable=False)
     confidence: ConfidenceEnum = Field(nullable=False)
