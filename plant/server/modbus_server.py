@@ -14,6 +14,7 @@ warnings.filterwarnings("ignore", category=DeprecationWarning, module="pymodbus"
 from pymodbus.server import StartAsyncTcpServer
 from pymodbus.simulator import DataType, SimData, SimDevice
 from server.config import PlantConfig
+from server.logger import setup_logger
 from server.physics import TankState
 from server.registers import (
     PUMP_COMMAND_REGISTER,
@@ -25,9 +26,8 @@ from server.registers import (
 
 tank_state = TankState(water_level=50.0)
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logging.getLogger("pymodbus").setLevel(logging.ERROR)
-logger = logging.getLogger("plant.server")
+logger = setup_logger(name="plant.server")
 
 
 def _live_input_registers() -> list[int]:
