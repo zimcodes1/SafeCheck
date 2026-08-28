@@ -25,10 +25,20 @@ async def test_modbus_server():
     port = 5020
 
     # Start the Modbus TCP server in background task
-    server_task = asyncio.create_task(run_server_async(host=host, port=port))
+    try:
+        server_task = asyncio.create_task(run_server_async(host=host, port=port))
+        print(f"[TEST] Started background server task on {host}:{port}")
+    except:
+        print("[TEST ERROR] Failed to start Modbus TCP server.")
+        return False
     
     # Wait briefly for the server to bind and start listening
     await asyncio.sleep(0.5)
+
+    if server_task.done():
+        exc = server_task.exception()
+        print(f"[TEST ERROR] Server task exited before client connection: {exc!r}")
+        return False
 
     print(f"[TEST] Connecting AsyncModbusTcpClient to {host}:{port}...")
     client = AsyncModbusTcpClient(host=host, port=port)

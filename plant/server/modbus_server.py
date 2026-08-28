@@ -1,6 +1,6 @@
 """
-Modbus TCP Server Skeleton for SafeCheck Plant (Increment 4).
-Initializes Modbus datastore with static placeholder values and serves Modbus TCP.
+Modbus TCP Server for SafeCheck Plant.
+Provides a Modbus device whose live TankState is mirrored into holding and input registers.
 """
 
 import asyncio
@@ -10,56 +10,75 @@ import warnings
 # Filter pymodbus v4 transition deprecation warning for datastore context
 warnings.filterwarnings("ignore", category=DeprecationWarning, module="pymodbus")
 
-from pymodbus.datastore import (
-        ModbusSequentialDataBlock,
-        ModbusServerContext,
-        ModbusDeviceContext,
-    )
 from pymodbus.server import StartAsyncTcpServer
+from pymodbus.simulator import DataType, SimData, SimDevice
 from server.config import PlantConfig
+from server.physics import TankState
 from server.registers import (
-        PUMP_COMMAND_REGISTER,
-        VALVE_COMMAND_REGISTER,
-        WATER_LEVEL_REGISTER,
-        PUMP_STATUS_REGISTER,
-        VALVE_STATUS_REGISTER,
-    )
+    PUMP_COMMAND_REGISTER,
+    VALVE_COMMAND_REGISTER,
+    WATER_LEVEL_REGISTER,
+    PUMP_STATUS_REGISTER,
+    VALVE_STATUS_REGISTER,
+)
+
+tank_state = TankState(water_level=50.0)
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logging.getLogger("pymodbus").setLevel(logging.ERROR)
 logger = logging.getLogger("plant.server")
 
 
-def create_datastore() -> ModbusServerContext:
-    """
-    Creates and initializes the Modbus datastore with static placeholder values (Increment 4).
+def _live_input_registers() -> list[int]:
+    """Return register values from the current TankState."""
+    return [
+        int(tank_state.water_level),
+        int(tank_state.pump_state),
+        int(tank_state.valve_state),
+    ]
 
-    Holding Registers (commands):
-      - Register 0 (PUMP_COMMAND_REGISTER): 0 (pump off)
-      - Register 1 (VALVE_COMMAND_REGISTER): 0 (valve closed)
 
-    Input Registers (sensor readings):
-      - Register 0 (WATER_LEVEL_REGISTER): 50 (static 50% water level placeholder)
-      - Register 1 (PUMP_STATUS_REGISTER): 0 (pump stopped)
-      - Register 2 (VALVE_STATUS_REGISTER): 0 (valve closed)
-    """
-    # Initialize holding registers (size 2: pump command = 0, valve command = 0)
-    # Sequential datablock address 1 maps to protocol register offset 0
-    holding_block = ModbusSequentialDataBlock(1, [0, 0])
+async def register_action(
+    func_code,
+    start_address,
+    address,
+    count,
+    current_registers,
+    values,
+):
+    """Keep the Modbus register map synchronized with tank state for Increment 5."""
+    if values is not None:
+        for offset, value in enumerate(values):
+            register_address = address + offset
+            if register_address == PUMP_COMMAND_REGISTER:
+                tank_state.pump_state = bool(value)
+            elif register_address == VALVE_COMMAND_REGISTER:
+                tank_state.valve_state = bool(value)
 
-    # Initialize input registers (size 3: water level = 50, pump status = 0, valve status = 0)
-    input_block = ModbusSequentialDataBlock(1, [50, 0, 0])
+        current_registers[address - start_address : address - start_address + len(values)] = list(values)
+        return None
 
-    # Build device context with holding and input registers
-    device_context = ModbusDeviceContext(
-        di=None,
-        co=None,
-        hr=holding_block,
-        ir=input_block,
+    if func_code == 4:
+        live_values = _live_input_registers()
+        read_start = address - start_address
+        read_end = read_start + count
+        current_registers[read_start:read_end] = live_values[read_start:read_end]
+
+    return None
+
+
+def create_datastore() -> SimDevice:
+    """Create the live Modbus device model that reflects the current TankState."""
+    return SimDevice(
+        id=0,
+        simdata=(
+            [SimData(address=0, values=[False], datatype=DataType.BITS)],
+            [SimData(address=0, values=[False], datatype=DataType.BITS)],
+            [SimData(address=0, values=[0, 0], datatype=DataType.REGISTERS)],
+            [SimData(address=0, values=_live_input_registers(), datatype=DataType.REGISTERS)],
+        ),
+        action=register_action,
     )
-
-    # Wrap in server context; single=True routes all unit IDs to this context
-    return ModbusServerContext(devices=device_context, single=True)
 
 
 async def run_server_async(host: str | None = None, port: int | None = None):
