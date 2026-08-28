@@ -273,9 +273,9 @@ attacks/
 
 **`injection/attack.py`** — Contains `run_injection()`, responsible for sending a single unsolicited command directly, with `source_id = "attack_injection"`.
 
-**`wrong_moment/attack.py`** — Contains `run_wrong_moment()`, responsible for reading the Plant's current state via `read_plant_registers()`, waiting until the pump is on, then sending the "open valve" command — with `source_id = "attack_wrong_moment"`.
+**`wrong_moment/attack.py`** — Contains `run_wrong_moment()`, responsible for reading the Plant's current state via `read_plant_registers()`, waiting until the valve is closed, then sending the "pump on" command (a pump switched on against a closed valve — the pressure-buildup scenario named directly in the track brief) — with `source_id = "attack_wrong_moment"`.
 
-**`replay/attack.py`** — Contains two responsibilities, kept in the same file since they're two halves of one attack: `capture_snapshot()` (records a safe moment's register values) and `run_replay(snapshot)` (repeatedly re-sends that captured snapshot's readings later). Note from the Implementation Plan: this one writes directly to input registers to simulate an intercepted feed, which is different from the other three attacks that only write to command/holding registers — worth a comment in the file itself explaining why, so it doesn't look like a mistake later.
+**`replay/attack.py`** — Contains two responsibilities, kept in the same file since they're two halves of one attack: `capture_snapshot()` (records a safe moment's register values) and `run_replay(snapshot)` (repeatedly re-sends that captured snapshot's readings later, while separately opening the valve so the real tank is actively draining underneath the frozen reading — the "control room stays calm while the tank empties" scenario named in the track brief). Note from the Implementation Plan: this one writes directly to input registers to simulate an intercepted feed, which is different from the other three attacks that only write to command/holding registers — worth a comment in the file itself explaining why, so it doesn't look like a mistake later.
 
 **`slow_drift/attack.py`** — Contains `run_slow_drift()`, responsible for issuing many small, incremental commands over time with pauses between them, with `source_id = "attack_slow_drift"`.
 

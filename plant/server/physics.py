@@ -8,6 +8,7 @@ class TankState:
     water_level: float = 0.0
     pump_state: bool = False
     valve_state: bool = False
+    is_in_danger: bool = False
 
     def tick(self) -> None:
         """Advance a single simulation tick based on the current pump/valve state.

@@ -158,7 +158,7 @@ def check_state_validity(command, current_state):
     ...  # your logic here
 ```
 
-**Done when:** manually testing with a plant state you construct yourself (pump on, near-full tank) plus a "open valve" command correctly flags as unsafe, and the same command with pump off correctly passes.
+**Done when:** manually testing with a plant state you construct yourself (valve closed) plus a "pump on" command correctly flags as unsafe — a pump switched on against a closed valve, the exact scenario named in the track brief — and the same command with the valve open correctly passes.
 
 ---
 

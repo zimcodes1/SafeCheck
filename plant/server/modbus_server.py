@@ -4,6 +4,7 @@ Provides a Modbus device whose live TankState is mirrored into holding and input
 """
 
 import asyncio
+import contextlib
 import logging
 import warnings
 
@@ -81,6 +82,23 @@ def create_datastore() -> SimDevice:
     )
 
 
+async def tick_loop() -> None:
+    """Advance the live tank state on the configured interval for Increment 7."""
+    try:
+        while True:
+            await asyncio.sleep(PlantConfig.tick_interval_seconds)
+            tank_state.tick()
+            logger.info(
+                "tick -> water_level=%.1f pump=%s valve=%s",
+                tank_state.water_level,
+                tank_state.pump_state,
+                tank_state.valve_state,
+            )
+    except asyncio.CancelledError:
+        logger.info("Tank tick loop stopped.")
+        raise
+
+
 async def run_server_async(host: str | None = None, port: int | None = None):
     """
     Starts and runs the Modbus TCP server asynchronously.
@@ -89,11 +107,17 @@ async def run_server_async(host: str | None = None, port: int | None = None):
     port = port or PlantConfig.modbus_port
 
     context = create_datastore()
+    tick_task = asyncio.create_task(tick_loop())
     logger.info(f"Starting SafeCheck Plant Modbus TCP server on {host}:{port}...")
-    await StartAsyncTcpServer(
-        context=context,
-        address=(host, port),
-    )
+    try:
+        await StartAsyncTcpServer(
+            context=context,
+            address=(host, port),
+        )
+    finally:
+        tick_task.cancel()
+        with contextlib.suppress(asyncio.CancelledError):
+            await tick_task
 
 
 def run_server(host: str | None = None, port: int | None = None):
