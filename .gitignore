@@ -4,3 +4,4 @@ backend/app/schemas/__pycache__/
 plant/server/__pycache__/
 plant/logs/
 plant/tests/
+backend/app/services/__pycache__/
