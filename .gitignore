@@ -5,3 +5,4 @@ plant/server/__pycache__/
 plant/logs/
 plant/tests/
 backend/app/services/__pycache__/
+backend/app/routes/__pycache__/
