@@ -1,15 +1,35 @@
 from fastapi import FastAPI
+import asyncio
+import logging
+
 from app.database import init_db
 from app.routes.plant import router as PlantRouter
+from app.services.poller import poll_once
+from app.config import Settings
 
-app =  FastAPI()
+logger = logging.getLogger(__name__)
+settings = Settings()
+
+app = FastAPI()
 app.router.include_router(PlantRouter, prefix='/api')
 
-#Create database and tables on startup if not already exists
+
+async def _poll_loop():
+    """Background poll loop: runs forever and sleeps asynchronously between polls."""
+    while True:
+        try:
+            await poll_once()
+        except Exception:
+            logger.exception("Unhandled exception in poll loop")
+        await asyncio.sleep(settings.poll_interval_seconds)
+
+
+# Create database and tables on startup if not already exists
 @app.on_event("startup")
-def on_startup():
+async def on_startup():
     init_db()
-    
+    # schedule the poller as a background task so startup completes promptly
+    asyncio.create_task(_poll_loop())
 
 @app.get("/")
 def index():
