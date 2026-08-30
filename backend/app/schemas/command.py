@@ -1,7 +1,6 @@
 from pydantic import BaseModel, ConfigDict
-from datetime import datetime
+from datetime import datetime, timezone
 from app.models.command import CommandType
-
 class CommandIn(BaseModel):
     """Request model for command"""
     command_type: CommandType
@@ -10,8 +9,8 @@ class CommandIn(BaseModel):
 
 class CommandOut(BaseModel):
     """Response model for command"""
-    id: int
-    timestamp: datetime
+    id: int | None = None
+    timestamp: datetime = datetime.now(timezone.utc)
     command_type: str
     value: bool
     source_id: str

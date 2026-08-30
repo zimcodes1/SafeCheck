@@ -4,6 +4,7 @@ import logging
 
 from app.database import init_db
 from app.routes.plant import router as PlantRouter
+from app.routes.commands import router as CommandRouter
 from app.services.poller import poll_once
 from app.config import Settings
 
@@ -12,6 +13,7 @@ settings = Settings()
 
 app = FastAPI()
 app.router.include_router(PlantRouter, prefix='/api')
+app.router.include_router(CommandRouter, prefix="/api")
 
 
 async def _poll_loop():
