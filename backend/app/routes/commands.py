@@ -7,7 +7,7 @@ from sqlmodel import Session
 router = APIRouter(prefix="/commands", tags=["Client Command"])
 
 @router.post("/report")
-def report_command(command:CommandIn) -> CommandOut:
+async def report_command(command:CommandIn) -> CommandOut:
     command_type, value, source_id = command.command_type, command.value, command.source_id
     is_flagged = False
     try:
