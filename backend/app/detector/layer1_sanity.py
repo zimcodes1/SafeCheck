@@ -1,25 +1,32 @@
 from app.schemas.command import CommandIn
-from typing import List
+from typing import Tuple, Optional
 from app.models.command import CommandType
 
-def check_sanity(command:CommandIn) -> str | List[str]:
-    """This function performs basic sanity checks on `commands` that are passed to it as parameters by comparing them to the `CommandsOut` schema.\n
-        **OUTPUTS:** `str` or `List[str]`
-        - PASS
-        - ["FAIL", "Failure message!"]
-    """
-    if type(command.command_type) == type(CommandIn.command_type) and command.source_id is not None and command.value is bool:
-        return "PASS"
-    if type(command.command_type) != type(CommandIn.command_type):
-        return ["FAIL", "Command type is invalid!"]
-    elif command.source_id is None:
-        return ["FAIL", "Command source is undefined!"]
-    else:
-        return ["FAIL", "Command value is invalid"]
 
-# Test sanity checker
-# Run standalone
+def check_sanity(command: CommandIn) -> Tuple[bool, Optional[str]]:
+    """Perform basic sanity checks on an incoming `CommandIn`.
+
+    Returns a tuple `(ok, message)` where `ok` is True when the command
+    passes sanity checks and `message` is None on success or a short failure
+    reason on error.
+    """
+    # command_type must be a known CommandType
+    if not isinstance(command.command_type, CommandType):
+        return False, "Invalid command_type"
+
+    # value must be a boolean
+    if not isinstance(command.value, bool):
+        return False, "Invalid command value (must be boolean)"
+
+    # source_id must be a non-empty string
+    if not command.source_id or not isinstance(command.source_id, str):
+        return False, "Missing or invalid source_id"
+
+    return True, None
+
 
 if __name__ == "__main__":
-    command:CommandIn = CommandIn(command_type=CommandType.PUMP,value=True, source_id="Azimeh")
-    check_sanity(command)
+    # quick smoke when run directly
+    from app.models.command import CommandType as CT
+    cmd = CommandIn(command_type=CT.PUMP, value=True, source_id="az")
+    print(check_sanity(cmd))

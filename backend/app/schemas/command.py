@@ -1,4 +1,4 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 from datetime import datetime, timezone
 from app.models.command import CommandType
 class CommandIn(BaseModel):
@@ -10,7 +10,7 @@ class CommandIn(BaseModel):
 class CommandOut(BaseModel):
     """Response model for command"""
     id: int | None = None
-    timestamp: datetime = datetime.now(timezone.utc)
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     command_type: str
     value: bool
     source_id: str
