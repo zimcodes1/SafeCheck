@@ -7,3 +7,4 @@ plant/tests/
 backend/app/services/__pycache__/
 backend/app/routes/__pycache__/
 backend/safecheck.db-journal
+backend/app/detector/__pycache__/
