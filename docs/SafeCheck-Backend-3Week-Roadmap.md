@@ -146,19 +146,20 @@ Build `check_sanity(command)`, responsible for confirming the command type and v
 **Builds on:** Day 10's pattern for how a layer function is shaped, and Day 6's live Plant state.
 **Files:** `app/detector/layer2_state_machine.py`
 
-This is the most important file in the whole backend. Build `check_state_validity(command, current_plant_state)`, responsible for looking up whether the incoming command is safe given the Plant's state at the moment it arrives. Keep the actual safe/unsafe rule table in this same file as a clearly named structure, so it's easy to find and tune later without hunting through other files.
+This is the most important file in the whole backend. Build `check_state_validity(command, current_plant_state)`, responsible for looking up whether the incoming command is safe given the Plant's state at the moment it arrives. Keep the actual safe/unsafe rule table in this same file as a clearly named structure, so it's easy to find and tune later without hunting through other files. Note the rule needs two conditions together, not one: pump-on-with-valve-closed is normal filling behavior at low/mid water level — it's only unsafe once the water level is also near the danger threshold, since that's the point where the pump has nowhere left to push water. A rule keyed on valve state alone would flag ordinary operation as an attack.
 
 ```python
 # app/detector/layer2_state_machine.py — shape only
 UNSAFE_COMBINATIONS = [
     # (command_type, value, condition_on_current_state) -> description
+    # e.g. pump=on, valve currently closed, AND water_level >= danger_threshold
 ]
 
 def check_state_validity(command, current_state):
     ...  # your logic here
 ```
 
-**Done when:** manually testing with a plant state you construct yourself (valve closed) plus a "pump on" command correctly flags as unsafe — a pump switched on against a closed valve, the exact scenario named in the track brief — and the same command with the valve open correctly passes.
+**Done when:** manually testing with a plant state you construct yourself (valve closed, water level near the danger threshold) plus a "pump on" command correctly flags as unsafe — a pump switched on against a closed valve with nowhere for the water to go, the exact scenario named in the track brief — and the same command with the valve open, or with the water level low, correctly passes in both cases.
 
 ---
 
