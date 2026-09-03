@@ -3,8 +3,10 @@ from typing import Optional
 
 from app.services.modbus_client import read_plant_state
 from app.models import Reading
-from sqlmodel import Session
+from sqlmodel import Session, select
 from app.database import engine
+from app.detector.engine import evaluate_reading
+from app.schemas.reading import ReadingOut
 from app.config import Settings
 
 logger = logging.getLogger(__name__)
@@ -44,6 +46,21 @@ async def poll_once() -> Optional[Reading]:
         return None
 
     logger.debug("poll_once: persisted reading id=%s water=%s", persisted_id, persisted_water)
+    # After persisting, gather a short window of recent readings to evaluate
+    try:
+        with Session(engine) as session:
+            stmt = select(Reading).order_by(Reading.timestamp.desc()).limit(5)
+            rows = session.exec(stmt).all()
+            # convert to ReadingOut (oldest first)
+            rows_out = [ReadingOut.model_validate(r) for r in reversed(rows)]
+            new_reading = ReadingOut.model_validate(reading)
+
+        _, alert_payload = evaluate_reading(new_reading, rows_out)
+        if alert_payload:
+            logger.warning("poll_once: alert from evaluate_reading: %s", alert_payload)
+    except Exception:
+        logger.exception("poll_once: failed to evaluate reading")
+
     return reading
 
 

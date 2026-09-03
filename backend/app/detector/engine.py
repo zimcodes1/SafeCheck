@@ -9,6 +9,11 @@ from app.models.alert import Alert, ConfidenceEnum, RulesEnum, SeverityEnum
 from app.models.command import Command, CommandType
 from app.schemas.command import CommandIn
 from sqlmodel import Session
+from app.detector.layer3_replay import check_for_replay
+from app.models.reading import Reading
+from app.schemas.reading import ReadingOut
+from typing import List
+from sqlmodel import select
 
 
 def evaluate_command(
@@ -119,3 +124,37 @@ def evaluate_command(
             "flagged": record.flagged,
         }
     return command_payload, None
+
+
+def evaluate_reading(reading: ReadingOut, window: List[ReadingOut]) -> Tuple[Optional[dict], Optional[dict]]:
+    """Evaluate a newly persisted `reading` using replay detection (Layer 3).
+
+    Returns a tuple `(command_payload, alert_payload)` where `alert_payload` is
+    non-None when an alert was created. `command_payload` is unused here but kept
+    for signature compatibility; both are plain dicts when returned.
+    """
+    ok, reason = check_for_replay(reading, window)
+    if ok:
+        return None, None
+
+    # create an Alert row describing the replay/stuck condition
+    alert = Alert(
+        severity=SeverityEnum.WARNING,
+        rule_triggered=RulesEnum.REPLAY,
+        related_command_id=None,
+        message=reason or "Replay/stuck readings detected",
+        confidence=ConfidenceEnum.CERTAIN,
+    )
+    with Session(engine) as session:
+        session.add(alert)
+        session.commit()
+        session.refresh(alert)
+        alert_payload = {
+            "id": alert.id,
+            "severity": alert.severity,
+            "rule_triggered": alert.rule_triggered,
+            "related_command_id": alert.related_command_id,
+            "message": alert.message,
+            "confidence": alert.confidence,
+        }
+    return None, alert_payload
