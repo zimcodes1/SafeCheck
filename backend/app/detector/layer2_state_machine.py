@@ -73,15 +73,27 @@ def check_state_validity(command: Command | Any, current_plant_state: Any) -> Tu
 
     if command_type == CommandType.PUMP and value is True:
         if valve_closed and pump_running and high_water:
-            return False, "Pump cannot remain on while the valve is closed and the tank is already near full."
+            return False, (
+                "Unsafe: pump is (or will remain) ON while the valve is CLOSED and the tank is already near full. "
+                "This would force more water into a nearly-full tank."
+            )
         if valve_closed and high_water:
-            return False, "Pump cannot start while the valve is closed and the tank is already near full."
+            return False, (
+                "Unsafe to start the pump now: the valve is CLOSED and the tank level is near the danger threshold. "
+                "Starting the pump risks overfilling."
+            )
 
     if command_type == CommandType.VALVE and value is False:
         if pump_running and valve_closed and high_water:
-            return False, "Closing the valve while the pump is running and the tank is already near full is unsafe."
+            return False, (
+                "Unsafe to close the valve now: the pump is RUNNING and the tank level is near the danger threshold. "
+                "Closing the valve would trap incoming water with nowhere to go."
+            )
         if pump_running and high_water:
-            return False, "Closing the valve while the pump is running and the tank is already near full is unsafe."
+            return False, (
+                "Unsafe to close the valve while the pump is running and water level is high: "
+                "this combination risks overfilling the tank."
+            )
 
     return True, None
 

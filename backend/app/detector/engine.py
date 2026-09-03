@@ -34,30 +34,23 @@ def evaluate_command(
 
     sanity_ok, sanity_reason = check_sanity(command)
     if not sanity_ok:
-        record.flagged = True
+        # Do not persist malformed commands that fail basic validation; create
+        # an alert instead so operators can investigate the bad input.
         alert = Alert(
             severity=SeverityEnum.WARNING,
             rule_triggered=RulesEnum.SANITY_CHECK,
             related_command_id=None,
-            message=f"Sanity check failed: {sanity_reason}",
+            message=(
+                f"Invalid command: {sanity_reason}. "
+                "The command failed basic validation and was rejected."
+            ),
             confidence=ConfidenceEnum.CERTAIN,
         )
         with Session(engine) as session:
-            session.add(record)
-            session.commit()
-            session.refresh(record)
-            alert.related_command_id = record.id
             session.add(alert)
             session.commit()
             session.refresh(alert)
 
-            command_payload = {
-                "id": record.id,
-                "command_type": record.command_type,
-                "value": record.value,
-                "source_id": record.source_id,
-                "flagged": record.flagged,
-            }
             alert_payload = {
                 "id": alert.id,
                 "severity": alert.severity,
@@ -66,7 +59,7 @@ def evaluate_command(
                 "message": alert.message,
                 "confidence": alert.confidence,
             }
-        return command_payload, alert_payload
+        return None, alert_payload
 
     if current_plant_state is None:
         current_plant_state = {

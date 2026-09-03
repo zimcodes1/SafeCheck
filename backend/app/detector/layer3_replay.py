@@ -63,7 +63,10 @@ def check_for_replay(
     pump_majority = pump_count > (total_count // 2)
 
     if pump_majority and cumulative_delta < float(min_cumulative_change):
-        return False, f"Replay/stuck readings: pump active but water level changed only {cumulative_delta:.2f} over {total_count} samples"
+        return False, (
+            f"Sensor anomaly: pump has been active but water level changed only {cumulative_delta:.2f} over {total_count} samples. "
+            "Possible sensor replay, transmission failure, or device hang — investigate sensors and connectivity."
+        )
 
     return True, None
 
