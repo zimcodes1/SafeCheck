@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { ShieldCheck, Activity, Bell, Component } from "lucide-react";
+import { Activity, Bell, Component } from "lucide-react";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { StatusIndicator } from "./ui/StatusIndicator";
 
@@ -26,9 +26,6 @@ export const TopBar: FC<TopBarProps> = ({
 						<div className="flex items-center gap-2">
 							<span className="font-bold text-base text-text-primary tracking-tight">
 								SafeCheck
-							</span>
-							<span className="text-[10px] uppercase font-semibold px-1.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">
-								Track E
 							</span>
 						</div>
 						<span className="text-[11px] text-text-secondary hidden sm:inline">
