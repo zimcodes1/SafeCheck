@@ -145,12 +145,20 @@ def evaluate_reading(reading: ReadingOut, window: List[ReadingOut]) -> Tuple[Opt
         rule = RulesEnum.REPLAY
         reason = reason_replay
 
+    # Set confidence: replay/drift are typically "needs_review"; rule-machine
+    # and sanity failures are treated as certain.
+    conf = (
+        ConfidenceEnum.NEEDS_REVIEW
+        if rule in (RulesEnum.DRIFT, RulesEnum.REPLAY)
+        else ConfidenceEnum.CERTAIN
+    )
+
     alert = Alert(
         severity=SeverityEnum.WARNING,
         rule_triggered=rule,
         related_command_id=None,
         message=reason or "Anomaly detected",
-        confidence=ConfidenceEnum.CERTAIN,
+        confidence=conf,
     )
     with Session(engine) as session:
         session.add(alert)
