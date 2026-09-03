@@ -8,13 +8,18 @@ from app.routes.commands import router as CommandRouter
 from app.routes.history import router as HistoryRouter
 from app.routes.alerts import router as AlertsRouter
 from app.routes.simulate import router as SimRouter
+from app.logger import setup_logger, RequestLoggingMiddleware
 from app.services.poller import poll_once
 from app.config import Settings
 
-logger = logging.getLogger(__name__)
 settings = Settings()
 
+# backend logger (per-session file + console)
+logger = setup_logger(name="safecheck.backend")
+
 app = FastAPI()
+# attach request logging middleware
+app.add_middleware(RequestLoggingMiddleware, logger=logger)
 app.router.include_router(PlantRouter, prefix='/api')
 app.router.include_router(CommandRouter, prefix="/api")
 app.router.include_router(HistoryRouter, prefix="/api")
