@@ -14,12 +14,13 @@ from app.models.reading import Reading
 from app.schemas.reading import ReadingOut
 from typing import List
 from sqlmodel import select
+from app.detector.layer4_drift import check_for_drift
 
 
 def evaluate_command(
     command: CommandIn,
     current_plant_state: Optional[dict] = None,
-) -> Tuple[dict, Optional[dict]]:
+) -> Tuple[Optional[dict], Optional[dict]]:
     """Evaluate a command against Layers 1 and 2 and persist the results.
 
     Returns plain dictionaries containing the saved command and, if applicable,
@@ -126,16 +127,29 @@ def evaluate_reading(reading: ReadingOut, window: List[ReadingOut]) -> Tuple[Opt
     non-None when an alert was created. `command_payload` is unused here but kept
     for signature compatibility; both are plain dicts when returned.
     """
-    ok, reason = check_for_replay(reading, window)
-    if ok:
+    # Run replay detector (Layer 3)
+    ok_replay, reason_replay = check_for_replay(reading, window)
+
+    # Run drift detector (Layer 4)
+    ok_drift, reason_drift = check_for_drift(reading, window)
+
+    # If both detectors are OK, nothing to do
+    if ok_replay and ok_drift:
         return None, None
 
-    # create an Alert row describing the replay/stuck condition
+    # Prefer reporting drift if present, otherwise report replay
+    if not ok_drift:
+        rule = RulesEnum.DRIFT
+        reason = reason_drift
+    else:
+        rule = RulesEnum.REPLAY
+        reason = reason_replay
+
     alert = Alert(
         severity=SeverityEnum.WARNING,
-        rule_triggered=RulesEnum.REPLAY,
+        rule_triggered=rule,
         related_command_id=None,
-        message=reason or "Replay/stuck readings detected",
+        message=reason or "Anomaly detected",
         confidence=ConfidenceEnum.CERTAIN,
     )
     with Session(engine) as session:
