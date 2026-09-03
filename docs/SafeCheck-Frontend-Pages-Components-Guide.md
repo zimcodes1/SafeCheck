@@ -1,124 +1,262 @@
 # SafeCheck — Frontend Pages & Components Guide
 
-This document describes what the Dashboard should contain, screen by screen and component by component, and exactly which Backend endpoint each one depends on. No code here — this is the design and structure reference for whoever builds the React/TypeScript app, written so it maps directly onto the Backend Roadmap's milestones (e.g., the Live view can start being built as soon as Backend Day 6 is done; the Alerts view needs Backend Day 15).
+This document describes the design, structure, components, and exact Backend endpoint integration for the SafeCheck Dashboard (React + TypeScript + Vite).
 
 ---
 
-## 1. App Structure — Two Pages, One Shared Shell
+## 1. Critical Architectural Role: Passive Viewership & Advisory Alerting
 
-SafeCheck's Dashboard is a single-page app with two main views, switched via a simple tab bar — no complex routing needed for a 3-week hackathon build.
+> [!IMPORTANT]
+> **What the Dashboard IS and IS NOT:**
+> - **The Dashboard IS**: A **strictly passive monitoring, viewership, and advisory alerting display**. It is an engineer's window into the live physical state of the plant and an early warning feed that explains detected anomalies in plain language.
+> - **The Dashboard IS NOT**: An orchestrator, controller, or supervisory client. It **never** issues commands to the plant, sends Modbus packets, starts or stops pumps, or autonomously blocks traffic. 
+> 
+> In industrial control systems (ICS) and critical infrastructure, automatic blocking by an external tool can cause catastrophic physical trips. SafeCheck adheres strictly to the rule that **the human engineer decides, not the system**. Legitimate operator traffic and attack vectors are executed by external standalone clients; the Dashboard only reads, visualizes, and alerts.
 
-```
+---
+
+## 2. Completed Backend Integration & Base URLs
+
+The backend is **100% implemented and verified through Day 21** (including SQLite history, 4-layer detector engine, poller loop, and full integration tests).
+
+- **Default Backend Origin**: `http://127.0.0.1:8000`
+- **Dual Path Support**: All endpoints are mounted at both the root path and under the `/api` prefix (e.g., `/plant/live` and `/api/plant/live` behave identically). Use either standard consistently in the frontend API service.
+- **CORS / Dev Proxy**: Configure `vite.config.ts` to proxy `/api` or `/plant`, `/alerts`, etc. to `http://127.0.0.1:8000` during local development.
+
+---
+
+## 3. Application Structure
+
+The dashboard is designed as a focused single-page application (SPA) with two primary views switched via a top navigation bar:
+
+```text
 App
-├── Shell (top bar + tab navigation, always visible)
-│   ├── ConnectionStatusBadge
-│   └── TabBar
+├── Shell (Top Navigation & Health Bar — Always Visible)
+│   ├── ConnectionStatusBadge    [Points to GET /plant/live]
+│   └── TabBar                   [Local UI state: "Live View" vs "Alerts"]
 │
-├── Live View        (default tab)
-│   ├── TankGauge
-│   ├── PumpStatusLight
-│   ├── ValveStatusLight
-│   └── RecentAlertsStrip
+├── Live View                    (Default Primary Tab)
+│   ├── TankGauge                [Points to GET /plant/live -> water_level]
+│   ├── PumpStatusLight          [Points to GET /plant/live -> pump_state]
+│   ├── ValveStatusLight         [Points to GET /plant/live -> valve_state]
+│   └── RecentAlertsStrip        [Points to GET /alerts?limit=5]
 │
-└── Alerts View
-    ├── SeverityFilterBar
-    ├── AlertFeed
-    │   └── AlertCard (repeated)
-    └── AlertDetailPanel  (shown when a card is clicked)
+└── Alerts View                  (Audit & Investigation Tab)
+    ├── SeverityFilterBar        [Points to GET /alerts?severity=...]
+    ├── AlertFeed                [Points to GET /alerts]
+    │   └── AlertCard (repeated) [Renders AlertOut shape]
+    └── AlertDetailModal/Panel   [Points to GET /alerts/{id} -> AlertDetail]
 ```
 
 ---
 
-## 2. Shell — Always Visible
+## 4. TypeScript Contracts & Interfaces
+
+These interfaces mirror the backend's Pydantic schemas ([backend/app/schemas/](file:///home/azimeh/Desktop/Code/SafeCheck/backend/app/schemas/)):
+
+```typescript
+// Shared Types & Enums
+export type SeverityLevel = 'info' | 'warning' | 'critical';
+export type DetectorRule = 'sanity_check' | 'state_machine' | 'replay' | 'drift';
+export type ConfidenceLevel = 'certain' | 'needs_review';
+export type CommandType = 'pump' | 'valve';
+
+// Telemetry: GET /plant/live
+export interface PlantLiveResponse {
+  water_level: number;      // 0.0 - 100.0%
+  pump_state: boolean;       // true = active/running, false = off
+  valve_state: boolean;      // true = open, false = closed
+  timestamp: string;         // ISO 8601 datetime
+}
+
+// Alert Feed Summary: GET /alerts
+export interface AlertOut {
+  id: number;
+  timestamp: string;         // ISO 8601 datetime
+  severity: SeverityLevel;
+  rule_triggered: DetectorRule;
+  related_command_id: number | null;
+  message: string;           // Plain-language explanation for engineers
+  confidence: ConfidenceLevel;
+}
+
+// Command Details: Embedded inside AlertDetail
+export interface CommandOut {
+  id: number;
+  timestamp: string;
+  command_type: CommandType;
+  value: boolean;
+  source_id: string;         // e.g. "legit_operator", "attacker_ip"
+  flagged: boolean;          // true if flagged by detector
+}
+
+// Expanded Alert Detail: GET /alerts/{id}
+export interface AlertDetail extends AlertOut {
+  related_command: CommandOut | null;
+}
+
+// Historical Reading: GET /history/readings
+export interface ReadingOut {
+  id: number;
+  timestamp: string;
+  water_level: number;
+  pump_state: boolean;
+  valve_state: boolean;
+  source: string;
+}
+```
+
+---
+
+## 5. Shell Components (Always Visible)
 
 ### `ConnectionStatusBadge`
-**What it shows:** a small indicator (e.g., a colored dot with a label) saying whether the Dashboard is currently able to reach the Backend at all.
-**Backend dependency:** derived from whether the most recent poll to `GET /plant/live` succeeded or failed — not its own endpoint, just a status derived from the Live View's regular polling.
-**Why it matters for the demo:** if the Backend or Plant ever goes down mid-demo, this is what tells you and the judges immediately, instead of the tank bar just silently freezing and everyone being confused about whether that's intentional.
+- **Purpose**: Informs judges and operators whether the dashboard has live connectivity to the backend and physical plant simulator.
+- **Endpoint**: `GET /plant/live` (or `GET /`)
+- **Polling Cadence**: Evaluated on every Live View poll (every ~1.0s).
+- **Behavior**:
+  - **Connected (Green)**: HTTP 200 returned within timeout ($\le 2.0\text{s}$). Label: `ONLINE / POLLING`.
+  - **Disconnected (Red)**: Network failure or HTTP 500. Label: `PLANT OFFLINE`.
+- **Why it matters**: If the Modbus plant or backend goes down during a demo, this alerts you immediately rather than presenting frozen data without explanation.
 
 ### `TabBar`
-**What it shows:** two tabs — "Live" and "Alerts" — with the currently active one visually distinct (e.g., underlined or filled background).
-**Backend dependency:** none — pure UI state.
+- **Purpose**: Switches between the two core screens: **"Live System"** and **"Security Alerts"**.
+- **Endpoint**: None (pure client-side UI state).
 
 ---
 
-## 3. Live View
+## 6. Live View Components
 
-**Purpose:** the primary screen during the demo — shows the Plant's current state, updated roughly once a second, so a judge understands what's happening in under two seconds of looking at the screen.
-
-**Polling behavior:** on a 1-second interval, calls `GET /plant/live` and updates all child components with the response. This is the single source of truth for this whole view — no component here calls the Backend independently.
+**Screen Objective**: Allows judges and engineers to immediately understand what the physical plant is doing within 2 seconds of looking at the screen.
 
 ### `TankGauge`
-**What it shows:** a vertical fill bar or circular gauge representing `water_level` as a percentage, filling from bottom (0%) to top (100%). Include the numeric percentage as text alongside the visual, not as a replacement for it — numbers alone don't give the same instant read a judge needs.
-**Visual states:**
-- Normal range (roughly 10–85%): neutral color (e.g., blue).
-- Near-danger (above ~85%, or below ~10% if "too empty" also matters to your danger definition): amber warning tint.
-- At the actual danger threshold used by Detector Layer 2 (Backend Roadmap Day 11): red, with a subtle pulse or highlight so it's unmissable even from across a room during judging.
-**Backend dependency:** `water_level` field from `GET /plant/live`.
+- **Endpoint**: `GET /plant/live`
+- **Field Consumed**: `data.water_level` ($0.0 - 100.0\%$).
+- **Polling Cadence**: Every 1.0 second.
+- **Visualization**:
+  - A vertical cylinder/tank graphic or linear fill gauge representing tank volume from bottom (0%) to top (100%).
+  - Numeric percentage displayed clearly alongside (e.g., `78.4%`).
+- **Dynamic State Thresholds**:
+  - **Normal Operation ($10.0\% - 85.0\%$)**: Neutral industrial blue (`#3b82f6`).
+  - **Elevated Level ($85.0\% - 94.9\%$)**: Warning amber (`#f59e0b`).
+  - **Critical Danger Threshold ($\ge 95.0\%$)**: Alert red (`#ef4444`) with subtle pulse animation, aligning with Detector Layer 2's high-water threshold.
 
-### `PumpStatusLight` and `ValveStatusLight`
-**What they show:** two small indicator lights (like a physical panel light), one labeled "Pump," one labeled "Valve," each either lit (on/open) or unlit (off/closed).
-**Visual style:** keep these visually distinct from severity colors used elsewhere (Section 4) — these represent normal operational state, not danger, so a neutral "on" color like green and a neutral "off" color like grey is clearer than reusing red/amber here.
-**Backend dependency:** `pump_state` and `valve_state` fields from `GET /plant/live`.
+### `PumpStatusLight` & `ValveStatusLight`
+- **Endpoint**: `GET /plant/live`
+- **Fields Consumed**: `data.pump_state` (bool), `data.valve_state` (bool).
+- **Polling Cadence**: Every 1.0 second (shared payload from `GET /plant/live`).
+- **Visualization**:
+  - Industrial LED panel indicators clearly labeled **"PUMP"** and **"VALVE"**.
+  - **Pump Active (`true`)**: Vibrant Green indicator (`#22c55e`) with label `RUNNING / INFLOW`.
+  - **Pump Stopped (`false`)**: Muted Slate/Grey (`#64748b`) with label `STOPPED`.
+  - **Valve Open (`true`)**: Vibrant Green indicator (`#22c55e`) with label `OPEN / DRAINING`.
+  - **Valve Closed (`false`)**: Muted Slate/Grey (`#64748b`) with label `CLOSED`.
+- **Note**: Keep actuator indicator colors separate from danger/alert colors. Green represents an energized physical actuator, not "safe" vs "unsafe".
 
 ### `RecentAlertsStrip`
-**What it shows:** a compact, single-line-per-item strip of the 3–5 most recent alerts, sitting below the gauge — enough to make the connection visible between "the tank did something" and "SafeCheck caught it" without leaving the Live View. Clicking any item jumps to the Alerts View with that item already selected.
-**Backend dependency:** `GET /alerts` with `limit=5`, polled less frequently than the live state (e.g., every 3–5 seconds is enough — alerts don't need 1-second freshness the way tank level does).
+- **Endpoint**: `GET /alerts?limit=4`
+- **Polling Cadence**: Every 3.0 to 5.0 seconds.
+- **Purpose**: Displays the 3–4 most recent security detections directly under the tank gauge so judges immediately see the causality between physical actions and detector alerts without navigating away.
+- **Interaction**: Clicking any item in the strip opens the Alerts View and pre-selects that specific alert.
 
 ---
 
-## 4. Alerts View
+## 7. Alerts View Components
 
-**Purpose:** the evidence screen — this is what you'll spend the most time on during the actual judging conversation, since it's where you prove detection is working, explain false-positive handling, and show the plain-language reasoning behind each catch.
+**Screen Objective**: The core evidentiary screen for competition judges. Proves detection accuracy, demonstrates contextual reasoning, shows confidence ratings, and provides full command attribution.
 
 ### `SeverityFilterBar`
-**What it shows:** three toggle buttons — "Info," "Warning," "Critical" — allowing the viewer to narrow the feed. All three active by default (showing everything).
-**Backend dependency:** passed as the `severity` query parameter on `GET /alerts` when a filter is toggled off.
+- **Endpoint**: `GET /alerts?severity={severity}`
+- **Parameters**:
+  - All: `GET /alerts` (no query filter)
+  - Critical only: `GET /alerts?severity=critical`
+  - Warning only: `GET /alerts?severity=warning`
+  - Info only: `GET /alerts?severity=info`
+- **Interaction**: Quick toggle buttons with badge counts.
 
 ### `AlertFeed`
-**What it shows:** a reverse-chronological scrollable list of `AlertCard` components.
-**Backend dependency:** `GET /alerts`, re-fetched whenever the filter changes, and polled periodically (e.g., every 5 seconds) to pick up new alerts without a manual refresh.
+- **Endpoint**: `GET /alerts`
+- **Query Parameters**: `limit=50`, optional `severity`.
+- **Polling Cadence**: Every 3.0 to 5.0 seconds (and refreshed immediately when filter changes).
+- **Behavior**: Reverse-chronological scrollable list of `AlertCard` components.
 
 ### `AlertCard`
-**What it shows, per alert:**
-- A severity badge (see color scheme below)
-- The plain-language `message`
-- A relative timestamp (e.g., "12s ago")
-- Which detector layer caught it (`rule_triggered`), shown small/secondary — useful for your own team's understanding during testing, and shows judges you can explain *why*, not just *that*
-**Visual states — severity color scheme, used consistently everywhere severity appears in the app:**
-- `info` → grey/neutral
-- `warning` → amber
-- `critical` → red
-**Confidence indicator:** if `confidence` is `"needs_review"`, show a small distinct marker (e.g., a dashed border or a "needs review" tag) rather than the solid styling used for `"certain"` alerts — this visually answers the brief's "what happens when the system is unsure" requirement without needing to explain it verbally every time.
-**Interaction:** clicking a card opens `AlertDetailPanel` for that alert.
-**Backend dependency:** rendered directly from the `AlertOut` shape returned by `GET /alerts` — no separate call needed just to render the card.
+- **Data Shape**: Rendered from `AlertOut`.
+- **Elements Displayed**:
+  1. **Severity Badge**: Color-coded pill (`CRITICAL`, `WARNING`, `INFO`).
+  2. **Plain-Language Message**: Clean text without raw cryptic codes (e.g., *"Unsafe: pump is ON while valve is CLOSED and tank is near full."*).
+  3. **Layer Badge**: Shows `rule_triggered` in a subtle tag (`state_machine`, `sanity_check`, `replay`, `drift`) explaining *why* it was caught.
+  4. **Confidence Badge**:
+     - `"certain"`: Solid badge styling (indicates deterministic logic failure).
+     - `"needs_review"`: Distinct amber/dashed border badge (visually answers the brief's requirement for handling empirical uncertainty).
+  5. **Relative Timestamp**: e.g., `"4s ago"`, `"2m ago"`.
+- **Interaction**: Clicking anywhere on the card triggers the detail modal/panel.
 
-### `AlertDetailPanel`
-**What it shows:** everything from `AlertCard`, expanded, plus — when present — the related command's full detail: `command_type`, `value`, `source_id`, and its own timestamp. This is where you'd point during a judge Q&A to show the full chain: here's what was sent, here's who claimed to send it, here's why it was flagged.
-**Layout suggestion:** a side panel or modal, not a full page navigation — keeps the feed visible/scrollable behind it so you're not losing context while explaining one alert.
-**Backend dependency:** `GET /alerts/{id}`, called once when a card is clicked.
-
----
-
-## 5. Shared/Reusable Pieces Worth Building Once
-
-These aren't full components with their own files necessarily, but patterns used in multiple places above — worth deciding early so they're consistent everywhere rather than styled differently in each view:
-
-- **Severity color scheme** (grey/amber/red) — used in `AlertCard`, `RecentAlertsStrip`, and the danger-threshold state of `TankGauge`. Define this once (e.g., as shared style constants) rather than repeating hex codes in every component.
-- **Polling pattern** — every view that polls (Live View every 1s, Alerts View every 5s) should share the same underlying "ask the Backend, update state, handle failure" behavior, differing only in interval and endpoint — this is worth factoring into one reusable piece rather than writing the polling logic three separate times.
-- **Relative timestamp formatting** ("12s ago", "3m ago") — used on both `AlertCard` and `RecentAlertsStrip`.
+### `AlertDetailPanel` (Modal or Slide-over Drawer)
+- **Endpoint**: `GET /alerts/{id}`
+- **Trigger**: Clicked from `AlertCard` or `RecentAlertsStrip`.
+- **Behavior**:
+  - Fetches the full `AlertDetail` object.
+  - Displays full alert metadata, message, and timestamp.
+  - **Related Command Section** (when `related_command` is present):
+    - Command Type: `pump` / `valve`
+    - Value Sent: `ON` / `OFF` / `OPEN` / `CLOSED`
+    - Self-Declared Identity Tag: `source_id` (e.g., `"attacker_wrong_moment"`, `"legit_operator"`)
+    - Flagged by System: `true` / `false`
+- **Why it matters**: Demonstrates the full investigation trail to judges: *Here is the command that was sent, here is who sent it, here is the physical state of the tank, and here is why SafeCheck flagged it.*
 
 ---
 
-## 6. Build Order, Mapped to the Backend Roadmap
+## 8. Visual & Style Design System
 
-Build these in this order so you're never blocked waiting on a Backend endpoint that doesn't exist yet:
+Maintain consistent visual tokens across all components:
 
-1. **Shell + `TabBar`** — no Backend dependency, build anytime.
-2. **`TankGauge`, status lights, `ConnectionStatusBadge`** — needs Backend Day 6 (`GET /plant/live`) done.
-3. **`RecentAlertsStrip`** — needs Backend Day 15 (`GET /alerts`) done; can be stubbed with fake/empty data before then.
-4. **`AlertFeed`, `AlertCard`, `SeverityFilterBar`** — needs Backend Day 15.
-5. **`AlertDetailPanel`** — needs Backend Day 15's second endpoint, `GET /alerts/{id}`, same day.
-6. **Confidence/needs-review styling on `AlertCard`** — needs Backend Day 17 (`confidence` handling) actually producing both values, so there's real data to style against.
+| Category | Value | Hex / Tailwind | Used By |
+| :--- | :--- | :--- | :--- |
+| **Critical Severity** | Red | `#ef4444` (`red-500`) | Critical Alerts, Tank Gauge $\ge 95\%$ |
+| **Warning Severity** | Amber | `#f59e0b` (`amber-500`) | Warning Alerts, Tank Gauge $85-95\%$, `needs_review` |
+| **Info Severity** | Slate | `#64748b` (`slate-500`) | Informational alerts, system logs |
+| **Normal Liquid** | Blue | `#3b82f6` (`blue-500`) | Tank Gauge normal fill level ($10-85\%$) |
+| **Actuator Active** | Green | `#22c55e` (`green-500`) | Pump Running, Valve Open |
+| **Actuator Idle** | Slate Grey | `#94a3b8` (`slate-400`) | Pump Stopped, Valve Closed |
 
-This means real frontend work can start meaningfully by roughly the end of Backend Week 1, with the Alerts View following once Backend Week 3 begins — plan the frontend builder's own time around that gap rather than starting both on Day 1 and having half the app sit idle waiting on endpoints.
+---
+
+## 9. API Integration Hook Example (React + Axios / Fetch)
+
+```typescript
+// src/services/api.ts
+import axios from 'axios';
+import { PlantLiveResponse, AlertOut, AlertDetail } from '../types';
+
+const API_BASE = '/api'; // Proxied to http://127.0.0.1:8000 in vite.config.ts
+
+export const fetchPlantLive = async (): Promise<PlantLiveResponse> => {
+  const res = await axios.get<PlantLiveResponse>(`${API_BASE}/plant/live`);
+  return res.data;
+};
+
+export const fetchAlerts = async (severity?: string, limit: number = 20): Promise<AlertOut[]> => {
+  const params: Record<string, any> = { limit };
+  if (severity) params.severity = severity;
+  const res = await axios.get<AlertOut[]>(`${API_BASE}/alerts`, { params });
+  return res.data;
+};
+
+export const fetchAlertDetail = async (id: number): Promise<AlertDetail> => {
+  const res = await axios.get<AlertDetail>(`${API_BASE}/alerts/${id}`);
+  return res.data;
+};
+```
+
+---
+
+## 10. Summary Checklist for the Frontend Developer
+
+- [ ] Configure Vite dev proxy to point to `http://127.0.0.1:8000`.
+- [ ] Build **Shell** (`ConnectionStatusBadge` and `TabBar`).
+- [ ] Build **Live View** (`TankGauge`, `PumpStatusLight`, `ValveStatusLight`, `RecentAlertsStrip`) connected to `GET /plant/live` and `GET /alerts?limit=5`.
+- [ ] Build **Alerts View** (`SeverityFilterBar`, `AlertFeed`, `AlertCard`) connected to `GET /alerts`.
+- [ ] Build **AlertDetailPanel** connected to `GET /alerts/{id}`.
+- [ ] Ensure **NO control buttons** (e.g. "turn pump on") exist in the UI — the dashboard is strictly a monitoring & alerting tool.
+- [ ] Verify relative time updates and automatic background polling intervals.
