@@ -7,6 +7,7 @@ from app.routes.plant import router as PlantRouter
 from app.routes.commands import router as CommandRouter
 from app.routes.history import router as HistoryRouter
 from app.routes.alerts import router as AlertsRouter
+from app.routes.simulate import router as SimRouter
 from app.services.poller import poll_once
 from app.config import Settings
 
@@ -18,6 +19,7 @@ app.router.include_router(PlantRouter, prefix='/api')
 app.router.include_router(CommandRouter, prefix="/api")
 app.router.include_router(HistoryRouter, prefix="/api")
 app.router.include_router(AlertsRouter, prefix="/api")
+app.router.include_router(SimRouter, prefix="/api")
 
 
 async def _poll_loop():
