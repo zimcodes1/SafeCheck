@@ -1,4 +1,9 @@
+import sys
+from pathlib import Path
 from datetime import datetime, timedelta
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
 
 from app.detector.layer1_sanity import check_sanity
 from app.detector.layer2_state_machine import check_state_validity

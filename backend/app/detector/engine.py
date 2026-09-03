@@ -137,13 +137,13 @@ def evaluate_reading(reading: ReadingOut, window: List[ReadingOut]) -> Tuple[Opt
     if ok_replay and ok_drift:
         return None, None
 
-    # Prefer reporting drift if present, otherwise report replay
-    if not ok_drift:
-        rule = RulesEnum.DRIFT
-        reason = reason_drift
-    else:
+    # Layer 3 (Replay) takes precedence over Layer 4 (Drift): stuck/frozen readings represent a replay
+    if not ok_replay:
         rule = RulesEnum.REPLAY
         reason = reason_replay
+    else:
+        rule = RulesEnum.DRIFT
+        reason = reason_drift
 
     # Set confidence: replay/drift are typically "needs_review"; rule-machine
     # and sanity failures are treated as certain.

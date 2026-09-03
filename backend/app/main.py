@@ -20,11 +20,19 @@ logger = setup_logger(name="safecheck.backend")
 app = FastAPI()
 # attach request logging middleware
 app.add_middleware(RequestLoggingMiddleware, logger=logger)
+# Mount routers with /api prefix (for frontend/API standard)
 app.router.include_router(PlantRouter, prefix='/api')
 app.router.include_router(CommandRouter, prefix="/api")
 app.router.include_router(HistoryRouter, prefix="/api")
 app.router.include_router(AlertsRouter, prefix="/api")
 app.router.include_router(SimRouter, prefix="/api")
+
+# Also mount at root for direct roadmap compatibility (e.g. GET /plant/live, GET /alerts)
+app.router.include_router(PlantRouter)
+app.router.include_router(CommandRouter)
+app.router.include_router(HistoryRouter)
+app.router.include_router(AlertsRouter)
+app.router.include_router(SimRouter)
 
 
 async def _poll_loop():

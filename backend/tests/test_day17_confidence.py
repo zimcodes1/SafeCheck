@@ -1,4 +1,9 @@
+import sys
+from pathlib import Path
 from datetime import datetime, timedelta
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
 
 from app.database import init_db
 from app.detector.engine import evaluate_reading

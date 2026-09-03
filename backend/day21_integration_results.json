@@ -1,0 +1,55 @@
+{
+  "timestamp": "2026-09-03T06:46:46.733296+00:00",
+  "tests_passed": 12,
+  "tests_failed": 0,
+  "passes": {
+    "plant_server_startup": {
+      "success": true,
+      "details": "Modbus server listening on 127.0.0.1:5020"
+    },
+    "modbus_registers_readable": {
+      "success": true,
+      "details": "HR=[0, 0] IR=[50, 0, 0]"
+    },
+    "modbus_command_execution": {
+      "success": true,
+      "details": "Wrote pump=1, read back HR=[1, 0]"
+    },
+    "plant_live_endpoint": {
+      "success": true,
+      "details": "HTTP 200 data: water=50.0% pump=False"
+    },
+    "plant_live_api_alias": {
+      "success": true,
+      "details": "HTTP 200 (path /api/plant/live accessible)"
+    },
+    "false_positive_pass": {
+      "success": true,
+      "details": "Sent 4 legit operator commands; alerts generated: 0 (0 expected)"
+    },
+    "maintenance_scenario": {
+      "success": true,
+      "details": "Maintenance cycle executed cleanly with 0 alerts"
+    },
+    "attack1_injection_sanity": {
+      "success": true,
+      "details": "Caught by Layer 1 Sanity Check: rule=RulesEnum.SANITY_CHECK"
+    },
+    "attack2_wrong_moment_state_machine": {
+      "success": true,
+      "details": "Caught by Layer 2 State Machine: rule=RulesEnum.STATE_MACHINE severity=SeverityEnum.CRITICAL flagged=True"
+    },
+    "attack3_replay_sensor_freeze": {
+      "success": true,
+      "details": "Caught by Layer 3 Replay: rule=RulesEnum.REPLAY confidence=ConfidenceEnum.NEEDS_REVIEW"
+    },
+    "attack4_slow_drift": {
+      "success": true,
+      "details": "Caught by Layer 4 Drift: rule=RulesEnum.DRIFT confidence=ConfidenceEnum.NEEDS_REVIEW"
+    },
+    "api_contract_verification": {
+      "success": true,
+      "details": "History, Alerts (total=10, critical=9), and AlertDetail all verified"
+    }
+  }
+}

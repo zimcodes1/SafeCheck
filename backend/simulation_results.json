@@ -6,17 +6,17 @@
   {
     "scenario": "state_machine_violation",
     "command": {
-      "id": 8,
+      "id": 13,
       "command_type": "pump",
       "value": true,
       "source_id": "sim",
       "flagged": true
     },
     "alert": {
-      "id": 9,
+      "id": 27,
       "severity": "critical",
       "rule_triggered": "state_machine",
-      "related_command_id": 8,
+      "related_command_id": 13,
       "message": "Unsafe: pump is (or will remain) ON while the valve is CLOSED and the tank is already near full. This would force more water into a nearly-full tank.",
       "confidence": "certain"
     }
@@ -25,7 +25,7 @@
     "scenario": "invalid_command",
     "command": null,
     "alert": {
-      "id": 10,
+      "id": 28,
       "severity": "warning",
       "rule_triggered": "sanity_check",
       "related_command_id": null,
@@ -36,18 +36,18 @@
   {
     "scenario": "replay_stuck",
     "alert": {
-      "id": 11,
+      "id": 29,
       "severity": "warning",
-      "rule_triggered": "drift",
+      "rule_triggered": "replay",
       "related_command_id": null,
-      "message": "Underperformance detected while pump is mostly ON: level changed 0.00 over 60s (rate 0.0000/s). Possible pump failure, blockage, or measurement issue.",
+      "message": "Sensor anomaly: pump has been active but water level changed only 0.00 over 4 samples. Possible sensor replay, transmission failure, or device hang \u2014 investigate sensors and connectivity.",
       "confidence": "needs_review"
     }
   },
   {
     "scenario": "drift_leak_rise",
     "alert": {
-      "id": 12,
+      "id": 30,
       "severity": "warning",
       "rule_triggered": "drift",
       "related_command_id": null,
@@ -58,11 +58,11 @@
   {
     "scenario": "drift_pump_underperform",
     "alert": {
-      "id": 13,
+      "id": 31,
       "severity": "warning",
-      "rule_triggered": "drift",
+      "rule_triggered": "replay",
       "related_command_id": null,
-      "message": "Underperformance detected while pump is mostly ON: level changed 0.50 over 300s (rate 0.0017/s). Possible pump failure, blockage, or measurement issue.",
+      "message": "Sensor anomaly: pump has been active but water level changed only 0.50 over 4 samples. Possible sensor replay, transmission failure, or device hang \u2014 investigate sensors and connectivity.",
       "confidence": "needs_review"
     }
   },
@@ -73,11 +73,11 @@
   {
     "scenario": "combined_replay_drift",
     "alert": {
-      "id": 14,
+      "id": 32,
       "severity": "warning",
-      "rule_triggered": "drift",
+      "rule_triggered": "replay",
       "related_command_id": null,
-      "message": "Underperformance detected while pump is mostly ON: level changed 0.00 over 300s (rate 0.0000/s). Possible pump failure, blockage, or measurement issue.",
+      "message": "Sensor anomaly: pump has been active but water level changed only 0.00 over 4 samples. Possible sensor replay, transmission failure, or device hang \u2014 investigate sensors and connectivity.",
       "confidence": "needs_review"
     }
   }
