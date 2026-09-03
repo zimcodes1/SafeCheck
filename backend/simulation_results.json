@@ -1,0 +1,84 @@
+[
+  {
+    "scenario": "normal_operation",
+    "alert": null
+  },
+  {
+    "scenario": "state_machine_violation",
+    "command": {
+      "id": 13,
+      "command_type": "pump",
+      "value": true,
+      "source_id": "sim",
+      "flagged": true
+    },
+    "alert": {
+      "id": 27,
+      "severity": "critical",
+      "rule_triggered": "state_machine",
+      "related_command_id": 13,
+      "message": "Unsafe: pump is (or will remain) ON while the valve is CLOSED and the tank is already near full. This would force more water into a nearly-full tank.",
+      "confidence": "certain"
+    }
+  },
+  {
+    "scenario": "invalid_command",
+    "command": null,
+    "alert": {
+      "id": 28,
+      "severity": "warning",
+      "rule_triggered": "sanity_check",
+      "related_command_id": null,
+      "message": "Invalid command: Invalid command value (must be boolean). The command failed basic validation and was rejected.",
+      "confidence": "certain"
+    }
+  },
+  {
+    "scenario": "replay_stuck",
+    "alert": {
+      "id": 29,
+      "severity": "warning",
+      "rule_triggered": "replay",
+      "related_command_id": null,
+      "message": "Sensor anomaly: pump has been active but water level changed only 0.00 over 4 samples. Possible sensor replay, transmission failure, or device hang \u2014 investigate sensors and connectivity.",
+      "confidence": "needs_review"
+    }
+  },
+  {
+    "scenario": "drift_leak_rise",
+    "alert": {
+      "id": 30,
+      "severity": "warning",
+      "rule_triggered": "drift",
+      "related_command_id": null,
+      "message": "Slow rise detected while pump is mostly OFF: level increased 7.00 over 300s (rate 0.0233/s). Possible leak, sensor bias, or background inflow.",
+      "confidence": "needs_review"
+    }
+  },
+  {
+    "scenario": "drift_pump_underperform",
+    "alert": {
+      "id": 31,
+      "severity": "warning",
+      "rule_triggered": "replay",
+      "related_command_id": null,
+      "message": "Sensor anomaly: pump has been active but water level changed only 0.50 over 4 samples. Possible sensor replay, transmission failure, or device hang \u2014 investigate sensors and connectivity.",
+      "confidence": "needs_review"
+    }
+  },
+  {
+    "scenario": "insufficient_samples",
+    "alert": null
+  },
+  {
+    "scenario": "combined_replay_drift",
+    "alert": {
+      "id": 32,
+      "severity": "warning",
+      "rule_triggered": "replay",
+      "related_command_id": null,
+      "message": "Sensor anomaly: pump has been active but water level changed only 0.00 over 4 samples. Possible sensor replay, transmission failure, or device hang \u2014 investigate sensors and connectivity.",
+      "confidence": "needs_review"
+    }
+  }
+]
