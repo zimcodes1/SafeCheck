@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 import asyncio
-import logging
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.database import init_db
 from app.routes.plant import router as PlantRouter
@@ -14,10 +14,23 @@ from app.config import Settings
 
 settings = Settings()
 
+#CORS allowed origins
+origins = [
+    "http://localhost:5173/"
+]
+
 # backend logger (per-session file + console)
 logger = setup_logger(name="safecheck.backend")
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware, 
+    allow_origins=origins, 
+    allow_methods=["*"],
+    allow_credentials=True, 
+    allow_headers=["*"]
+    )
+
 # attach request logging middleware
 app.add_middleware(RequestLoggingMiddleware, logger=logger)
 # Mount routers with /api prefix (for frontend/API standard)

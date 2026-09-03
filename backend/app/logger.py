@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Optional
 
 from fastapi import Request
-from starlette.types import ASGIApp, Receive, Scope, Send
+from starlette.types import ASGIApp
 from starlette.middleware.base import BaseHTTPMiddleware
 
 
