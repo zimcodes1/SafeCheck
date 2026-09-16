@@ -1,7 +1,6 @@
 import type { FC } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Activity, Bell, Component, History } from "lucide-react";
-import { ThemeSwitcher } from "./ThemeSwitcher";
 import { StatusIndicator } from "./ui/StatusIndicator";
 
 export const TopBar: FC = () => {
@@ -88,9 +87,6 @@ export const TopBar: FC = () => {
               label={isOnline ? "PLANT ONLINE" : "DISCONNECTED"}
             />
           </div>
-
-          {/* Theme Switcher */}
-          <ThemeSwitcher variant="toggle" />
         </div>
       </div>
     </header>

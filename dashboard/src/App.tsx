@@ -17,7 +17,7 @@ export function App() {
 
         <main className="flex-1">
           <Routes>
-            <Route path="/" element={<Navigate to="/demo" replace />} />
+            <Route path="/" element={<Navigate to="/live" replace />} />
             <Route path="/demo" element={<DemoView />} />
             <Route path="/live" element={<LiveView />} />
             <Route path="/alerts" element={<AlertsView />} />
