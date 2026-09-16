@@ -16,15 +16,17 @@ export const SeverityFilterBar: React.FC<SeverityFilterBarProps> = ({
     const isActive = activeFilters.includes(severity);
     switch (severity) {
       case "critical":
-        return isActive ? "bg-red-500 text-white" : "bg-red-100 text-red-800";
+        return isActive
+          ? "bg-red-600 text-white shadow-xs font-semibold"
+          : "bg-red-500/10 text-red-600 dark:text-red-400 hover:bg-red-500/20 border border-red-500/20";
       case "warning":
         return isActive
-          ? "bg-amber-500 text-white"
-          : "bg-amber-100 text-amber-800";
+          ? "bg-amber-600 text-white shadow-xs font-semibold"
+          : "bg-amber-500/10 text-amber-600 dark:text-amber-400 hover:bg-amber-500/20 border border-amber-500/20";
       case "info":
         return isActive
-          ? "bg-gray-500 text-white"
-          : "bg-gray-100 text-gray-800";
+          ? "bg-slate-600 text-white shadow-xs font-semibold"
+          : "bg-slate-500/10 text-slate-600 dark:text-slate-400 hover:bg-slate-500/20 border border-slate-500/20";
     }
   };
 

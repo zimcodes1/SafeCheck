@@ -11,7 +11,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 export function App() {
   return (
-    <ThemeProvider defaultTheme="system">
+    <ThemeProvider>
       <div className="min-h-screen bg-surface-0 text-text-primary flex flex-col font-sans transition-colors duration-200">
         <TopBar />
 

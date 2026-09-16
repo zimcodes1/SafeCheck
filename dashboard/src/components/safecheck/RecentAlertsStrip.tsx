@@ -25,15 +25,20 @@ export const RecentAlertsStrip: React.FC<RecentAlertsStripProps> = ({
 
   if (alerts.length === 0) {
     return (
-      <div className="text-center py-4 text-gray-500 text-sm">
-        No recent alerts
+      <div className="text-center py-6 text-text-tertiary text-sm">
+        No recent alerts recorded. All systems normal.
       </div>
     );
   }
 
   return (
-    <div className="space-y-2">
-      <h3 className="text-sm font-semibold text-gray-700">Recent Alerts</h3>
+    <div className="space-y-3">
+      <div className="flex items-center justify-between">
+        <h3 className="text-sm font-bold text-text-primary uppercase tracking-wider">
+          Recent Security Detections
+        </h3>
+        <span className="text-xs text-text-secondary">Click alert for forensic breakdown</span>
+      </div>
       <div className="space-y-2">
         {alerts.slice(0, 5).map((alert) => (
           <div

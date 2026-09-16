@@ -61,18 +61,18 @@ export const AlertsView: React.FC = () => {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Security Alerts</h1>
-            <p className="text-sm text-slate-500 mt-1">
+            <h1 className="text-2xl sm:text-3xl font-bold text-text-primary">Security Alerts</h1>
+            <p className="text-sm text-text-secondary mt-1">
               Plain-language intrusion advisor showing detected anomalies and state-machine violations.
             </p>
           </div>
-          <span className="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-mono">
+          <span className="text-xs bg-surface-2 text-text-secondary border border-border-subtle px-3 py-1 rounded-full font-mono">
             {alerts.length} alerts loaded
           </span>
         </div>
 
         {/* Severity Filter Bar */}
-        <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4">
+        <div className="bg-surface-1 rounded-2xl border border-border-subtle shadow-xs p-4 transition-colors">
           <SeverityFilterBar
             activeFilters={severityFilters}
             onFilterToggle={handleFilterToggle}
@@ -80,7 +80,7 @@ export const AlertsView: React.FC = () => {
         </div>
 
         {/* Alert Feed */}
-        <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6">
+        <div className="bg-surface-1 rounded-2xl border border-border-subtle shadow-xs p-6 transition-colors">
           <AlertFeed
             alerts={alerts}
             isLoading={isLoading}

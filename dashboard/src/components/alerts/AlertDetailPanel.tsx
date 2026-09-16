@@ -18,12 +18,12 @@ export const AlertDetailPanel: React.FC<AlertDetailPanelProps> = ({
   }
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center z-50 p-4">
+      <div className="bg-surface-1 text-text-primary rounded-2xl shadow-2xl border border-border-subtle max-w-2xl w-full max-h-[90vh] overflow-y-auto transition-colors">
         {/* Header */}
-        <div className="p-6 border-b">
+        <div className="p-6 border-b border-border-subtle">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold text-gray-900">Alert Details</h2>
+            <h2 className="text-xl font-bold text-text-primary">Alert Details</h2>
             <Button onClick={onClose} variant="secondary">
               Close
             </Button>
@@ -42,7 +42,7 @@ export const AlertDetailPanel: React.FC<AlertDetailPanelProps> = ({
               {alert.severity.toUpperCase()}
             </span>
             {alert.confidence === "needs_review" && (
-              <span className="px-3 py-1 rounded-lg bg-yellow-100 text-yellow-800 border border-yellow-300 font-medium">
+              <span className="px-3 py-1 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/30 font-medium">
                 Needs Review
               </span>
             )}
@@ -50,73 +50,73 @@ export const AlertDetailPanel: React.FC<AlertDetailPanelProps> = ({
 
           {/* Message */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-700 mb-2">
-              Message
+            <h3 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider mb-1.5">
+              Anomaly Explanation
             </h3>
-            <p className="text-gray-900">{alert.message}</p>
+            <p className="text-text-primary text-base leading-relaxed bg-surface-2 p-3.5 rounded-xl border border-border-subtle">{alert.message}</p>
           </div>
 
           {/* Metadata */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <h3 className="text-sm font-semibold text-gray-700 mb-2">
+              <h3 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider mb-1.5">
                 Timestamp
               </h3>
-              <p className="text-gray-900">
+              <p className="text-text-primary font-medium">
                 {getRelativeTime(alert.timestamp)}
               </p>
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-text-secondary mt-0.5">
                 {formatDateTime(alert.timestamp)}
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-gray-700 mb-2">
+              <h3 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider mb-1.5">
                 Detector Layer
               </h3>
-              <p className="text-gray-900">{alert.rule_triggered}</p>
+              <p className="text-text-primary font-mono text-sm">{alert.rule_triggered}</p>
             </div>
           </div>
 
           {/* Related command */}
           {alert.related_command && (
-            <div className="bg-gray-50 rounded-lg p-4 border">
-              <h3 className="text-sm font-semibold text-gray-700 mb-3">
-                Related Command
+            <div className="bg-surface-2 rounded-xl p-4 border border-border-subtle">
+              <h3 className="text-xs font-bold text-text-tertiary uppercase tracking-wider mb-3">
+                Associated Control Command
               </h3>
-              <div className="space-y-2">
+              <div className="space-y-2.5 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-sm text-gray-600">Command Type:</span>
-                  <span className="text-sm font-medium">
+                  <span className="text-text-secondary">Target Actuator:</span>
+                  <span className="font-semibold text-text-primary uppercase">
                     {alert.related_command.command_type}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-sm text-gray-600">Value:</span>
-                  <span className="text-sm font-medium">
-                    {alert.related_command.value ? "ON/OPEN" : "OFF/CLOSED"}
+                  <span className="text-text-secondary">Command Value:</span>
+                  <span className="font-semibold text-text-primary">
+                    {alert.related_command.value ? "ON / OPEN" : "OFF / CLOSED"}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-sm text-gray-600">Source ID:</span>
-                  <span className="text-sm font-medium">
+                  <span className="text-text-secondary">Source Identity:</span>
+                  <span className="font-mono text-xs text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20">
                     {alert.related_command.source_id}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-sm text-gray-600">Flagged:</span>
+                  <span className="text-text-secondary">Flagged by Detector:</span>
                   <span
-                    className={`text-sm font-medium ${
+                    className={`font-semibold ${
                       alert.related_command.flagged
-                        ? "text-red-600"
-                        : "text-green-600"
+                        ? "text-red-500"
+                        : "text-green-500"
                     }`}
                   >
-                    {alert.related_command.flagged ? "Yes" : "No"}
+                    {alert.related_command.flagged ? "YES (UNSAFE)" : "NO (BENIGN)"}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-sm text-gray-600">Timestamp:</span>
-                  <span className="text-sm font-medium">
+                  <span className="text-text-secondary">Recorded Time:</span>
+                  <span className="text-text-tertiary text-xs font-mono">
                     {formatDateTime(alert.related_command.timestamp)}
                   </span>
                 </div>

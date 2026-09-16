@@ -29,52 +29,54 @@ export const CommandLogTable: React.FC<CommandLogTableProps> = ({
 
   return (
     <div className="overflow-x-auto">
-      <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-gray-50">
+      <table className="min-w-full divide-y divide-border-subtle">
+        <thead className="bg-surface-2">
           <tr>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-6 py-3.5 text-left text-xs font-semibold text-text-tertiary uppercase tracking-wider">
               Timestamp
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-6 py-3.5 text-left text-xs font-semibold text-text-tertiary uppercase tracking-wider">
               Command Type
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Value
+            <th className="px-6 py-3.5 text-left text-xs font-semibold text-text-tertiary uppercase tracking-wider">
+              Target State
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Source ID
+            <th className="px-6 py-3.5 text-left text-xs font-semibold text-text-tertiary uppercase tracking-wider">
+              Source Identity
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Flagged
+            <th className="px-6 py-3.5 text-left text-xs font-semibold text-text-tertiary uppercase tracking-wider">
+              Status
             </th>
           </tr>
         </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
+        <tbody className="bg-surface-1 divide-y divide-border-subtle">
           {commands.map((command) => (
-            <tr key={command.id} className="hover:bg-gray-50">
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                <div>{getRelativeTime(command.timestamp)}</div>
-                <div className="text-xs text-gray-500">
+            <tr key={command.id} className="hover:bg-surface-2/60 transition-colors">
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-text-primary">
+                <div className="font-medium">{getRelativeTime(command.timestamp)}</div>
+                <div className="text-xs text-text-tertiary font-mono">
                   {new Date(command.timestamp).toLocaleString()}
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold uppercase text-text-primary">
                 {command.command_type}
               </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                {command.value ? "ON/OPEN" : "OFF/CLOSED"}
+              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-text-primary">
+                {command.value ? "ON / OPEN" : "OFF / CLOSED"}
               </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                {command.source_id}
+              <td className="px-6 py-4 whitespace-nowrap text-sm">
+                <span className="font-mono text-xs text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20">
+                  {command.source_id}
+                </span>
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm">
                 {command.flagged ? (
-                  <span className="px-2 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-800">
-                    Flagged
+                  <span className="px-2.5 py-1 text-xs font-bold rounded-full bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/30">
+                    FLAGGED (UNSAFE)
                   </span>
                 ) : (
-                  <span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
-                    Normal
+                  <span className="px-2.5 py-1 text-xs font-bold rounded-full bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/30">
+                    NORMAL
                   </span>
                 )}
               </td>

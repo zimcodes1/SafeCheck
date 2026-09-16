@@ -1,16 +1,56 @@
-import { create } from "zustand";
+import { useSyncExternalStore } from "react";
 import type { PlantLiveState } from "../types/safecheck.types";
 
-interface PlantStore {
+interface PlantStoreState {
   plantState: PlantLiveState | null;
   isConnected: boolean;
-  setPlantState: (state: PlantLiveState | null) => void;
-  setIsConnected: (connected: boolean) => void;
 }
 
-export const usePlantStore = create<PlantStore>((set) => ({
+let currentState: PlantStoreState = {
   plantState: null,
   isConnected: false,
-  setPlantState: (plantState) => set({ plantState, isConnected: true }),
-  setIsConnected: (isConnected) => set({ isConnected }),
-}));
+};
+
+const listeners = new Set<() => void>();
+
+function emitChange() {
+  for (const listener of listeners) {
+    listener();
+  }
+}
+
+export const plantStore = {
+  setPlantState: (plantState: PlantLiveState | null) => {
+    currentState = {
+      ...currentState,
+      plantState,
+      isConnected: plantState !== null,
+    };
+    emitChange();
+  },
+  setIsConnected: (isConnected: boolean) => {
+    currentState = {
+      ...currentState,
+      isConnected,
+    };
+    emitChange();
+  },
+};
+
+export function usePlantStore() {
+  const store = useSyncExternalStore(
+    (callback) => {
+      listeners.add(callback);
+      return () => listeners.delete(callback);
+    },
+    () => currentState,
+    () => currentState
+  );
+
+  return {
+    plantState: store.plantState,
+    isConnected: store.isConnected,
+    setPlantState: plantStore.setPlantState,
+    setIsConnected: plantStore.setIsConnected,
+  };
+}

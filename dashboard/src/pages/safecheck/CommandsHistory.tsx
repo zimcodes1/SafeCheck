@@ -92,7 +92,10 @@ export const CommandsHistory: React.FC = () => {
     <Layout>
       <div className="space-y-6">
         <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-bold text-gray-900">Commands History</h1>
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-bold text-text-primary">Commands History</h1>
+            <p className="text-sm text-text-secondary mt-1">Audit log of all reported actuator signals and detector safety verdicts.</p>
+          </div>
           <DataExportButton
             data={commands}
             filename={handleExport()}
@@ -101,7 +104,7 @@ export const CommandsHistory: React.FC = () => {
         </div>
 
         {/* Filters */}
-        <div className="bg-white rounded-lg shadow-md p-4">
+        <div className="bg-surface-1 rounded-2xl border border-border-subtle shadow-xs p-5 transition-colors">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <DateRangePicker
               startDate={startDate}
@@ -119,7 +122,7 @@ export const CommandsHistory: React.FC = () => {
             />
 
             <div className="flex flex-col">
-              <label className="text-sm font-medium text-gray-700 mb-1">
+              <label className="text-xs font-semibold text-text-tertiary uppercase tracking-wider mb-1.5">
                 Command Type
               </label>
               <select
@@ -129,7 +132,7 @@ export const CommandsHistory: React.FC = () => {
                   setPage(0);
                   loadCommands(true);
                 }}
-                className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="px-3.5 py-2 bg-surface-2 border border-border-subtle rounded-xl text-text-primary text-sm focus:ring-2 focus:ring-primary focus:outline-none transition-colors"
               >
                 <option value="all">All Types</option>
                 <option value="pump">Pump</option>
@@ -138,7 +141,7 @@ export const CommandsHistory: React.FC = () => {
             </div>
 
             <div className="flex flex-col">
-              <label className="text-sm font-medium text-gray-700 mb-1">
+              <label className="text-xs font-semibold text-text-tertiary uppercase tracking-wider mb-1.5">
                 Flagged Status
               </label>
               <select
@@ -150,7 +153,7 @@ export const CommandsHistory: React.FC = () => {
                   setPage(0);
                   loadCommands(true);
                 }}
-                className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="px-3.5 py-2 bg-surface-2 border border-border-subtle rounded-xl text-text-primary text-sm focus:ring-2 focus:ring-primary focus:outline-none transition-colors"
               >
                 <option value="all">All Status</option>
                 <option value="flagged">Flagged Only</option>
@@ -161,15 +164,15 @@ export const CommandsHistory: React.FC = () => {
         </div>
 
         {/* Commands Table */}
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="bg-surface-1 rounded-2xl border border-border-subtle shadow-xs p-6 transition-colors">
           <CommandLogTable commands={commands} isLoading={isLoading} />
 
           {hasMore && commands.length > 0 && (
-            <div className="mt-4 text-center">
+            <div className="mt-6 text-center">
               <button
                 onClick={handleLoadMore}
                 disabled={isLoading}
-                className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                className="px-6 py-2.5 bg-surface-2 hover:bg-surface-0 border border-border-subtle text-text-primary font-medium rounded-xl disabled:opacity-50 transition-colors shadow-xs"
               >
                 {isLoading ? "Loading..." : "Load More"}
               </button>
@@ -179,35 +182,35 @@ export const CommandsHistory: React.FC = () => {
 
         {/* Statistics */}
         {commands.length > 0 && (
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h3 className="text-lg font-semibold mb-4">Statistics</h3>
+          <div className="bg-surface-1 rounded-2xl border border-border-subtle shadow-xs p-6 transition-colors">
+            <h3 className="text-base font-bold text-text-primary mb-4">Command Summary</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="text-center">
-                <p className="text-2xl font-bold text-blue-600">
+              <div className="text-center p-4 rounded-xl bg-surface-2 border border-border-subtle">
+                <p className="text-3xl font-extrabold text-text-primary">
                   {commands.length}
                 </p>
-                <p className="text-sm text-gray-600">Total Commands</p>
+                <p className="text-xs text-text-tertiary uppercase font-semibold mt-1">Total Logs</p>
               </div>
-              <div className="text-center">
-                <p className="text-2xl font-bold text-red-600">
+              <div className="text-center p-4 rounded-xl bg-red-500/10 border border-red-500/20">
+                <p className="text-3xl font-extrabold text-red-600 dark:text-red-400">
                   {commands.filter((cmd) => cmd.flagged).length}
                 </p>
-                <p className="text-sm text-gray-600">Flagged</p>
+                <p className="text-xs text-red-600/80 dark:text-red-400/80 uppercase font-semibold mt-1">Flagged Violations</p>
               </div>
-              <div className="text-center">
-                <p className="text-2xl font-bold text-green-600">
+              <div className="text-center p-4 rounded-xl bg-surface-2 border border-border-subtle">
+                <p className="text-3xl font-extrabold text-primary">
                   {commands.filter((cmd) => cmd.command_type === "pump").length}
                 </p>
-                <p className="text-sm text-gray-600">Pump Commands</p>
+                <p className="text-xs text-text-tertiary uppercase font-semibold mt-1">Pump Commands</p>
               </div>
-              <div className="text-center">
-                <p className="text-2xl font-bold text-purple-600">
+              <div className="text-center p-4 rounded-xl bg-surface-2 border border-border-subtle">
+                <p className="text-3xl font-extrabold text-text-primary">
                   {
                     commands.filter((cmd) => cmd.command_type === "valve")
                       .length
                   }
                 </p>
-                <p className="text-sm text-gray-600">Valve Commands</p>
+                <p className="text-xs text-text-tertiary uppercase font-semibold mt-1">Valve Commands</p>
               </div>
             </div>
           </div>

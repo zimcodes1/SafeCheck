@@ -1,15 +1,15 @@
 import type { Severity } from "../types/safecheck.types";
 
 export const getSeverityColor = (severity: Severity | string): string => {
-  switch (severity) {
+  switch (severity?.toLowerCase()) {
     case "critical":
-      return "bg-red-100 text-red-800 border-red-300";
+      return "bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/30";
     case "warning":
-      return "bg-amber-100 text-amber-800 border-amber-300";
+      return "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/30";
     case "info":
-      return "bg-gray-100 text-gray-800 border-gray-300";
+      return "bg-slate-500/10 text-slate-600 dark:text-slate-400 border-slate-500/30";
     default:
-      return "bg-gray-100 text-gray-800 border-gray-300";
+      return "bg-slate-500/10 text-slate-600 dark:text-slate-400 border-slate-500/30";
   }
 };
 

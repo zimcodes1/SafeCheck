@@ -11,7 +11,7 @@ import {
   StatusIndicator,
   Modal,
 } from "../components/ui";
-import apiClient from "../api/apiClient";
+import axiosInstance from "../api/axios.config";
 import {
   Play,
   RotateCcw,
@@ -406,7 +406,7 @@ export const DemoView: FC = () => {
           <p className="text-xs text-text-secondary mt-0.5">
             Axios client initialized in{" "}
             <code className="text-primary font-mono text-xs">
-              src/api/apiClient.ts
+              src/api/axios.config.ts
             </code>{" "}
             ready for service calls.
           </p>
@@ -417,13 +417,13 @@ export const DemoView: FC = () => {
             <div className="p-3 bg-surface-2 rounded-lg border border-border-subtle">
               <span className="text-text-secondary block">Base URL</span>
               <span className="font-mono font-semibold text-text-primary mt-1 block">
-                {apiClient.defaults.baseURL || "/api"}
+                {axiosInstance.defaults.baseURL || "/api"}
               </span>
             </div>
             <div className="p-3 bg-surface-2 rounded-lg border border-border-subtle">
               <span className="text-text-secondary block">Timeout</span>
               <span className="font-mono font-semibold text-text-primary mt-1 block">
-                {apiClient.defaults.timeout} ms
+                {axiosInstance.defaults.timeout} ms
               </span>
             </div>
           </CardContent>
