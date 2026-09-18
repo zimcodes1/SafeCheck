@@ -19,9 +19,6 @@ from server.physics import TankState
 from server.registers import (
     PUMP_COMMAND_REGISTER,
     VALVE_COMMAND_REGISTER,
-    WATER_LEVEL_REGISTER,
-    PUMP_STATUS_REGISTER,
-    VALVE_STATUS_REGISTER,
 )
 
 tank_state = TankState(water_level=50.0)
