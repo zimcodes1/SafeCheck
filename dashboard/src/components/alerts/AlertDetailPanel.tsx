@@ -1,130 +1,182 @@
 import React from "react";
 import type { AlertDetail } from "../../types/safecheck.types";
-import { Button } from "../common/Button";
-import { getSeverityColor } from "../../utils/severityUtils";
-import { getRelativeTime, formatDateTime } from "../../utils/timeUtils";
+import { Modal } from "../ui/Modal";
+import { Button } from "../ui/Button";
+import { Badge } from "../ui/Badge";
+import { formatDateTime, getRelativeTime } from "../../utils/timeUtils";
+import {
+	AlertOctagon,
+	AlertTriangle,
+	Info,
+	Clock,
+	Layers,
+	Terminal,
+	ShieldAlert,
+} from "lucide-react";
 
 interface AlertDetailPanelProps {
-  alert: AlertDetail | null;
-  onClose: () => void;
+	alert: AlertDetail | null;
+	onClose: () => void;
 }
 
 export const AlertDetailPanel: React.FC<AlertDetailPanelProps> = ({
-  alert,
-  onClose,
+	alert,
+	onClose,
 }) => {
-  if (!alert) {
-    return null;
-  }
+	if (!alert) {
+		return null;
+	}
 
-  return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center z-50 p-4">
-      <div className="bg-surface-1 text-text-primary rounded-2xl shadow-2xl border border-border-subtle max-w-2xl w-full max-h-[90vh] overflow-y-auto transition-colors">
-        {/* Header */}
-        <div className="p-6 border-b border-border-subtle">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold text-text-primary">Alert Details</h2>
-            <Button onClick={onClose} variant="secondary">
-              Close
-            </Button>
-          </div>
-        </div>
+	const isNeedsReview = alert.confidence === "needs_review";
 
-        {/* Content */}
-        <div className="p-6 space-y-6">
-          {/* Severity and confidence */}
-          <div className="flex items-center space-x-3">
-            <span
-              className={`px-3 py-1 rounded-lg font-semibold ${getSeverityColor(
-                alert.severity as any,
-              )}`}
-            >
-              {alert.severity.toUpperCase()}
-            </span>
-            {alert.confidence === "needs_review" && (
-              <span className="px-3 py-1 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/30 font-medium">
-                Needs Review
-              </span>
-            )}
-          </div>
+	const getSeverityIcon = () => {
+		switch (alert.severity) {
+			case "critical":
+				return <AlertOctagon className="w-3.5 h-3.5" />;
+			case "warning":
+				return <AlertTriangle className="w-3.5 h-3.5" />;
+			case "info":
+			default:
+				return <Info className="w-3.5 h-3.5" />;
+		}
+	};
 
-          {/* Message */}
-          <div>
-            <h3 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider mb-1.5">
-              Anomaly Explanation
-            </h3>
-            <p className="text-text-primary text-base leading-relaxed bg-surface-2 p-3.5 rounded-xl border border-border-subtle">{alert.message}</p>
-          </div>
+	return (
+		<Modal
+			isOpen={!!alert}
+			onClose={onClose}
+			title={`Security Alert Forensics (ID #${alert.id})`}
+			description="Physical context correlation and root-cause analysis"
+			maxWidth="lg"
+			footer={
+				<Button variant="secondary" size="sm" onClick={onClose}>
+					Close Panel
+				</Button>
+			}
+		>
+			<div className="space-y-5 text-sm">
+				{/* Severity and confidence header badges */}
+				<div className="flex flex-wrap items-center gap-2.5 pb-4 border-b border-border-subtle">
+					<Badge
+						variant={alert.severity as any}
+						size="md"
+						dot
+						leftIcon={getSeverityIcon()}
+					>
+						{alert.severity} Severity
+					</Badge>
 
-          {/* Metadata */}
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <h3 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider mb-1.5">
-                Timestamp
-              </h3>
-              <p className="text-text-primary font-medium">
-                {getRelativeTime(alert.timestamp)}
-              </p>
-              <p className="text-xs text-text-secondary mt-0.5">
-                {formatDateTime(alert.timestamp)}
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider mb-1.5">
-                Detector Layer
-              </h3>
-              <p className="text-text-primary font-mono text-sm">{alert.rule_triggered}</p>
-            </div>
-          </div>
+					{isNeedsReview ? (
+						<Badge variant="review" isReview size="md">
+							Needs Review
+						</Badge>
+					) : (
+						<Badge variant="success" size="md">
+							Certain
+						</Badge>
+					)}
 
-          {/* Related command */}
-          {alert.related_command && (
-            <div className="bg-surface-2 rounded-xl p-4 border border-border-subtle">
-              <h3 className="text-xs font-bold text-text-tertiary uppercase tracking-wider mb-3">
-                Associated Control Command
-              </h3>
-              <div className="space-y-2.5 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-text-secondary">Target Actuator:</span>
-                  <span className="font-semibold text-text-primary uppercase">
-                    {alert.related_command.command_type}
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-text-secondary">Command Value:</span>
-                  <span className="font-semibold text-text-primary">
-                    {alert.related_command.value ? "ON / OPEN" : "OFF / CLOSED"}
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-text-secondary">Source Identity:</span>
-                  <span className="font-mono text-xs text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20">
-                    {alert.related_command.source_id}
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-text-secondary">Flagged by Detector:</span>
-                  <span
-                    className={`font-semibold ${
-                      alert.related_command.flagged
-                        ? "text-red-500"
-                        : "text-green-500"
-                    }`}
-                  >
-                    {alert.related_command.flagged ? "YES (UNSAFE)" : "NO (BENIGN)"}
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-text-secondary">Recorded Time:</span>
-                  <span className="text-text-tertiary text-xs font-mono">
-                    {formatDateTime(alert.related_command.timestamp)}
-                  </span>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
+					<Badge variant="neutral" size="md">
+						Layer: {alert.rule_triggered}
+					</Badge>
+				</div>
+
+				{/* Advisory Message */}
+				<div>
+					<h4 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider mb-2 flex items-center gap-1.5">
+						<ShieldAlert className="w-3.5 h-3.5 text-primary" />
+						<span>Detector Verdict & Explanation</span>
+					</h4>
+					<div className="p-4 rounded-xl bg-surface-2 border border-border-subtle text-text-primary text-sm leading-relaxed font-normal">
+						{alert.message}
+					</div>
+				</div>
+
+				{/* Metadata Grid */}
+				<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+					<div className="p-3.5 rounded-xl bg-surface-2/60 border border-border-subtle">
+						<div className="flex items-center gap-1.5 text-xs font-semibold text-text-tertiary uppercase tracking-wider mb-1">
+							<Clock className="w-3.5 h-3.5" />
+							<span>Event Timestamp</span>
+						</div>
+						<p className="text-text-primary font-medium text-sm">
+							{getRelativeTime(alert.timestamp)}
+						</p>
+						<p className="text-xs text-text-secondary font-mono mt-0.5">
+							{formatDateTime(alert.timestamp)}
+						</p>
+					</div>
+
+					<div className="p-3.5 rounded-xl bg-surface-2/60 border border-border-subtle">
+						<div className="flex items-center gap-1.5 text-xs font-semibold text-text-tertiary uppercase tracking-wider mb-1">
+							<Layers className="w-3.5 h-3.5" />
+							<span>Rule Classification</span>
+						</div>
+						<p className="text-text-primary font-mono text-sm font-semibold capitalize">
+							{alert.rule_triggered.replace("_", " ")}
+						</p>
+						<p className="text-xs text-text-secondary mt-0.5">
+							{isNeedsReview ? "Empirical Anomaly" : "Deterministic Hard Rule"}
+						</p>
+					</div>
+				</div>
+
+				{/* Related Command Details */}
+				{alert.related_command ? (
+					<div className="p-4 rounded-xl bg-surface-2 border border-border-subtle space-y-3">
+						<h4 className="text-xs font-bold text-text-tertiary uppercase tracking-wider flex items-center gap-1.5">
+							<Terminal className="w-3.5 h-3.5 text-primary" />
+							<span>Associated Actuator Command</span>
+						</h4>
+
+						<div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
+							<div>
+								<span className="text-[11px] text-text-secondary block">
+									Actuator
+								</span>
+								<span className="font-semibold text-text-primary uppercase text-sm">
+									{alert.related_command.command_type}
+								</span>
+							</div>
+							<div>
+								<span className="text-[11px] text-text-secondary block">
+									Action
+								</span>
+								<span className="font-semibold text-text-primary text-sm">
+									{alert.related_command.value ? "ON / OPEN" : "OFF / CLOSED"}
+								</span>
+							</div>
+							<div>
+								<span className="text-[11px] text-text-secondary block">
+									Source Identity
+								</span>
+								<span className="font-mono text-xs text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20 inline-block mt-0.5">
+									{alert.related_command.source_id}
+								</span>
+							</div>
+							<div>
+								<span className="text-[11px] text-text-secondary block">
+									Verdict
+								</span>
+								<span
+									className={`font-semibold text-xs px-2 py-0.5 rounded inline-block mt-0.5 ${
+										alert.related_command.flagged
+											? "bg-critical/15 text-critical border border-critical/30"
+											: "bg-success/15 text-success border border-success/30"
+									}`}
+								>
+									{alert.related_command.flagged ? "FLAGGED UNSAFE" : "BENIGN"}
+								</span>
+							</div>
+						</div>
+					</div>
+				) : (
+					<div className="p-3.5 rounded-xl bg-surface-2/40 border border-border-subtle/70 text-xs text-text-secondary">
+						<strong>Note:</strong> Telemetry-layer detection generated from
+						continuous sensor monitoring window (no direct command trigger).
+					</div>
+				)}
+			</div>
+		</Modal>
+	);
 };

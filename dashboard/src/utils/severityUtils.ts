@@ -3,25 +3,25 @@ import type { Severity } from "../types/safecheck.types";
 export const getSeverityColor = (severity: Severity | string): string => {
   switch (severity?.toLowerCase()) {
     case "critical":
-      return "bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/30";
+      return "bg-critical/15 text-critical border-critical/30";
     case "warning":
-      return "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/30";
+      return "bg-warning/15 text-warning border-warning/30";
     case "info":
-      return "bg-slate-500/10 text-slate-600 dark:text-slate-400 border-slate-500/30";
+      return "bg-info/15 text-info border-info/30";
     default:
-      return "bg-slate-500/10 text-slate-600 dark:text-slate-400 border-slate-500/30";
+      return "bg-surface-2 text-text-secondary border-border-subtle";
   }
 };
 
 export const getSeverityColorClass = (severity: Severity | string): string => {
-  switch (severity) {
+  switch (severity?.toLowerCase()) {
     case "critical":
-      return "text-red-600";
+      return "text-critical";
     case "warning":
-      return "text-amber-600";
+      return "text-warning";
     case "info":
-      return "text-gray-600";
+      return "text-info";
     default:
-      return "text-gray-600";
+      return "text-text-secondary";
   }
 };

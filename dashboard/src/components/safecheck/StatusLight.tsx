@@ -1,40 +1,48 @@
 import React from "react";
 
 interface StatusLightProps {
-  label: string;
-  isActive: boolean;
-  activeLabel?: string; // e.g., "ON" or "OPEN"
-  inactiveLabel?: string; // e.g., "OFF" or "CLOSED"
+	label: string;
+	isActive: boolean;
+	activeLabel?: string; // e.g., "ON" or "OPEN"
+	inactiveLabel?: string; // e.g., "OFF" or "CLOSED"
 }
 
 export const StatusLight: React.FC<StatusLightProps> = ({
-  label,
-  isActive,
-  activeLabel = "ON",
-  inactiveLabel = "OFF",
+	label,
+	isActive,
+	activeLabel = "ON",
+	inactiveLabel = "OFF",
 }) => {
-  return (
-    <div className="flex flex-col items-center space-y-2">
-      {/* Status light */}
-      <div
-        className={`w-16 h-16 rounded-full border-4 shadow-lg transition-all duration-300 ${
-          isActive
-            ? "bg-green-500 border-green-700 shadow-green-500/50"
-            : "bg-gray-400 border-gray-600 shadow-gray-400/50"
-        }`}
-      />
+	return (
+		<div className="flex flex-col items-center space-y-2.5 select-none">
+			{/* Industrial status light */}
+			<div
+				className={`w-14 h-14 rounded-full border-4 transition-all duration-300 flex items-center justify-center ${
+					isActive
+						? "bg-success border-success/80 shadow-[0_0_20px_rgba(34,197,94,0.4)]"
+						: "bg-surface-2 border-border-strong opacity-75"
+				}`}
+			>
+				<div
+					className={`w-4 h-4 rounded-full ${
+						isActive ? "bg-white/90 shadow-xs" : "bg-text-tertiary/40"
+					}`}
+				/>
+			</div>
 
-      {/* Labels */}
-      <div className="text-center">
-        <p className="text-sm font-semibold text-gray-700">{label}</p>
-        <p
-          className={`text-xs font-medium ${
-            isActive ? "text-green-600" : "text-gray-500"
-          }`}
-        >
-          {isActive ? activeLabel : inactiveLabel}
-        </p>
-      </div>
-    </div>
-  );
+			{/* Labels */}
+			<div className="text-center">
+				<p className="text-xs font-bold text-text-primary uppercase tracking-wider">
+					{label}
+				</p>
+				<p
+					className={`text-xs font-semibold mt-0.5 ${
+						isActive ? "text-success" : "text-text-tertiary"
+					}`}
+				>
+					{isActive ? activeLabel : inactiveLabel}
+				</p>
+			</div>
+		</div>
+	);
 };
