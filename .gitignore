@@ -10,3 +10,6 @@ backend/safecheck.db-journal
 backend/app/detector/__pycache__/
 backend/tests/__pycache__/
 backend/logs/
+backend/app/main.py
+backend/safecheck.db-shm
+backend/safecheck.db-wal

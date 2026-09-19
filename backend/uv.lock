@@ -57,6 +57,7 @@ dependencies = [
     { name = "fastapi", extra = ["standard"] },
     { name = "pydantic" },
     { name = "pymodbus" },
+    { name = "scapy" },
     { name = "sqlmodel" },
     { name = "uvicorn" },
 ]
@@ -67,6 +68,7 @@ requires-dist = [
     { name = "fastapi", extras = ["standard"], specifier = ">=0.141.1" },
     { name = "pydantic", specifier = ">=2.13.4" },
     { name = "pymodbus", specifier = ">=3.15.0" },
+    { name = "scapy", specifier = ">=2.6.1" },
     { name = "sqlmodel", specifier = ">=0.0.39" },
     { name = "uvicorn", specifier = ">=0.52.4" },
 ]
@@ -784,6 +786,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/b9/02/211daf0a7f957386d2223ef7a1601d36b42a6c1a6b93aae32db712868390/rignore-0.8.1-cp315-cp315t-win32.whl", hash = "sha256:e8315151a83b982fe972420372e80c550616095181d1549faaa1ec31f363f5ae", size = 640253, upload-time = "2026-08-04T22:25:50.025Z" },
     { url = "https://files.pythonhosted.org/packages/ca/0e/ccb682455ca380cc640c2a9536390fd907cc5ac0396118643f9d386e4af5/rignore-0.8.1-cp315-cp315t-win_amd64.whl", hash = "sha256:69be37202a052d9e13affed6b774f86d8bf3b417b15d54ad737033e56da07ec0", size = 728332, upload-time = "2026-08-04T22:25:51.937Z" },
     { url = "https://files.pythonhosted.org/packages/eb/ec/a2b634938c39600205dcd37015343e779dc8f112c234d905666dec2a66fd/rignore-0.8.1-cp315-cp315t-win_arm64.whl", hash = "sha256:4268e83bcb88f240ed4f43d73e7de9e4bcd8026bdfcfa836567d6c29863e5361", size = 666611, upload-time = "2026-08-04T22:25:53.857Z" },
+]
+
+[[package]]
+name = "scapy"
+version = "2.7.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/82/97/7caec64f05eae3d305d83e7cce1ef2f337710513b89efb334f7278202e79/scapy-2.7.0.tar.gz", hash = "sha256:bfc1ef1b93280aea1ddee53be7f74232aa28ac3d891244d41ee85200d24aa446", size = 2412897, upload-time = "2025-12-26T22:10:53.359Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f0/6f/bd32e5e8adc391063858da17271bb444e4b009842cffa593bca8b2b78af7/scapy-2.7.0-py3-none-any.whl", hash = "sha256:eb22786da92be6fd8e5c694ae5595e4f5b9ac1f4364c9c45986844f3e3063561", size = 2590982, upload-time = "2025-12-26T22:07:48.941Z" },
 ]
 
 [[package]]

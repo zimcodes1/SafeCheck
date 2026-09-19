@@ -69,6 +69,26 @@ async def read_plant_state(host: str | None = None, port: int | None = None, tim
 			pass
 
 
+async def read_holding_registers(
+		host: str | None = None, port: int | None = None, timeout: float = 3.0
+) -> Tuple[int, int]:
+	"""Read the two command holding registers used by the Plant."""
+	settings = Settings()
+	host = host or settings.plant_host
+	port = port or settings.plant_port
+	client = AsyncModbusTcpClient(host=host, port=port)
+	try:
+		connected = await asyncio.wait_for(client.connect(), timeout=timeout)
+		if not connected:
+			raise ConnectionError(f"Could not connect to Plant at {host}:{port}")
+		rr = await client.read_holding_registers(address=PUMP_COMMAND_REGISTER, count=2)
+		if rr.isError() or len(rr.registers) < 2:
+			raise RuntimeError(f"Modbus holding-register read error: {rr}")
+		return int(rr.registers[0]), int(rr.registers[1])
+	finally:
+		client.close()
+
+
 def read_plant_state_sync(host: str | None = None, port: int | None = None, timeout: float = 3.0):
 	"""Synchronous wrapper around `read_plant_state` for convenience in scripts.
 

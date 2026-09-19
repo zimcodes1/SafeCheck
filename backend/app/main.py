@@ -10,6 +10,7 @@ from app.routes.alerts import router as AlertsRouter
 from app.routes.simulate import router as SimRouter
 from app.logger import setup_logger, RequestLoggingMiddleware
 from app.services.poller import poll_once
+from app.services.packet_sniffer import start_sniffer, stop_sniffer
 from app.config import Settings
 
 settings = Settings()
@@ -62,8 +63,17 @@ async def _poll_loop():
 @app.on_event("startup")
 async def on_startup():
     init_db()
+    if settings.sniffer_enabled:
+        start_sniffer(
+            asyncio.get_running_loop(), settings.plant_host, settings.plant_port, settings.sniff_interface
+        )
     # schedule the poller as a background task so startup completes promptly
     asyncio.create_task(_poll_loop())
+
+
+@app.on_event("shutdown")
+def on_shutdown():
+    stop_sniffer()
 
 @app.get("/")
 def index():

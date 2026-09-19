@@ -9,6 +9,7 @@ dependencies = [
     "fastapi[standard]>=0.141.1",
     "pydantic>=2.13.4",
     "pymodbus>=3.15.0",
+    "scapy>=2.6.1",
     "sqlmodel>=0.0.39",
     "uvicorn>=0.52.4",
 ]

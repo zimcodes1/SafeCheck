@@ -16,7 +16,7 @@ This repository contains the backend and intrusion detection engine for the Safe
 └─────────────┘        │ (Modbus TCP  │        │  (Operator)  │
                        │  port 5020)  │        └─────────────┘
                        └──────┬───────┘
-                              │ polled every 1.0s via Modbus
+                              │ passively captured in real time
                               ▼
                        ┌──────────────┐
                        │   BACKEND    │──────▶ SQLite (safecheck.db)
@@ -84,8 +84,10 @@ backend/
 │   │
 │   ├── services/                      # Background asynchronous services
 │   │   ├── __init__.py
-│   │   ├── modbus_client.py           # Modbus TCP client reader for input registers
-│   │   ├── poller.py                  # 1-second telemetry poller & detector trigger
+│   │   ├── modbus_client.py           # Modbus TCP input/holding-register readers
+│   │   ├── modbus_parser.py           # Strict Modbus TCP request parser
+│   │   ├── packet_sniffer.py          # Scapy passive command sensor
+│   │   ├── poller.py                  # Telemetry poller and fallback command sensor
 │   │   └── simulator.py               # programmatic scenario runner for Day 19
 │   │
 │   └── detector/                      # The 4-Layer Detection Engine
@@ -103,7 +105,8 @@ backend/
 └── tests/
     ├── test_day17_confidence.py       # tests confidence handling for anomalies
     ├── test_day18_detectors.py        # unit tests across Layers 1–4
-    └── test_day21_integration.py      # full end-to-end integration test suite
+    ├── test_day21_integration.py      # full end-to-end integration test suite
+    └── test_modbus_parser.py          # packet parser unit tests
 ```
 
 ---
@@ -132,8 +135,8 @@ Continuous Readings ─▶ [ Layer 3: Replay Detection ]
 
 ### Layer 1 — Sanity Check (`layer1_sanity.py`)
 
-- **Focus**: Command formatting, type enforcement, boundary values, and non-empty `source_id`.
-- **Trips on**: Malformed packets, out-of-range integer values, or missing identity tags.
+- **Focus**: Modbus TCP header structure, supported function codes, command-register addresses, and command values.
+- **Trips on**: Bad protocol IDs, MBAP length mismatches, truncation, unexpected function codes, and invalid writes. Alerts include the captured raw hex bytes.
 - **Alert Level**: `SeverityEnum.WARNING`, `ConfidenceEnum.CERTAIN`.
 
 ### Layer 2 — State-Machine Validity (`layer2_state_machine.py`)
@@ -170,6 +173,8 @@ Reads all runtime parameters from environment variables (or defaults):
 - `PLANT_PORT`: Modbus TCP port (default: `5020`).
 - `DB_PATH`: Path to the SQLite database (default: `safecheck.db`).
 - `POLL_INTERVAL_SECONDS`: Background poller frequency (default: `1.0` second).
+- `SNIFFER_ENABLED`: Enables the primary packet sensor (default: `true`). Set to `false` only when demonstrating the fallback.
+- `SNIFF_INTERFACE`: Capture interface (default: `lo` on Linux; use `lo0` on macOS or the Npcap adapter on Windows).
 
 ### 4.2 Database & Data Models (`app/database.py`, `app/models/`)
 
@@ -184,7 +189,7 @@ All historical data is persisted using **SQLModel** into SQLite:
 All endpoints are available at both root and under the `/api` prefix:
 
 - `GET /plant/live`: Polls current plant state over Modbus (never cached).
-- `POST /commands/report`: Self-reporting endpoint for clients/attackers. Runs Layers 1 & 2 synchronously against live physical state.
+- `POST /commands/report`: Legacy debug endpoint. It is not used by the live detection pipeline.
 - `GET /history/readings`: Paginated telemetry history with `start` and `end` timestamps.
 - `GET /history/commands`: Historical command log with flag indicators.
 - `GET /alerts`: Reverse-chronological alert feed with severity filters (`info`, `warning`, `critical`).
@@ -200,8 +205,15 @@ Runs continuously on an asynchronous timer on startup:
 1. Calls `read_plant_state()` to query input registers 0–2 from the Plant Modbus server.
 2. Commits a new `Reading` row into `safecheck.db`.
 3. Passes the latest reading alongside recent history into `evaluate_reading()` to execute Layers 3 & 4.
+4. Reads holding registers and detects command changes only when packet capture is unavailable. The first read is a baseline and never creates a phantom command.
 
-### 4.5 Logging System (`app/logger.py`)
+### 4.5 Passive Modbus packet sensor (`app/services/packet_sniffer.py`)
+
+At startup, Scapy captures TCP payloads addressed to the Plant's Modbus port. The sensor parses each request ADU, records observed source IP/port, reconstructs write-single (`0x06`) and write-multiple (`0x10`) commands, and sends them through the existing Layer 1–2 detector pipeline. Malformed packets produce Layer-1 alerts with their raw hexadecimal payload.
+
+The sensor intentionally does not implement TCP stream reassembly: SafeCheck's small local Modbus commands are expected in one TCP segment. A split or combined frame is surfaced as malformed rather than silently accepted.
+
+### 4.6 Logging System (`app/logger.py`)
 
 Session-aware logger writing to both stdout and timestamped session files under `logs/`:
 
@@ -225,6 +237,8 @@ cd SafeCheck/backend
 uv sync
 ```
 
+Packet capture needs raw-socket privileges. For a local Linux demo, run the backend with `sudo`, or grant the interpreter `CAP_NET_RAW`; on macOS select `lo0`, and on Windows install Npcap and run an Administrator shell. If capture cannot start, SafeCheck logs the failure and automatically continues with holding-register diffing at the configured poll interval.
+
 ### 2. Run the Backend API Server
 
 ```bash
@@ -232,7 +246,7 @@ cd SafeCheck/backend
 uv run uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-The server will automatically initialize `safecheck.db` and start the poller loop.
+The server will automatically initialize `safecheck.db`, start the passive packet sensor, and start the telemetry poller. SQLite uses WAL mode and a busy timeout so the two sources can safely persist alerts and readings.
 
 ### 3. Run Automated Tests & Integration Verifications
 

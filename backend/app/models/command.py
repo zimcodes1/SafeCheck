@@ -12,7 +12,7 @@ class CommandType(str, Enum):
     VALVE = "valve"
 
 class Command(SQLModel, table=True):
-    """Database model for recorded plant operator/attacker commands."""
+    """Recorded command; source_id is the observed TCP peer for live traffic."""
     __tablename__ = "commands"
 
     id: int | None = Field(default=None, primary_key=True)

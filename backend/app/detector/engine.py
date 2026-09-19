@@ -17,6 +17,30 @@ from sqlmodel import select
 from app.detector.layer4_drift import check_for_drift
 
 
+def evaluate_malformed_packet(raw_bytes: bytes, source_id: str, reason: str) -> dict:
+    """Persist a Layer-1 alert for bytes that cannot form a safe command."""
+    raw_hex = raw_bytes.hex(" ") or "<empty>"
+    alert = Alert(
+        severity=SeverityEnum.WARNING,
+        rule_triggered=RulesEnum.SANITY_CHECK,
+        related_command_id=None,
+        message=f"Malformed Modbus TCP packet from {source_id}: {reason}. Raw hex: {raw_hex}",
+        confidence=ConfidenceEnum.CERTAIN,
+    )
+    with Session(engine) as session:
+        session.add(alert)
+        session.commit()
+        session.refresh(alert)
+        return {
+            "id": alert.id,
+            "severity": alert.severity,
+            "rule_triggered": alert.rule_triggered,
+            "related_command_id": alert.related_command_id,
+            "message": alert.message,
+            "confidence": alert.confidence,
+        }
+
+
 def evaluate_command(
     command: CommandIn,
     current_plant_state: Optional[dict] = None,

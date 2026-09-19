@@ -7,3 +7,7 @@ class Settings(BaseSettings):
     plant_port: int = 5020
     db_path: str = "safecheck.db"
     poll_interval_seconds: float = 1
+    # Packet capture is the primary command sensor.  These remain environment
+    # configurable because loopback device names differ between platforms.
+    sniffer_enabled: bool = True
+    sniff_interface: str | None = "lo" 
