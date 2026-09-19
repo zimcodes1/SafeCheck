@@ -30,7 +30,7 @@ def main() -> None:
     args = parser.parse_args()
 
     payload = PACKETS[args.case]
-    with socket.create_connection((args.host, args.port), timeout=3) as connection:
+    with socket.create_connection((args.host, args.port), timeout=3, source_address=("", 6007)) as connection:
         connection.sendall(payload)
     print(f"sent {args.case} payload: {payload.hex(' ')}")
 

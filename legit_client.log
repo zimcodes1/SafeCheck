@@ -1,0 +1,7 @@
+2026-09-19 07:02:46,937 | INFO | STARTUP | plant=127.0.0.1:5020 source_port=6001 safe_to_fill=100.0 max_cycles=1
+2026-09-19 07:02:46,942 | INFO | CONNECTED | plant=127.0.0.1:5020 source_port=6001
+2026-09-19 07:02:46,944 | INFO | ACTION | begin_fill register=0 value=1 water_level=50.0
+2026-09-19 07:02:46,949 | INFO | ACTION | end_fill register=0 value=0 water_level=50.0
+2026-09-19 07:02:46,953 | INFO | ACTION | begin_drain register=1 value=1 water_level=50.0
+2026-09-19 07:02:46,956 | INFO | ACTION | end_drain register=1 value=0 water_level=50.0
+2026-09-19 07:02:46,956 | INFO | CYCLE_COMPLETE | cycle=1

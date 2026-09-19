@@ -100,6 +100,12 @@ yarn dev
 
 Access the dashboard at `http://localhost:5173`
 
+### Legitimate client and attack demonstrations
+
+With the Plant running, use `uv run --project plant python legitimate_client/run.py --max-cycles 3` for a safe operator smoke test. The client is Modbus-only and needs no Backend.
+
+For the attack suite, start the Backend with packet-capture privileges, then see [attacks/README.md](attacks/README.md) for the individual commands, expected detector results, and the replay-proxy setup.
+
 ## Testing
 
 ### Backend Tests

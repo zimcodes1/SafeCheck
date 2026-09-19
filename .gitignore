@@ -13,3 +13,13 @@ backend/logs/
 backend/app/main.py
 backend/safecheck.db-shm
 backend/safecheck.db-wal
+attacks/replay/__pycache__/
+attacks/slow_drift/__pycache__/
+attacks/wrong_moment/__pycache__/
+attacks/maintenance_scenario/__pycache__/
+attacks/legitimate_client/__pycache__/
+attacks/injection/__pycache__/
+attacks/common/__pycache__/
+legitimate_client/__pycache__/__init__.cpython-313.pyc
+legitimate_client/__pycache__/operator.cpython-313.pyc
+legitimate_client/__pycache__/config.cpython-313.pyc
