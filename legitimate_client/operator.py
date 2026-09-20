@@ -90,18 +90,35 @@ class LegitimateOperator:
             level_text = " water_level=unavailable"
         self.logger.info("ACTION | %s register=%s value=%s%s", label, register, value, level_text)
 
+    def _sleep_with_level_check(self, duration: float, stop_condition=None, interval: float = 1.0) -> None:
+        """Sleep up to duration seconds, waking early if stop_condition(current_level) is True."""
+        deadline = time.time() + duration
+        while time.time() < deadline:
+            if stop_condition:
+                try:
+                    if stop_condition(self.water_level()):
+                        break
+                except Exception:
+                    pass
+            sleep_time = min(interval, max(0.0, deadline - time.time()))
+            time.sleep(sleep_time)
+
     def guard_before_fill(self) -> None:
         waited = 0.0
         while True:
             level = self.water_level()
             if level <= self.settings.safe_to_fill_level:
+                # Target safe level reached: close drain valve before proceeding
+                self.write(VALVE_COMMAND_REGISTER, 0, "guard_drain_close_valve")
                 return
             self.write(VALVE_COMMAND_REGISTER, 1, "extended_drain_open_valve")
             self.logger.info("GUARD_WAIT | water_level=%.1f threshold=%.1f", level, self.settings.safe_to_fill_level)
             if waited >= self.settings.max_guard_wait_seconds:
-                # The valve remains open, so proceeding cannot create the
-                # pump-on/closed-valve danger condition this guard prevents.
-                self.logger.warning("GUARD_TIMEOUT | water level still above threshold after %.0fs; proceeding with valve open", waited)
+                self.logger.warning(
+                    "GUARD_TIMEOUT | water level still above threshold after %.0fs; closing valve to proceed safely",
+                    waited,
+                )
+                self.write(VALVE_COMMAND_REGISTER, 0, "guard_drain_close_valve")
                 return
             time.sleep(self.settings.level_check_interval)
             waited += self.settings.level_check_interval
@@ -111,15 +128,48 @@ class LegitimateOperator:
         while max_cycles is None or completed < max_cycles:
             try:
                 self.connect_forever()
+
+                # 1. Pre-fill safety guard: ensure tank is drained to safe start level
                 self.guard_before_fill()
+
+                # Natural pause after draining before engaging the pump
+                pause_before_fill = random.uniform(*self.settings.phase_pause_range)
+                self.logger.info("PHASE_PAUSE | resting before refill duration=%.1fs", pause_before_fill)
+                time.sleep(pause_before_fill)
+
+                # Ensure valve is securely closed before starting the pump
+                self.write(VALVE_COMMAND_REGISTER, 0, "pre_fill_secure_valve")
+
+                # 2. Refill phase: energize pump until duration expires or high target reached
                 self.write(PUMP_COMMAND_REGISTER, 1, "begin_fill")
-                time.sleep(random.uniform(*self.settings.fill_duration_range))
+                fill_duration = random.uniform(*self.settings.fill_duration_range)
+                self._sleep_with_level_check(
+                    fill_duration,
+                    stop_condition=lambda lvl: lvl >= self.settings.target_high_level,
+                    interval=self.settings.level_check_interval,
+                )
                 self.write(PUMP_COMMAND_REGISTER, 0, "end_fill")
-                time.sleep(random.uniform(*self.settings.phase_pause_range))
+
+                # Natural pause at high level before opening the drain valve
+                pause_before_drain = random.uniform(*self.settings.phase_pause_range)
+                self.logger.info("PHASE_PAUSE | resting at high level before drain duration=%.1fs", pause_before_drain)
+                time.sleep(pause_before_drain)
+
+                # 3. Drain phase: open valve until duration expires or safe low level reached
                 self.write(VALVE_COMMAND_REGISTER, 1, "begin_drain")
-                time.sleep(random.uniform(*self.settings.drain_duration_range))
+                drain_duration = random.uniform(*self.settings.drain_duration_range)
+                self._sleep_with_level_check(
+                    drain_duration,
+                    stop_condition=lambda lvl: lvl <= self.settings.safe_to_fill_level,
+                    interval=self.settings.level_check_interval,
+                )
                 self.write(VALVE_COMMAND_REGISTER, 0, "end_drain")
-                time.sleep(random.uniform(*self.settings.phase_pause_range))
+
+                # Natural pause after cycle completes before next cycle
+                pause_after_cycle = random.uniform(*self.settings.phase_pause_range)
+                self.logger.info("PHASE_PAUSE | post-cycle settling duration=%.1fs", pause_after_cycle)
+                time.sleep(pause_after_cycle)
+
                 completed += 1
                 self.logger.info("CYCLE_COMPLETE | cycle=%s", completed)
             except (ConnectionError, OSError, ValueError) as exc:
