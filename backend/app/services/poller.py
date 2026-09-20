@@ -86,7 +86,7 @@ async def poll_once() -> Optional[Reading]:
             rows_out = [ReadingOut.model_validate(r) for r in reversed(rows)]
             new_reading = ReadingOut.model_validate(reading)
 
-        _, alert_payload = evaluate_reading(new_reading, rows_out)
+        _, alert_payload = evaluate_reading(new_reading, rows_out, cooldown_seconds=30)
         if alert_payload:
             logger.warning("poll_once: alert from evaluate_reading: %s", alert_payload)
     except Exception:

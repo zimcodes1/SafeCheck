@@ -1,0 +1,23 @@
+warning: `VIRTUAL_ENV=/home/azimeh/Desktop/Code/SafeCheck/backend/.venv` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead
+2026-09-20 16:08:26 | INFO | plant.server | Starting SafeCheck Plant Modbus TCP server on 0.0.0.0:5020...
+2026-09-20 16:08:27 | INFO | plant.server | tick -> water_level=50.0 pump=False valve=False
+2026-09-20 16:08:28 | INFO | plant.server | tick -> water_level=50.0 pump=False valve=False
+2026-09-20 16:08:29 | INFO | plant.server | tick -> water_level=49.0 pump=False valve=True
+2026-09-20 16:08:30 | INFO | plant.server | tick -> water_level=48.0 pump=False valve=True
+2026-09-20 16:08:31 | INFO | plant.server | tick -> water_level=47.0 pump=False valve=True
+2026-09-20 16:08:32 | INFO | plant.server | tick -> water_level=46.0 pump=False valve=True
+2026-09-20 16:08:33 | INFO | plant.server | tick -> water_level=45.0 pump=False valve=True
+2026-09-20 16:08:34 | INFO | plant.server | tick -> water_level=44.0 pump=False valve=True
+2026-09-20 16:08:35 | INFO | plant.server | tick -> water_level=43.0 pump=False valve=True
+2026-09-20 16:08:36 | INFO | plant.server | tick -> water_level=42.0 pump=False valve=True
+2026-09-20 16:08:37 | INFO | plant.server | tick -> water_level=41.0 pump=False valve=True
+2026-09-20 16:08:38 | INFO | plant.server | tick -> water_level=40.0 pump=False valve=True
+2026-09-20 16:08:39 | INFO | plant.server | tick -> water_level=39.0 pump=False valve=True
+2026-09-20 16:08:40 | INFO | plant.server | tick -> water_level=38.0 pump=False valve=True
+2026-09-20 16:08:41 | INFO | plant.server | tick -> water_level=37.0 pump=False valve=True
+2026-09-20 16:08:42 | INFO | plant.server | tick -> water_level=36.0 pump=False valve=True
+2026-09-20 16:08:43 | INFO | plant.server | tick -> water_level=35.0 pump=False valve=True
+2026-09-20 16:08:44 | INFO | plant.server | tick -> water_level=34.0 pump=False valve=True
+2026-09-20 16:08:45 | INFO | plant.server | tick -> water_level=33.0 pump=False valve=True
+2026-09-20 16:08:46 | INFO | plant.server | tick -> water_level=32.0 pump=False valve=True
+2026-09-20 16:08:47 | INFO | plant.server | tick -> water_level=31.0 pump=False valve=True

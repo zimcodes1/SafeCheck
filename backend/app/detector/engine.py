@@ -1,6 +1,5 @@
-from __future__ import annotations
-
-from typing import Optional, Tuple
+from datetime import datetime, timezone
+from typing import List, Optional, Tuple
 
 from app.database import engine
 from app.detector.layer1_sanity import check_sanity
@@ -8,12 +7,10 @@ from app.detector.layer2_state_machine import check_state_validity
 from app.models.alert import Alert, ConfidenceEnum, RulesEnum, SeverityEnum
 from app.models.command import Command, CommandType
 from app.schemas.command import CommandIn
-from sqlmodel import Session
+from sqlmodel import Session, select, col
 from app.detector.layer3_replay import check_for_replay
 from app.models.reading import Reading
 from app.schemas.reading import ReadingOut
-from typing import List
-from sqlmodel import select
 from app.detector.layer4_drift import check_for_drift
 
 
@@ -144,12 +141,19 @@ def evaluate_command(
     return command_payload, None
 
 
-def evaluate_reading(reading: ReadingOut, window: List[ReadingOut]) -> Tuple[Optional[dict], Optional[dict]]:
-    """Evaluate a newly persisted `reading` using replay detection (Layer 3).
+def evaluate_reading(
+    reading: ReadingOut,
+    window: List[ReadingOut],
+    cooldown_seconds: int = 0,
+) -> Tuple[Optional[dict], Optional[dict]]:
+    """Evaluate a newly persisted `reading` using replay detection (Layer 3) and drift (Layer 4).
 
     Returns a tuple `(command_payload, alert_payload)` where `alert_payload` is
     non-None when an alert was created. `command_payload` is unused here but kept
     for signature compatibility; both are plain dicts when returned.
+
+    If `cooldown_seconds > 0`, duplicate alerts for the same rule within that window
+    are suppressed to prevent alert flooding during continuous passive anomalies.
     """
     # Run replay detector (Layer 3)
     ok_replay, reason_replay = check_for_replay(reading, window)
@@ -177,14 +181,34 @@ def evaluate_reading(reading: ReadingOut, window: List[ReadingOut]) -> Tuple[Opt
         else ConfidenceEnum.CERTAIN
     )
 
-    alert = Alert(
-        severity=SeverityEnum.WARNING,
-        rule_triggered=rule,
-        related_command_id=None,
-        message=reason or "Anomaly detected",
-        confidence=conf,
-    )
     with Session(engine) as session:
+        # Check cooldown to prevent duplicate alert storms for continuous anomalies
+        if cooldown_seconds > 0:
+            stmt = (
+                select(Alert)
+                .where(Alert.rule_triggered == rule)
+                .order_by(col(Alert.timestamp).desc())
+                .limit(1)
+            )
+            last_alert = session.exec(stmt).first()
+            if last_alert and last_alert.timestamp:
+                now_utc = datetime.now(timezone.utc)
+                ts = (
+                    last_alert.timestamp
+                    if last_alert.timestamp.tzinfo
+                    else last_alert.timestamp.replace(tzinfo=timezone.utc)
+                )
+                if (now_utc - ts).total_seconds() < cooldown_seconds:
+                    # Suppress duplicate alert within cooldown period
+                    return None, None
+
+        alert = Alert(
+            severity=SeverityEnum.WARNING,
+            rule_triggered=rule,
+            related_command_id=None,
+            message=reason or "Anomaly detected",
+            confidence=conf,
+        )
         session.add(alert)
         session.commit()
         session.refresh(alert)

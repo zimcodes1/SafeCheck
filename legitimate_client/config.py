@@ -13,7 +13,7 @@ PLANT_ROOT = ROOT / "plant"
 if str(PLANT_ROOT) not in sys.path:
     sys.path.insert(0, str(PLANT_ROOT))
 
-from server.registers import (  # noqa: E402
+from server.registers import (
     PUMP_COMMAND_REGISTER,
     VALVE_COMMAND_REGISTER,
     WATER_LEVEL_REGISTER,

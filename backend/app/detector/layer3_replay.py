@@ -43,14 +43,17 @@ def check_for_replay(
     except Exception:
         return True, None
 
-    # count pump activity across the window (including the new reading)
+    # count pump and valve activity across the window (including the new reading)
     pump_count = 0
+    valve_count = 0
     total_count = 0
     levels = []
 
     for r in window:
         if _state_value(r, "pump_state"):
             pump_count += 1
+        if _state_value(r, "valve_state"):
+            valve_count += 1
         lvl = _state_value(r, "water_level")
         if lvl is not None:
             levels.append(float(lvl))
@@ -59,6 +62,8 @@ def check_for_replay(
     # include the new reading in counts
     if _state_value(newest, "pump_state"):
         pump_count += 1
+    if _state_value(newest, "valve_state"):
+        valve_count += 1
     if newest_level is not None:
         levels.append(float(newest_level))
     total_count += 1
@@ -70,15 +75,18 @@ def check_for_replay(
     min_level = min(levels)
     level_variation = max_level - min_level
 
-    # A replay anomaly occurs when the pump is continuously engaged throughout the sample
-    # window, but the reported water level remains completely frozen / unchanged.
-    # Note: If the tank is already at capacity (>=99%), level cannot physically rise.
+    # A replay anomaly occurs when the pump is continuously engaged with the valve CLOSED
+    # throughout the sample window, but the reported water level remains completely frozen / unchanged.
+    # Notes:
+    # 1. If the valve is open while pump is on, physical net inflow is zero (offsetting flows), which is NOT a replay.
+    # 2. If the tank is already at capacity (>=99%), level cannot physically rise.
     pump_active_throughout = (pump_count == total_count)
+    valve_completely_closed = (valve_count == 0)
     tank_at_capacity = newest_level >= 99.0
 
-    if pump_active_throughout and not tank_at_capacity and level_variation < float(min_cumulative_change):
+    if pump_active_throughout and valve_completely_closed and not tank_at_capacity and level_variation < float(min_cumulative_change):
         return False, (
-            f"Sensor anomaly: pump has been continuously active but water level remained frozen (variation {level_variation:.2f} over {total_count} samples). "
+            f"Sensor anomaly: pump has been continuously active with valve closed but water level remained frozen (variation {level_variation:.2f} over {total_count} samples). "
             "Possible sensor replay, transmission failure, or device hang — investigate sensors and connectivity."
         )
 

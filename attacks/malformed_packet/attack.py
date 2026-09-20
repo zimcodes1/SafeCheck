@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import socket
+import struct
 
 
 PACKETS = {
@@ -30,7 +31,17 @@ def main() -> None:
     args = parser.parse_args()
 
     payload = PACKETS[args.case]
-    with socket.create_connection((args.host, args.port), timeout=3, source_address=("", 6007)) as connection:
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as connection:
+        connection.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        if hasattr(socket, "SO_REUSEPORT"):
+            try:
+                connection.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+            except OSError:
+                pass
+        connection.setsockopt(socket.SOL_SOCKET, socket.SO_LINGER, struct.pack('ii', 1, 0))
+        connection.settimeout(3)
+        connection.bind(("", 6007))
+        connection.connect((args.host, args.port))
         connection.sendall(payload)
     print(f"sent {args.case} payload: {payload.hex(' ')}")
 

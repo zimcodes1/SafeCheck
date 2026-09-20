@@ -1,0 +1,30 @@
+INFO:     Will watch for changes in these directories: ['/home/azimeh/Desktop/Code/SafeCheck/backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [105405] using WatchFiles
+INFO:     Started server process [105408]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2026-09-20 16:08:39 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 26.1ms
+INFO:     127.0.0.1:35342 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:08:39 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.9ms
+INFO:     127.0.0.1:41978 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:08:39 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 131.8ms
+INFO:     127.0.0.1:35326 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:08:39 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 108.2ms
+INFO:     127.0.0.1:41992 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:08:40 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.0ms
+INFO:     127.0.0.1:42002 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:08:41 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 106.5ms
+INFO:     127.0.0.1:42012 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:08:42 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.5ms
+INFO:     127.0.0.1:42018 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:08:43 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.1ms
+INFO:     127.0.0.1:42030 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:08:44 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 5.3ms
+INFO:     127.0.0.1:42050 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:08:44 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.9ms
+INFO:     127.0.0.1:42038 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:08:45 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.7ms
+INFO:     127.0.0.1:42064 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:08:46 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.6ms
+INFO:     127.0.0.1:42066 - "GET /api/plant/live HTTP/1.1" 200 OK

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-20T13:40:00.827498+00:00",
+  "timestamp": "2026-09-20T14:58:56.296601+00:00",
   "tests_passed": 12,
   "tests_failed": 0,
   "passes": {
@@ -9,15 +9,15 @@
     },
     "modbus_registers_readable": {
       "success": true,
-      "details": "HR=[0, 0] IR=[30, 0, 0]"
+      "details": "HR=[0, 1] IR=[68, 0, 1]"
     },
     "modbus_command_execution": {
       "success": true,
-      "details": "Wrote pump=1, read back HR=[1, 0]"
+      "details": "Wrote pump=1, read back HR=[1, 1]"
     },
     "plant_live_endpoint": {
       "success": true,
-      "details": "HTTP 200 data: water=30.0% pump=False"
+      "details": "HTTP 200 data: water=67.0% pump=False"
     },
     "plant_live_api_alias": {
       "success": true,
@@ -49,7 +49,7 @@
     },
     "api_contract_verification": {
       "success": true,
-      "details": "History, Alerts (total=10, critical=2), and AlertDetail all verified"
+      "details": "History, Alerts (total=7, critical=1), and AlertDetail all verified"
     }
   }
 }

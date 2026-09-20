@@ -68,15 +68,36 @@ export const alertStore = {
       const newArrivals = alerts.filter((a) => !seenAlertIds.has(a.id));
       for (const alert of newArrivals) {
         seenAlertIds.add(alert.id);
+      }
 
-        // Trigger Sonner toast notification
-        const description = `Rule: ${alert.rule_triggered?.toUpperCase()} • ${alert.message}`;
-        if (alert.severity === "critical") {
-          toast.error(`CRITICAL Security Alert #${alert.id}`, { description });
-        } else if (alert.severity === "warning") {
-          toast.warning(`WARNING Alert #${alert.id}`, { description });
+      if (newArrivals.length > 0) {
+        // If 1 or 2 alerts, show individual toasts
+        if (newArrivals.length <= 2) {
+          for (const alert of newArrivals) {
+            const description = `Rule: ${alert.rule_triggered?.toUpperCase()} • ${alert.message}`;
+            if (alert.severity === "critical") {
+              toast.error(`CRITICAL Security Alert #${alert.id}`, { description });
+            } else if (alert.severity === "warning") {
+              toast.warning(`WARNING Alert #${alert.id}`, { description });
+            } else {
+              toast.info(`INFO Alert #${alert.id}`, { description });
+            }
+          }
         } else {
-          toast.info(`INFO Alert #${alert.id}`, { description });
+          // If a burst of alerts arrives, show the highest severity alert + summary toast
+          const hasCritical = newArrivals.some((a) => a.severity === "critical");
+          const topAlert = newArrivals[0];
+          const desc = `${newArrivals.length} new detections (latest: ${topAlert.rule_triggered?.toUpperCase()}). Check the Alerts feed.`;
+
+          if (hasCritical) {
+            toast.error(`Multiple Security Incidents (${newArrivals.length} new alerts)`, {
+              description: desc,
+            });
+          } else {
+            toast.warning(`Security Alert Surge (${newArrivals.length} new alerts)`, {
+              description: desc,
+            });
+          }
         }
       }
     }

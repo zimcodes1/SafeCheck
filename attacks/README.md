@@ -10,7 +10,7 @@ uv run python -m injection.run
 uv run python -m wrong_moment.run
 uv run python -m slow_drift.run --duration 30
 uv run python -m maintenance_scenario.run --cycles 3
-uv run python malformed_packet/attack.py --case bad-protocol
+uv run python malformed_packet.attack --case bad-protocol
 ```
 
 Each script has a fixed source port, making traffic visible to the passive
@@ -20,13 +20,13 @@ source port at once.
 
 ## Expected test results
 
-| Script | Expected result |
-| --- | --- |
-| `injection` | One unsolicited valid write recorded by the detector. |
-| `wrong_moment` | A critical Layer-2 alert after the tank reaches its high-water threshold. |
-| `slow_drift` | A Layer-4 underperformance/drift warning after enough poll samples. |
-| `maintenance_scenario` | No warning or critical alert; pump remains off. |
-| `malformed_packet` | A certain Layer-1 warning containing the raw hexadecimal bytes. |
+| Script                 | Expected result                                                           |
+| ---------------------- | ------------------------------------------------------------------------- |
+| `injection`            | One unsolicited valid write recorded by the detector.                     |
+| `wrong_moment`         | A critical Layer-2 alert after the tank reaches its high-water threshold. |
+| `slow_drift`           | A Layer-4 underperformance/drift warning after enough poll samples.       |
+| `maintenance_scenario` | No warning or critical alert; pump remains off.                           |
+| `malformed_packet`     | A certain Layer-1 warning containing the raw hexadecimal bytes.           |
 
 ## Replay test
 

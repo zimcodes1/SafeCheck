@@ -73,7 +73,22 @@ cd ../dashboard
 yarn install
 ```
 
-### Running the System
+### Running the Full System (Recommended)
+
+Run all 4 components (Plant, Backend, Frontend, and Legitimate Client) simultaneously in dependency order with a single command:
+
+```bash
+# Start all services with unified log streaming
+./start.sh
+
+# Or start fresh, automatically stopping any previous instances on project ports:
+./start.sh -k
+
+# Stop all background services at any time from another terminal:
+./stop.sh
+```
+
+### Manual Multi-Terminal Startup (Alternative)
 
 **Terminal 1 - Start Plant Simulator:**
 
@@ -86,7 +101,7 @@ uv run python run.py
 
 ```bash
 cd backend
-uv run uvicorn app.main:app --host 0.0.0.0 --port 8000
+uv run uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
 The passive sensor requires packet-capture privileges: on Linux run the backend with `sudo` (or grant `CAP_NET_RAW`) and use `SNIFF_INTERFACE=lo`; macOS uses `lo0`, while Windows requires Npcap and an Administrator shell. If unavailable, SafeCheck automatically uses the polling fallback.
@@ -95,14 +110,21 @@ The passive sensor requires packet-capture privileges: on Linux run the backend 
 
 ```bash
 cd dashboard
-yarn dev
+npm run dev
 ```
 
-Access the dashboard at `http://localhost:5173`
+**Terminal 4 - Start Legitimate Operator Client:**
 
-### Legitimate client and attack demonstrations
+```bash
+cd legitimate_client
+uv run python run.py
+```
 
-With the Plant running, use `uv run --project plant python legitimate_client/run.py --max-cycles 3` for a safe operator smoke test. The client is Modbus-only and needs no Backend.
+Access endpoints:
+
+- Dashboard: `http://localhost:5173`
+- Operator HMI: `http://localhost:5173/operator`
+- API Docs: `http://127.0.0.1:8000/docs`
 
 For the attack suite, start the Backend with packet-capture privileges, then see [attacks/README.md](attacks/README.md) for the individual commands, expected detector results, and the replay-proxy setup.
 

@@ -55,9 +55,9 @@ def run_scenarios() -> List[dict]:
     results.append({"scenario": "invalid_command", "command": bad_res, "alert": bad_alert})
 
     # Scenario 4: Replay/stuck readings (pump active but no level change)
-    base = make_reading(50.0, True, True, ts(-60))
+    base = make_reading(50.0, True, False, ts(-60))
     window = [base, base, base]
-    new = make_reading(50.0, True, True, ts(0))
+    new = make_reading(50.0, True, False, ts(0))
     _, alert = evaluate_reading(new, window)
     results.append({"scenario": "replay_stuck", "alert": alert})
 

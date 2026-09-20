@@ -1,0 +1,9 @@
+warning: `VIRTUAL_ENV=/home/azimeh/Desktop/Code/SafeCheck/backend/.venv` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead
+2026-09-20 16:08:30,961 | INFO | STARTUP | plant=127.0.0.1:5020 source_port=6001 safe_to_fill=30.0 max_cycles=None
+Connection to (127.0.0.1, 5020) failed: [Errno 98] Address already in use
+2026-09-20 16:08:30,971 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=1s
+Repeating....
+2026-09-20 16:08:31,972 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=2s
+2026-09-20 16:08:33,973 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:08:38,973 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:08:43,974 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
