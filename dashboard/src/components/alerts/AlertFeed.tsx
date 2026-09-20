@@ -7,13 +7,21 @@ import { ShieldCheck } from "lucide-react";
 interface AlertFeedProps {
 	alerts: AlertOut[];
 	isLoading: boolean;
+	selectedAlertIds?: Set<number>;
+	onToggleSelect?: (alertId: number) => void;
 	onAlertClick: (alert: AlertOut) => void;
+	onDeleteAlert?: (alertId: number) => void;
+	onMarkReadAlert?: (alertId: number) => void;
 }
 
 export const AlertFeed: React.FC<AlertFeedProps> = ({
 	alerts,
 	isLoading,
+	selectedAlertIds = new Set(),
+	onToggleSelect,
 	onAlertClick,
+	onDeleteAlert,
+	onMarkReadAlert,
 }) => {
 	if (isLoading && alerts.length === 0) {
 		return (
@@ -46,7 +54,15 @@ export const AlertFeed: React.FC<AlertFeedProps> = ({
 				<AlertCard
 					key={alert.id}
 					alert={alert}
+					isSelected={selectedAlertIds.has(alert.id)}
+					onToggleSelect={
+						onToggleSelect ? () => onToggleSelect(alert.id) : undefined
+					}
 					onClick={() => onAlertClick(alert)}
+					onDelete={onDeleteAlert ? () => onDeleteAlert(alert.id) : undefined}
+					onMarkRead={
+						onMarkReadAlert ? () => onMarkReadAlert(alert.id) : undefined
+					}
 				/>
 			))}
 		</div>

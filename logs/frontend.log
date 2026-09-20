@@ -6,3 +6,13 @@ npm notice run vite
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose
   ➜  press h + enter to show help
+5:19:24 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/CommandsHistory.tsx, /src/pages/safecheck/ReadingsHistory.tsx, /src/pages/safecheck/LiveView.tsx, /src/pages/safecheck/AlertsView.tsx, /src/components/safecheck/ScenarioRunner.tsx
+5:19:56 PM [vite] (client) hmr update /src/index.css, /src/components/alerts/SeverityFilterBar.tsx
+5:20:11 PM [vite] (client) hmr update /src/index.css, /src/components/alerts/AlertCard.tsx
+5:20:21 PM [vite] (client) hmr update /src/index.css, /src/components/alerts/AlertFeed.tsx
+5:20:31 PM [vite] (client) hmr update /src/index.css, /src/components/alerts/AlertDetailPanel.tsx
+5:20:57 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/AlertsView.tsx
+5:20:57 PM [vite] (client) hmr invalidate /src/pages/safecheck/AlertsView.tsx Could not Fast Refresh (export removed)
+5:20:57 PM [vite] (client) hmr update /src/App.tsx
+5:21:19 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/AlertsView.tsx
+5:22:16 PM [vite] (client) hmr update /src/index.css, /src/components/alerts/SeverityFilterBar.tsx

@@ -12,18 +12,21 @@ import {
 	Layers,
 	Terminal,
 	ShieldAlert,
+	Trash2,
 } from "lucide-react";
 
 interface AlertDetailPanelProps {
 	alert: AlertDetail | null;
 	isOpen?: boolean;
 	onClose: () => void;
+	onDelete?: () => void;
 }
 
 export const AlertDetailPanel: React.FC<AlertDetailPanelProps> = ({
 	alert,
 	isOpen,
 	onClose,
+	onDelete,
 }) => {
 	const isModalOpen = isOpen !== undefined ? isOpen : !!alert;
 
@@ -56,6 +59,24 @@ export const AlertDetailPanel: React.FC<AlertDetailPanelProps> = ({
 				<Button variant="secondary" size="sm" onClick={onClose} type="button">
 					Close Panel
 				</Button>
+				<div className="flex items-center justify-between w-full">
+					{onDelete ? (
+						<Button
+							variant="danger"
+							size="sm"
+							onClick={onDelete}
+							leftIcon={<Trash2 className="w-4 h-4" />}
+							type="button"
+						>
+							Delete Alert
+						</Button>
+					) : (
+						<div />
+					)}
+					<Button variant="secondary" size="sm" onClick={onClose} type="button">
+						Close Panel
+					</Button>
+				</div>
 			}
 		>
 			<div className="space-y-5 text-sm">

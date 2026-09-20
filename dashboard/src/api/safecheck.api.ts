@@ -28,6 +28,24 @@ export const safecheckAPI = {
     return response.data;
   },
 
+  // Delete a single alert
+  deleteAlert: async (alertId: number): Promise<{ status: string; message: string }> => {
+    const response = await axiosInstance.delete(`/alerts/${alertId}`);
+    return response.data;
+  },
+
+  // Delete multiple alerts by IDs
+  batchDeleteAlerts: async (ids: number[]): Promise<{ status: string; deleted_count: number }> => {
+    const response = await axiosInstance.post("/alerts/batch-delete", { ids });
+    return response.data;
+  },
+
+  // Delete all alerts (optionally filtered by severity)
+  deleteAllAlerts: async (severity?: string): Promise<{ status: string; deleted_count: number }> => {
+    const response = await axiosInstance.delete("/alerts", { params: severity ? { severity } : undefined });
+    return response.data;
+  },
+
   // Historical readings - get sensor data history
   getReadingsHistory: async (filters?: HistoryFilters): Promise<Reading[]> => {
     const response = await axiosInstance.get("/history/readings", {

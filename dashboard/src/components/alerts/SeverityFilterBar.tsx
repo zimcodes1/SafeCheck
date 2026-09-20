@@ -1,112 +1,93 @@
 import React from "react";
 import type { Severity } from "../../types/safecheck.types";
-import { AlertOctagon, AlertTriangle, Info, Check, Filter } from "lucide-react";
+import { AlertOctagon, AlertTriangle, Info, ShieldAlert } from "lucide-react";
+
+export type SeverityTab = "all" | Severity;
 
 interface SeverityFilterBarProps {
-	activeFilters: Severity[];
-	onFilterToggle: (severity: Severity) => void;
+	activeTab: SeverityTab;
+	onTabChange: (tab: SeverityTab) => void;
+	counts?: {
+		all: number;
+		critical: number;
+		warning: number;
+		info: number;
+	};
 }
 
 export const SeverityFilterBar: React.FC<SeverityFilterBarProps> = ({
-	activeFilters,
-	onFilterToggle,
+	activeTab,
+	onTabChange,
+	counts = { all: 0, critical: 0, warning: 0, info: 0 },
 }) => {
-	const isAllActive =
-		activeFilters.includes("critical") &&
-		activeFilters.includes("warning") &&
-		activeFilters.includes("info");
-
-	const handleSelectAll = () => {
-		if (isAllActive) {
-			// Leave at least critical active
-			if (activeFilters.includes("critical")) onFilterToggle("warning");
-		} else {
-			if (!activeFilters.includes("critical")) onFilterToggle("critical");
-			if (!activeFilters.includes("warning")) onFilterToggle("warning");
-			if (!activeFilters.includes("info")) onFilterToggle("info");
-		}
-	};
-
-	const filterConfigs: {
-		severity: Severity;
+	const tabs: {
+		id: SeverityTab;
 		label: string;
 		icon: React.ReactNode;
-		activeClasses: string;
-		inactiveClasses: string;
+		badgeClass: string;
+		activeClass: string;
 	}[] = [
 		{
-			severity: "critical",
+			id: "all",
+			label: "All Alerts",
+			icon: <ShieldAlert className="w-4 h-4" />,
+			badgeClass: "bg-surface-2 text-text-secondary border-border-subtle",
+			activeClass: "border-primary text-primary font-bold",
+		},
+		{
+			id: "critical",
 			label: "Critical",
-			icon: <AlertOctagon className="w-4 h-4" />,
-			activeClasses:
-				"bg-critical text-white shadow-xs font-semibold border-critical",
-			inactiveClasses:
-				"bg-surface-1 text-critical/80 border-border-subtle hover:bg-critical/10 hover:border-critical/30",
+			icon: <AlertOctagon className="w-4 h-4 text-critical" />,
+			badgeClass:
+				"bg-critical/15 text-critical border-critical/30 font-semibold",
+			activeClass: "border-critical text-critical font-bold",
 		},
 		{
-			severity: "warning",
+			id: "warning",
 			label: "Warning",
-			icon: <AlertTriangle className="w-4 h-4" />,
-			activeClasses:
-				"bg-warning text-white shadow-xs font-semibold border-warning",
-			inactiveClasses:
-				"bg-surface-1 text-warning/80 border-border-subtle hover:bg-warning/10 hover:border-warning/30",
+			icon: <AlertTriangle className="w-4 h-4 text-warning" />,
+			badgeClass: "bg-warning/15 text-warning border-warning/30 font-semibold",
+			activeClass: "border-warning text-warning font-bold",
 		},
 		{
-			severity: "info",
+			id: "info",
 			label: "Info",
-			icon: <Info className="w-4 h-4" />,
-			activeClasses: "bg-info text-white shadow-xs font-semibold border-info",
-			inactiveClasses:
-				"bg-surface-1 text-info/80 border-border-subtle hover:bg-info/10 hover:border-info/30",
+			icon: <Info className="w-4 h-4 text-info" />,
+			badgeClass: "bg-info/15 text-info border-info/30 font-semibold",
+			activeClass: "border-info text-info font-bold",
 		},
 	];
 
 	return (
-		<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-			<div className="flex items-center gap-2 text-xs font-semibold text-text-secondary uppercase tracking-wider">
-				<Filter className="w-3.5 h-3.5 text-primary" />
-				<span>Severity Filters:</span>
-			</div>
+		<div className="flex items-center gap-1 sm:gap-2 border-b border-border-subtle">
+			{tabs.map((tab) => {
+				const isActive = activeTab === tab.id;
+				const count = counts[tab.id];
 
-			<div className="flex flex-wrap items-center gap-2 p-1.5 bg-surface-2 rounded-xl border border-border-subtle">
-				{/* Toggle All Button */}
-				<button
-					onClick={handleSelectAll}
-					className={`px-3 py-1.5 rounded-lg text-xs font-medium cursor-pointer transition-all flex items-center gap-1.5 ${
-						isAllActive
-							? "bg-surface-1 text-primary border border-border-subtle shadow-2xs font-semibold"
-							: "text-text-secondary hover:text-text-primary hover:bg-surface-1/60 border border-transparent"
-					}`}
-				>
-					{isAllActive && <Check className="w-3 h-3 text-primary" />}
-					<span>All Severities</span>
-				</button>
-
-				<div className="w-px h-5 bg-border-subtle mx-0.5 hidden sm:block" />
-
-				{/* Severity Toggles */}
-				{filterConfigs.map(
-					({ severity, label, icon, activeClasses, inactiveClasses }) => {
-						const isActive = activeFilters.includes(severity);
-						return (
-							<button
-								key={severity}
-								onClick={() => onFilterToggle(severity)}
-								className={`px-3.5 py-1.5 rounded-lg text-xs cursor-pointer transition-all duration-150 flex items-center gap-1.5 border ${
-									isActive ? activeClasses : inactiveClasses
-								}`}
-							>
-								<span className="shrink-0">{icon}</span>
-								<span>{label}</span>
-								{isActive && (
-									<span className="w-1.5 h-1.5 rounded-full bg-white/90 shrink-0 ml-0.5" />
-								)}
-							</button>
-						);
-					},
-				)}
-			</div>
+				return (
+					<button
+						key={tab.id}
+						onClick={() => onTabChange(tab.id)}
+						className={`flex items-center gap-2 px-3.5 py-3 text-sm font-medium border-b-2 cursor-pointer transition-all whitespace-nowrap -mb-px ${
+							isActive
+								? `${tab.activeClass} bg-surface-2/40`
+								: "border-transparent text-text-secondary hover:text-text-primary hover:border-border-subtle/80"
+						}`}
+					>
+						<span className="shrink-0">{tab.icon}</span>
+						<span>{tab.label}</span>
+						<span
+							className={`text-xs px-2 py-0.5 rounded-full border font-mono transition-colors ${
+								isActive
+									? tab.badgeClass
+									: "bg-surface-2 text-text-tertiary border-border-subtle"
+							}`}
+						>
+							{count}
+						</span>
+					</button>
+				);
+			})}
 		</div>
 	);
 };
