@@ -52,6 +52,7 @@ export const Modal: FC<ModalProps> = ({
 			{/* Modal Dialog */}
 			<div
 				className={`relative w-full ${maxWidthClasses[maxWidth]} bg-surface-1 border border-border-strong/70 rounded-2xl shadow-xl overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-150`}
+				onClick={(e) => e.stopPropagation()}
 			>
 				{/* Header */}
 				<div className="flex items-start justify-between p-5 border-b border-border-subtle">
@@ -64,8 +65,12 @@ export const Modal: FC<ModalProps> = ({
 						)}
 					</div>
 					<button
-						onClick={onClose}
-						className="text-text-tertiary hover:text-text-primary p-1 rounded-lg hover:bg-surface-2 transition-colors cursor-pointer"
+						type="button"
+						onClick={(e) => {
+							e.stopPropagation();
+							onClose();
+						}}
+						className="text-text-tertiary hover:text-text-primary p-1.5 rounded-lg hover:bg-surface-2 transition-colors cursor-pointer"
 						aria-label="Close"
 					>
 						<X className="w-4 h-4" />
@@ -84,7 +89,15 @@ export const Modal: FC<ModalProps> = ({
 					</div>
 				) : (
 					<div className="p-4 px-5 bg-surface-2/40 border-t border-border-subtle flex items-center justify-end">
-						<Button variant="secondary" size="sm" onClick={onClose}>
+						<Button
+							variant="secondary"
+							size="sm"
+							type="button"
+							onClick={(e) => {
+								e.stopPropagation();
+								onClose();
+							}}
+						>
 							Close
 						</Button>
 					</div>

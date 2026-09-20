@@ -100,7 +100,12 @@ export const useAlertDetail = (alertId: number | null) => {
   const [error, setError] = useState<string | null>(null);
 
   const fetchAlertDetail = useCallback(async () => {
-    if (!alertId) return;
+    if (!alertId) {
+      setAlertDetail(null);
+      setError(null);
+      setIsLoading(false);
+      return;
+    }
 
     setIsLoading(true);
     try {
@@ -116,8 +121,12 @@ export const useAlertDetail = (alertId: number | null) => {
   }, [alertId]);
 
   useEffect(() => {
+    if (!alertId) {
+      setAlertDetail(null);
+      return;
+    }
     fetchAlertDetail();
-  }, [fetchAlertDetail]);
+  }, [alertId, fetchAlertDetail]);
 
   return {
     alertDetail,

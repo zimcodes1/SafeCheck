@@ -16,14 +16,18 @@ import {
 
 interface AlertDetailPanelProps {
 	alert: AlertDetail | null;
+	isOpen?: boolean;
 	onClose: () => void;
 }
 
 export const AlertDetailPanel: React.FC<AlertDetailPanelProps> = ({
 	alert,
+	isOpen,
 	onClose,
 }) => {
-	if (!alert) {
+	const isModalOpen = isOpen !== undefined ? isOpen : !!alert;
+
+	if (!isModalOpen || !alert) {
 		return null;
 	}
 
@@ -43,13 +47,13 @@ export const AlertDetailPanel: React.FC<AlertDetailPanelProps> = ({
 
 	return (
 		<Modal
-			isOpen={!!alert}
+			isOpen={isModalOpen}
 			onClose={onClose}
 			title={`Security Alert Forensics (ID #${alert.id})`}
 			description="Physical context correlation and root-cause analysis"
 			maxWidth="lg"
 			footer={
-				<Button variant="secondary" size="sm" onClick={onClose}>
+				<Button variant="secondary" size="sm" onClick={onClose} type="button">
 					Close Panel
 				</Button>
 			}
