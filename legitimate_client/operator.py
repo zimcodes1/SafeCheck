@@ -3,6 +3,8 @@ from __future__ import annotations
 
 import logging
 import random
+import socket
+import struct
 import time
 from logging.handlers import RotatingFileHandler
 
@@ -14,6 +16,32 @@ from legitimate_client.config import (
     WATER_LEVEL_REGISTER,
     OperatorSettings,
 )
+
+
+class ReusableModbusTcpClient(ModbusTcpClient):
+    """ModbusTcpClient with SO_REUSEADDR and SO_LINGER=0 to prevent TIME_WAIT port lockouts."""
+
+    def connect(self) -> bool:
+        if self.socket:
+            return True
+        try:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            if hasattr(socket, "SO_REUSEPORT"):
+                try:
+                    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+                except OSError:
+                    pass
+            sock.setsockopt(socket.SOL_SOCKET, socket.SO_LINGER, struct.pack("ii", 1, 0))
+            if self.comm_params.source_address:
+                sock.bind(self.comm_params.source_address)
+            sock.settimeout(self.comm_params.timeout_connect)
+            sock.connect((self.comm_params.host, self.comm_params.port))
+            self.socket = sock
+            return True
+        except OSError:
+            self.close()
+            return False
 
 
 def setup_logging() -> logging.Logger:
@@ -41,7 +69,7 @@ class LegitimateOperator:
             try:
                 # pymodbus creates its TCP socket from this explicit source
                 # address; this is equivalent to binding before connect.
-                candidate = ModbusTcpClient(
+                candidate = ReusableModbusTcpClient(
                     self.settings.plant_host,
                     port=self.settings.plant_port,
                     source_address=("", self.settings.local_source_port),

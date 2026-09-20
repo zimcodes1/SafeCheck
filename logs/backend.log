@@ -2780,3 +2780,672 @@ INFO:     127.0.0.1:54488 - "GET /api/plant/live HTTP/1.1" 200 OK
 INFO:     127.0.0.1:54500 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
 2026-09-20 16:27:51 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 107.7ms
 INFO:     127.0.0.1:54498 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:27:52 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.8ms
+INFO:     127.0.0.1:54512 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:27:53 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.2ms
+INFO:     127.0.0.1:54528 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:27:54 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.6ms
+INFO:     127.0.0.1:54544 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:27:55 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.5ms
+INFO:     127.0.0.1:54552 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:27:56 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 9.5ms
+INFO:     127.0.0.1:54578 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:27:56 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 113.9ms
+INFO:     127.0.0.1:54566 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:27:57 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.2ms
+INFO:     127.0.0.1:54582 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:27:58 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.9ms
+INFO:     127.0.0.1:54584 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:27:59 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.3ms
+INFO:     127.0.0.1:43150 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:28:00 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.3ms
+INFO:     127.0.0.1:43152 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:28:01 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 4.3ms
+INFO:     127.0.0.1:43176 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:28:01 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 106.6ms
+INFO:     127.0.0.1:43162 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:28:02 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.1ms
+INFO:     127.0.0.1:43186 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:28:03 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.0ms
+INFO:     127.0.0.1:43200 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:28:16 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 4.8ms
+INFO:     127.0.0.1:33982 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:28:16 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.9ms
+INFO:     127.0.0.1:33976 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:29:16 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 4.8ms
+INFO:     127.0.0.1:47480 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:29:16 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.8ms
+INFO:     127.0.0.1:47478 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:30:16 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 5.0ms
+INFO:     127.0.0.1:43596 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:30:16 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 110.0ms
+INFO:     127.0.0.1:43590 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:31:16 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.6ms
+INFO:     127.0.0.1:44414 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:31:16 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 108.2ms
+INFO:     127.0.0.1:44412 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:32:16 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 4.5ms
+INFO:     127.0.0.1:46804 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:32:16 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 109.2ms
+INFO:     127.0.0.1:46800 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:32:50 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.7ms
+INFO:     127.0.0.1:45806 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:32:50 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 106.7ms
+INFO:     127.0.0.1:45790 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:32:51 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.1ms
+INFO:     127.0.0.1:45820 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:32:51 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 107.9ms
+INFO:     127.0.0.1:45808 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:32:52 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.2ms
+INFO:     127.0.0.1:45836 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:32:53 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 107.3ms
+INFO:     127.0.0.1:45840 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:32:54 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 110.0ms
+INFO:     127.0.0.1:45842 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:32:55 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.6ms
+INFO:     127.0.0.1:45852 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:32:56 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.4ms
+INFO:     127.0.0.1:45876 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:32:56 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.7ms
+INFO:     127.0.0.1:45860 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:32:57 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.2ms
+INFO:     127.0.0.1:45878 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:32:58 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.9ms
+INFO:     127.0.0.1:45892 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:32:59 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.6ms
+INFO:     127.0.0.1:45906 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:00 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.1ms
+INFO:     127.0.0.1:32942 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:01 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.7ms
+INFO:     127.0.0.1:32954 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:33:01 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.8ms
+INFO:     127.0.0.1:32944 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:02 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.4ms
+INFO:     127.0.0.1:32956 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:03 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.7ms
+INFO:     127.0.0.1:32964 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:04 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.7ms
+INFO:     127.0.0.1:32966 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:05 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.8ms
+INFO:     127.0.0.1:32972 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:06 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.2ms
+INFO:     127.0.0.1:32996 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:33:06 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.4ms
+INFO:     127.0.0.1:32982 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:07 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.2ms
+INFO:     127.0.0.1:33012 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:08 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.1ms
+INFO:     127.0.0.1:33014 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:09 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.4ms
+INFO:     127.0.0.1:33030 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:10 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.1ms
+INFO:     127.0.0.1:55246 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:11 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 5.3ms
+INFO:     127.0.0.1:55264 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:33:11 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.4ms
+INFO:     127.0.0.1:55258 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:12 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.4ms
+INFO:     127.0.0.1:55270 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:13 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.6ms
+INFO:     127.0.0.1:55278 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:14 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.5ms
+INFO:     127.0.0.1:55284 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:15 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.5ms
+INFO:     127.0.0.1:55300 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:16 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 4.0ms
+INFO:     127.0.0.1:55304 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:33:16 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 108.3ms
+INFO:     127.0.0.1:55302 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:17 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.5ms
+INFO:     127.0.0.1:55318 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:18 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.9ms
+INFO:     127.0.0.1:55332 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:19 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.1ms
+INFO:     127.0.0.1:55344 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:20 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.6ms
+INFO:     127.0.0.1:59042 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:21 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.7ms
+INFO:     127.0.0.1:59052 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:33:21 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.5ms
+INFO:     127.0.0.1:59044 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:22 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.8ms
+INFO:     127.0.0.1:59060 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:23 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.6ms
+INFO:     127.0.0.1:59076 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:24 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.4ms
+INFO:     127.0.0.1:59078 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:25 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.1ms
+INFO:     127.0.0.1:59084 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:26 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.5ms
+INFO:     127.0.0.1:59110 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:33:26 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.7ms
+INFO:     127.0.0.1:59096 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:27 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.7ms
+INFO:     127.0.0.1:59124 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:28 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.7ms
+INFO:     127.0.0.1:59140 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:29 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.9ms
+INFO:     127.0.0.1:59152 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:30 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.3ms
+INFO:     127.0.0.1:50220 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:31 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 4.9ms
+INFO:     127.0.0.1:50246 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:33:31 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.7ms
+INFO:     127.0.0.1:50236 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:32 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.0ms
+INFO:     127.0.0.1:50260 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:33 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.1ms
+INFO:     127.0.0.1:50274 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:34 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.8ms
+INFO:     127.0.0.1:50278 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:35 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.4ms
+INFO:     127.0.0.1:50290 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:36 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.4ms
+INFO:     127.0.0.1:50298 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:33:36 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.6ms
+INFO:     127.0.0.1:50296 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:37 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.8ms
+INFO:     127.0.0.1:50308 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:38 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.3ms
+INFO:     127.0.0.1:50312 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:39 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.0ms
+INFO:     127.0.0.1:50324 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:40 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.5ms
+INFO:     127.0.0.1:49282 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:41 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.6ms
+INFO:     127.0.0.1:49294 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:33:41 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.9ms
+INFO:     127.0.0.1:49292 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:42 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.4ms
+INFO:     127.0.0.1:49296 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:43 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.6ms
+INFO:     127.0.0.1:49312 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:44 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.8ms
+INFO:     127.0.0.1:49320 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:45 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.8ms
+INFO:     127.0.0.1:49332 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:46 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 2.6ms
+INFO:     127.0.0.1:49354 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:33:46 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.3ms
+INFO:     127.0.0.1:49340 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:47 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.8ms
+INFO:     127.0.0.1:49356 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:48 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 106.0ms
+INFO:     127.0.0.1:49368 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:49 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.9ms
+INFO:     127.0.0.1:49378 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:50 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.8ms
+INFO:     127.0.0.1:60438 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:51 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 1.9ms
+INFO:     127.0.0.1:60444 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:33:51 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.0ms
+INFO:     127.0.0.1:60442 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:52 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.8ms
+INFO:     127.0.0.1:60460 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:53 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.7ms
+INFO:     127.0.0.1:60468 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:54 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.7ms
+INFO:     127.0.0.1:60482 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:55 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.5ms
+INFO:     127.0.0.1:60484 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:56 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.2ms
+INFO:     127.0.0.1:60508 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:33:56 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.9ms
+INFO:     127.0.0.1:60494 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:57 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.1ms
+INFO:     127.0.0.1:60520 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:58 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.5ms
+INFO:     127.0.0.1:60528 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:33:59 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.8ms
+INFO:     127.0.0.1:60532 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:00 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.7ms
+INFO:     127.0.0.1:50330 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:01 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.2ms
+INFO:     127.0.0.1:50346 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:34:01 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.1ms
+INFO:     127.0.0.1:50332 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:02 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.9ms
+INFO:     127.0.0.1:50356 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:03 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.8ms
+INFO:     127.0.0.1:50370 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:04 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 106.1ms
+INFO:     127.0.0.1:50382 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:05 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 106.1ms
+INFO:     127.0.0.1:50386 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:06 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.3ms
+INFO:     127.0.0.1:50402 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:34:06 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 107.7ms
+INFO:     127.0.0.1:50396 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:07 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.5ms
+INFO:     127.0.0.1:50412 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:08 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.0ms
+INFO:     127.0.0.1:50424 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:09 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.8ms
+INFO:     127.0.0.1:50438 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:10 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.0ms
+INFO:     127.0.0.1:56040 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:11 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.3ms
+INFO:     127.0.0.1:56060 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:34:11 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 106.9ms
+INFO:     127.0.0.1:56050 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:12 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.5ms
+INFO:     127.0.0.1:56062 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:13 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.5ms
+INFO:     127.0.0.1:56076 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:14 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.9ms
+INFO:     127.0.0.1:56080 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:15 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.8ms
+INFO:     127.0.0.1:56096 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:16 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.8ms
+INFO:     127.0.0.1:56116 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:34:16 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.5ms
+INFO:     127.0.0.1:56108 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:17 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.7ms
+INFO:     127.0.0.1:56130 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:18 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.0ms
+INFO:     127.0.0.1:56132 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:19 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 102.6ms
+INFO:     127.0.0.1:56136 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:20 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.0ms
+INFO:     127.0.0.1:58164 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:21 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.2ms
+INFO:     127.0.0.1:58188 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:34:21 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.9ms
+INFO:     127.0.0.1:58180 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:22 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.6ms
+INFO:     127.0.0.1:58198 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:23 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 102.4ms
+INFO:     127.0.0.1:58208 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:24 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.9ms
+INFO:     127.0.0.1:58214 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:25 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 111.5ms
+INFO:     127.0.0.1:58216 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:26 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.6ms
+INFO:     127.0.0.1:58232 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:34:26 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.3ms
+INFO:     127.0.0.1:58222 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:27 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.1ms
+INFO:     127.0.0.1:58244 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:28 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.3ms
+INFO:     127.0.0.1:58254 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:29 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 106.0ms
+INFO:     127.0.0.1:41934 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:30 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 102.5ms
+INFO:     127.0.0.1:41948 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:31 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 5.9ms
+INFO:     127.0.0.1:41958 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:34:31 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.4ms
+INFO:     127.0.0.1:41952 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:32 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.6ms
+INFO:     127.0.0.1:41968 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:33 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.1ms
+INFO:     127.0.0.1:41976 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:34 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.2ms
+INFO:     127.0.0.1:41988 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:35 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 111.7ms
+INFO:     127.0.0.1:42004 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:36 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 5.5ms
+INFO:     127.0.0.1:42026 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:34:36 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.0ms
+INFO:     127.0.0.1:42016 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:37 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.8ms
+INFO:     127.0.0.1:42040 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:38 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.2ms
+INFO:     127.0.0.1:42050 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:39 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.7ms
+INFO:     127.0.0.1:42064 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:40 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.9ms
+INFO:     127.0.0.1:35520 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:41 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.0ms
+INFO:     127.0.0.1:35550 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:34:41 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.5ms
+INFO:     127.0.0.1:35534 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:42 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.5ms
+INFO:     127.0.0.1:35554 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:43 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 109.0ms
+INFO:     127.0.0.1:35564 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:44 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.9ms
+INFO:     127.0.0.1:35568 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:45 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.8ms
+INFO:     127.0.0.1:35582 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:46 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.8ms
+INFO:     127.0.0.1:35598 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:34:46 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.5ms
+INFO:     127.0.0.1:35592 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:47 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.4ms
+INFO:     127.0.0.1:35610 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:48 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.4ms
+INFO:     127.0.0.1:35626 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:49 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.7ms
+INFO:     127.0.0.1:35642 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:50 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.0ms
+INFO:     127.0.0.1:54326 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:51 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 2.8ms
+INFO:     127.0.0.1:54344 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:34:51 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.4ms
+INFO:     127.0.0.1:54334 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:52 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.8ms
+INFO:     127.0.0.1:54354 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:53 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.5ms
+INFO:     127.0.0.1:54366 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:54 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.4ms
+INFO:     127.0.0.1:54378 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:55 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.3ms
+INFO:     127.0.0.1:54394 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:56 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 5.0ms
+INFO:     127.0.0.1:54420 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:34:56 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 109.0ms
+INFO:     127.0.0.1:54408 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:57 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 106.4ms
+INFO:     127.0.0.1:54424 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:58 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 108.0ms
+INFO:     127.0.0.1:54436 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:34:59 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.7ms
+INFO:     127.0.0.1:54450 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:00 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.4ms
+INFO:     127.0.0.1:37022 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:01 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 5.0ms
+INFO:     127.0.0.1:37040 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:35:01 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.8ms
+INFO:     127.0.0.1:37024 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:02 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.0ms
+INFO:     127.0.0.1:37056 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:03 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.4ms
+INFO:     127.0.0.1:37058 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:04 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.6ms
+INFO:     127.0.0.1:37070 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:05 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.7ms
+INFO:     127.0.0.1:37076 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:06 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.6ms
+INFO:     127.0.0.1:37096 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:35:06 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 108.3ms
+INFO:     127.0.0.1:37084 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:07 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.3ms
+INFO:     127.0.0.1:37106 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:08 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.6ms
+INFO:     127.0.0.1:37112 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:09 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.2ms
+INFO:     127.0.0.1:37122 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:10 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.6ms
+INFO:     127.0.0.1:34458 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:11 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 4.3ms
+INFO:     127.0.0.1:34462 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:35:11 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.3ms
+INFO:     127.0.0.1:34460 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:12 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 106.1ms
+INFO:     127.0.0.1:34474 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:13 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.7ms
+INFO:     127.0.0.1:34480 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:14 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 106.0ms
+INFO:     127.0.0.1:34486 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:15 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 107.1ms
+INFO:     127.0.0.1:34488 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:16 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.3ms
+INFO:     127.0.0.1:34512 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:35:16 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.1ms
+INFO:     127.0.0.1:34500 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:17 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.5ms
+INFO:     127.0.0.1:34524 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:18 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.6ms
+INFO:     127.0.0.1:34528 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:19 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.7ms
+INFO:     127.0.0.1:34536 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:20 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.7ms
+INFO:     127.0.0.1:36096 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:21 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.4ms
+INFO:     127.0.0.1:36108 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:35:21 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 108.0ms
+INFO:     127.0.0.1:36104 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:22 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 108.0ms
+INFO:     127.0.0.1:36116 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:23 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.2ms
+INFO:     127.0.0.1:36118 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:24 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.6ms
+INFO:     127.0.0.1:36120 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:25 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.0ms
+INFO:     127.0.0.1:36134 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:26 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.2ms
+INFO:     127.0.0.1:36160 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:35:26 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.9ms
+INFO:     127.0.0.1:36150 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:27 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.9ms
+INFO:     127.0.0.1:36172 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:28 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.2ms
+INFO:     127.0.0.1:36184 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:29 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.8ms
+INFO:     127.0.0.1:36198 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:30 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.7ms
+INFO:     127.0.0.1:53506 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:31 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 4.3ms
+INFO:     127.0.0.1:53514 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:35:31 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 106.4ms
+INFO:     127.0.0.1:53510 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:32 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.9ms
+INFO:     127.0.0.1:53516 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:33 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.6ms
+INFO:     127.0.0.1:53524 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:34 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.6ms
+INFO:     127.0.0.1:53532 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:35 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 107.0ms
+INFO:     127.0.0.1:53540 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:36 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 2.9ms
+INFO:     127.0.0.1:53546 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:35:36 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.0ms
+INFO:     127.0.0.1:53542 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:37 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.3ms
+INFO:     127.0.0.1:53552 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:38 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.2ms
+INFO:     127.0.0.1:53562 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:39 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.6ms
+INFO:     127.0.0.1:53576 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:40 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.9ms
+INFO:     127.0.0.1:53718 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:41 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.9ms
+INFO:     127.0.0.1:53728 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:35:41 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 106.7ms
+INFO:     127.0.0.1:53720 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:42 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.0ms
+INFO:     127.0.0.1:53740 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:43 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.7ms
+INFO:     127.0.0.1:53742 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:44 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.5ms
+INFO:     127.0.0.1:53750 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:45 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.8ms
+INFO:     127.0.0.1:53754 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:46 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.3ms
+INFO:     127.0.0.1:53772 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:35:46 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.1ms
+INFO:     127.0.0.1:53756 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:47 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.5ms
+INFO:     127.0.0.1:53788 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:48 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.1ms
+INFO:     127.0.0.1:53790 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:49 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.6ms
+INFO:     127.0.0.1:53806 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:50 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.6ms
+INFO:     127.0.0.1:35228 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:51 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 2.3ms
+INFO:     127.0.0.1:35252 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:35:51 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.6ms
+INFO:     127.0.0.1:35242 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:52 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.2ms
+INFO:     127.0.0.1:35258 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:53 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.0ms
+INFO:     127.0.0.1:35260 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:54 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.1ms
+INFO:     127.0.0.1:35262 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:55 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.9ms
+INFO:     127.0.0.1:35270 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:56 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.8ms
+INFO:     127.0.0.1:35284 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:35:56 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 107.3ms
+INFO:     127.0.0.1:35278 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:57 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.9ms
+INFO:     127.0.0.1:35290 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:58 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 108.9ms
+INFO:     127.0.0.1:35300 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:35:59 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 106.2ms
+INFO:     127.0.0.1:35316 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:00 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.1ms
+INFO:     127.0.0.1:57282 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:01 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.2ms
+INFO:     127.0.0.1:57308 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:36:01 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.9ms
+INFO:     127.0.0.1:57292 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:02 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.2ms
+INFO:     127.0.0.1:57324 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:03 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.1ms
+INFO:     127.0.0.1:57326 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:04 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 114.2ms
+INFO:     127.0.0.1:57336 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:05 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.4ms
+INFO:     127.0.0.1:57340 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:06 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 2.1ms
+INFO:     127.0.0.1:57360 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:36:06 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 106.0ms
+INFO:     127.0.0.1:57346 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:07 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.0ms
+INFO:     127.0.0.1:57364 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:08 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.0ms
+INFO:     127.0.0.1:57372 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:09 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.5ms
+INFO:     127.0.0.1:57374 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:10 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.8ms
+INFO:     127.0.0.1:39086 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:11 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 5.0ms
+INFO:     127.0.0.1:39112 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:36:11 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.6ms
+INFO:     127.0.0.1:39102 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:12 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.8ms
+INFO:     127.0.0.1:39116 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:13 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 106.6ms
+INFO:     127.0.0.1:39130 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:14 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.5ms
+INFO:     127.0.0.1:39136 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:15 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.6ms
+INFO:     127.0.0.1:39142 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:16 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.2ms
+INFO:     127.0.0.1:39150 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:36:16 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.4ms
+INFO:     127.0.0.1:39144 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:17 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.3ms
+INFO:     127.0.0.1:39156 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:18 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.8ms
+INFO:     127.0.0.1:39170 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:19 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.6ms
+INFO:     127.0.0.1:39186 - "GET /api/plant/live HTTP/1.1" 200 OK
+Malformed Modbus packet detected: Malformed Modbus TCP packet from 127.0.0.1:6007: invalid protocol ID 0x0001. Raw hex: 00 01 00 01 00 06 01 06 00 00 00 01
+2026-09-20 16:36:20 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 117.1ms
+INFO:     127.0.0.1:39750 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:21 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.7ms
+INFO:     127.0.0.1:39762 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:36:21 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 106.2ms
+INFO:     127.0.0.1:39756 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:22 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.5ms
+INFO:     127.0.0.1:39770 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:23 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.4ms
+INFO:     127.0.0.1:39772 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:24 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.5ms
+INFO:     127.0.0.1:39776 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:25 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.5ms
+INFO:     127.0.0.1:39778 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:26 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 4.9ms
+INFO:     127.0.0.1:39798 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:36:26 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 106.1ms
+INFO:     127.0.0.1:39786 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:27 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.7ms
+INFO:     127.0.0.1:39814 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:28 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.5ms
+INFO:     127.0.0.1:39830 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:29 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.3ms
+INFO:     127.0.0.1:39834 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:30 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.8ms
+INFO:     127.0.0.1:56754 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:31 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.6ms
+INFO:     127.0.0.1:56772 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:36:31 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.5ms
+INFO:     127.0.0.1:56770 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:32 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.4ms
+INFO:     127.0.0.1:56784 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:33 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.2ms
+INFO:     127.0.0.1:56794 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:34 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.1ms
+INFO:     127.0.0.1:56804 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:35 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.6ms
+INFO:     127.0.0.1:56820 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:36 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 5.0ms
+INFO:     127.0.0.1:56844 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:36:36 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 109.4ms
+INFO:     127.0.0.1:56832 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:37 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.7ms
+INFO:     127.0.0.1:56860 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:38 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.1ms
+INFO:     127.0.0.1:56862 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:39 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.5ms
+INFO:     127.0.0.1:56868 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:40 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.8ms
+INFO:     127.0.0.1:35130 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:41 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 2.0ms
+INFO:     127.0.0.1:35156 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:36:41 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.7ms
+INFO:     127.0.0.1:35140 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:42 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.5ms
+INFO:     127.0.0.1:35164 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:43 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.3ms
+INFO:     127.0.0.1:35172 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:44 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.1ms
+INFO:     127.0.0.1:35188 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:45 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.6ms
+INFO:     127.0.0.1:35198 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:46 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 5.8ms
+INFO:     127.0.0.1:35228 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:36:46 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.9ms
+INFO:     127.0.0.1:35214 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:47 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.3ms
+INFO:     127.0.0.1:35240 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:48 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 107.2ms
+INFO:     127.0.0.1:35254 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:49 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.4ms
+INFO:     127.0.0.1:35256 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:50 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.7ms
+INFO:     127.0.0.1:34680 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:51 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.4ms
+INFO:     127.0.0.1:34696 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:36:51 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.1ms
+INFO:     127.0.0.1:34688 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:52 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.0ms
+INFO:     127.0.0.1:34698 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:53 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.6ms
+INFO:     127.0.0.1:34708 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:54 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.0ms
+INFO:     127.0.0.1:34718 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:55 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.5ms
+INFO:     127.0.0.1:34724 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:56 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.5ms
+INFO:     127.0.0.1:34742 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:36:56 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.1ms
+INFO:     127.0.0.1:34738 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:57 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.7ms
+INFO:     127.0.0.1:34746 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:58 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.4ms
+INFO:     127.0.0.1:34754 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:36:59 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.7ms
+INFO:     127.0.0.1:34756 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:37:00 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.6ms
+INFO:     127.0.0.1:58044 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:37:01 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.3ms
+INFO:     127.0.0.1:58056 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:37:01 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 105.7ms
+INFO:     127.0.0.1:58052 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:37:02 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.5ms
+INFO:     127.0.0.1:58064 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:37:03 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.9ms
+INFO:     127.0.0.1:58076 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:37:04 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 104.6ms
+INFO:     127.0.0.1:58090 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:37:05 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 103.7ms
+INFO:     127.0.0.1:58092 - "GET /api/plant/live HTTP/1.1" 200 OK
+2026-09-20 16:37:06 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/alerts | status=200 | 3.9ms
+INFO:     127.0.0.1:58110 - "GET /api/alerts?limit=5 HTTP/1.1" 200 OK
+2026-09-20 16:37:06 | INFO | safecheck.backend | REQUEST_SUCCESS | GET /api/plant/live | status=200 | 106.1ms
+INFO:     127.0.0.1:58104 - "GET /api/plant/live HTTP/1.1" 200 OK
