@@ -7,8 +7,14 @@ import {
 	ReadingsHistory,
 } from "./pages/safecheck";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { usePlantState } from "./hooks/usePlantState";
+import { useAlerts } from "./hooks/useAlerts";
 
 export function App() {
+	// Global telemetry poller - keeps connection status and unread alerts alive across all routes
+	usePlantState({ enabled: true, interval: 2000 });
+	useAlerts({ enabled: true, interval: 4000, limit: 100 });
+
 	return (
 		<ThemeProvider>
 			<div className="min-h-screen bg-surface-0 text-text-primary flex flex-col font-sans transition-colors duration-200">

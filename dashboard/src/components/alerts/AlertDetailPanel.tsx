@@ -56,9 +56,6 @@ export const AlertDetailPanel: React.FC<AlertDetailPanelProps> = ({
 			description="Physical context correlation and root-cause analysis"
 			maxWidth="lg"
 			footer={
-				<Button variant="secondary" size="sm" onClick={onClose} type="button">
-					Close Panel
-				</Button>
 				<div className="flex items-center justify-between w-full">
 					{onDelete ? (
 						<Button
@@ -101,104 +98,111 @@ export const AlertDetailPanel: React.FC<AlertDetailPanelProps> = ({
 						</Badge>
 					)}
 
-					<Badge variant="neutral" size="md">
-						Layer: {alert.rule_triggered}
-					</Badge>
+					<span className="text-xs font-mono px-2.5 py-1 rounded-md bg-surface-2 text-text-secondary border border-border-subtle">
+						Rule: {alert.rule_triggered}
+					</span>
 				</div>
 
-				{/* Advisory Message */}
-				<div>
-					<h4 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider mb-2 flex items-center gap-1.5">
-						<ShieldAlert className="w-3.5 h-3.5 text-primary" />
-						<span>Detector Verdict & Explanation</span>
-					</h4>
-					<div className="p-4 rounded-xl bg-surface-2 border border-border-subtle text-text-primary text-sm leading-relaxed font-normal">
-						{alert.message}
+				{/* Primary Explanation Banner */}
+				<div className="p-4 rounded-xl bg-surface-2/60 border border-border-subtle">
+					<div className="flex items-start gap-3">
+						<ShieldAlert className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+						<div className="space-y-1">
+							<h4 className="text-xs font-semibold uppercase tracking-wider text-text-tertiary">
+								Detection Advisor Summary
+							</h4>
+							<p className="text-sm font-medium text-text-primary leading-relaxed">
+								{alert.message}
+							</p>
+						</div>
 					</div>
 				</div>
 
 				{/* Metadata Grid */}
-				<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-					<div className="p-3.5 rounded-xl bg-surface-2/60 border border-border-subtle">
-						<div className="flex items-center gap-1.5 text-xs font-semibold text-text-tertiary uppercase tracking-wider mb-1">
+				<div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+					{/* Timestamp */}
+					<div className="p-3.5 rounded-xl bg-surface-2 border border-border-subtle space-y-1">
+						<div className="flex items-center gap-1.5 text-xs text-text-tertiary">
 							<Clock className="w-3.5 h-3.5" />
-							<span>Event Timestamp</span>
+							<span>Detected Timestamp</span>
 						</div>
-						<p className="text-text-primary font-medium text-sm">
-							{getRelativeTime(alert.timestamp)}
-						</p>
-						<p className="text-xs text-text-secondary font-mono mt-0.5">
+						<div className="text-xs font-mono text-text-primary font-medium">
 							{formatDateTime(alert.timestamp)}
-						</p>
+						</div>
+						<div className="text-[11px] text-text-secondary">
+							{getRelativeTime(alert.timestamp)}
+						</div>
 					</div>
 
-					<div className="p-3.5 rounded-xl bg-surface-2/60 border border-border-subtle">
-						<div className="flex items-center gap-1.5 text-xs font-semibold text-text-tertiary uppercase tracking-wider mb-1">
+					{/* Layer Attribution */}
+					<div className="p-3.5 rounded-xl bg-surface-2 border border-border-subtle space-y-1">
+						<div className="flex items-center gap-1.5 text-xs text-text-tertiary">
 							<Layers className="w-3.5 h-3.5" />
-							<span>Rule Classification</span>
+							<span>Security Engine Layer</span>
 						</div>
-						<p className="text-text-primary font-mono text-sm font-semibold capitalize">
-							{alert.rule_triggered.replace("_", " ")}
-						</p>
-						<p className="text-xs text-text-secondary mt-0.5">
-							{isNeedsReview ? "Empirical Anomaly" : "Deterministic Hard Rule"}
-						</p>
+						<div className="text-xs font-mono text-text-primary font-semibold uppercase">
+							{alert.rule_triggered}
+						</div>
+						<div className="text-[11px] text-text-secondary">
+							{isNeedsReview
+								? "Statistical or sensor-trend anomaly"
+								: "Deterministic state/protocol violation"}
+						</div>
 					</div>
 				</div>
 
-				{/* Related Command Details */}
+				{/* Correlated Command Forensics (if any) */}
 				{alert.related_command ? (
-					<div className="p-4 rounded-xl bg-surface-2 border border-border-subtle space-y-3">
-						<h4 className="text-xs font-bold text-text-tertiary uppercase tracking-wider flex items-center gap-1.5">
+					<div className="space-y-2 pt-2">
+						<div className="flex items-center gap-2 text-xs font-semibold text-text-tertiary uppercase tracking-wider">
 							<Terminal className="w-3.5 h-3.5 text-primary" />
-							<span>Associated Actuator Command</span>
-						</h4>
+							<span>Correlated Modbus Command Execution</span>
+						</div>
 
-						<div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
-							<div>
-								<span className="text-[11px] text-text-secondary block">
-									Actuator
+						<div className="p-4 rounded-xl bg-surface-2 border border-border-subtle space-y-2.5 font-mono text-xs">
+							<div className="flex justify-between items-center pb-2 border-b border-border-subtle/50">
+								<span className="text-text-tertiary">Command ID:</span>
+								<span className="text-text-primary font-bold">
+									#{alert.related_command.id}
 								</span>
-								<span className="font-semibold text-text-primary uppercase text-sm">
+							</div>
+
+							<div className="flex justify-between items-center">
+								<span className="text-text-tertiary">Actuator Type:</span>
+								<span className="text-text-primary uppercase font-bold">
 									{alert.related_command.command_type}
 								</span>
 							</div>
-							<div>
-								<span className="text-[11px] text-text-secondary block">
-									Action
-								</span>
-								<span className="font-semibold text-text-primary text-sm">
-									{alert.related_command.value ? "ON / OPEN" : "OFF / CLOSED"}
+
+							<div className="flex justify-between items-center">
+								<span className="text-text-tertiary">Command Value:</span>
+								<span className="px-2 py-0.5 rounded bg-surface-1 border border-border-subtle text-text-primary">
+									{String(alert.related_command.value)}
 								</span>
 							</div>
-							<div>
-								<span className="text-[11px] text-text-secondary block">
-									Source Identity
-								</span>
-								<span className="font-mono text-xs text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20 inline-block mt-0.5">
+
+							<div className="flex justify-between items-center">
+								<span className="text-text-tertiary">Command Source Peer:</span>
+								<span className="text-primary font-bold">
 									{alert.related_command.source_id}
 								</span>
 							</div>
-							<div>
-								<span className="text-[11px] text-text-secondary block">
-									Verdict
-								</span>
-								<span
-									className={`font-semibold text-xs px-2 py-0.5 rounded inline-block mt-0.5 ${
-										alert.related_command.flagged
-											? "bg-critical/15 text-critical border border-critical/30"
-											: "bg-success/15 text-success border border-success/30"
-									}`}
-								>
-									{alert.related_command.flagged ? "FLAGGED UNSAFE" : "BENIGN"}
+
+							<div className="flex justify-between items-center">
+								<span className="text-text-tertiary">Received Timestamp:</span>
+								<span className="text-text-secondary">
+									{formatDateTime(alert.related_command.timestamp)}
 								</span>
 							</div>
 						</div>
 					</div>
 				) : (
-					<div className="p-3.5 rounded-xl bg-surface-2/40 border border-border-subtle/70 text-xs text-text-secondary">
-						<strong>Note:</strong> Telemetry-layer detection generated from
-						continuous sensor monitoring window (no direct command trigger).
+					<div className="p-3.5 rounded-xl bg-surface-2/40 border border-border-subtle text-xs text-text-tertiary">
+						<span>
+							No specific command frame directly mapped. This alert was
+							triggered by cumulative physical telemetry or passive packet
+							decoding.
+						</span>
 					</div>
 				)}
 			</div>

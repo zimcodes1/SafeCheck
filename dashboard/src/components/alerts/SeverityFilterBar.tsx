@@ -59,7 +59,7 @@ export const SeverityFilterBar: React.FC<SeverityFilterBarProps> = ({
 	];
 
 	return (
-		<div className="flex items-center gap-1 sm:gap-2 border-b border-border-subtle">
+		<div className="flex items-center gap-1 sm:gap-2 border-b border-border-subtle no-scrollbar">
 			{tabs.map((tab) => {
 				const isActive = activeTab === tab.id;
 				const count = counts[tab.id];

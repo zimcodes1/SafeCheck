@@ -16,3 +16,240 @@ npm notice run vite
 5:20:57 PM [vite] (client) hmr update /src/App.tsx
 5:21:19 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/AlertsView.tsx
 5:22:16 PM [vite] (client) hmr update /src/index.css, /src/components/alerts/SeverityFilterBar.tsx
+5:24:50 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/CommandsHistory.tsx, /src/pages/safecheck/ReadingsHistory.tsx, /src/pages/safecheck/LiveView.tsx, /src/pages/safecheck/AlertsView.tsx, /src/components/safecheck/ScenarioRunner.tsx
+5:24:51 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/AlertsView.tsx
+5:24:51 PM [vite] (client) hmr update /src/index.css, /src/components/alerts/AlertDetailPanel.tsx
+5:24:51 PM [vite] Internal server error: Transform failed with 1 error:
+
+[31m[PARSE_ERROR] [0mAdjacent JSX elements must be wrapped in an enclosing tag.
+    [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/alerts/AlertDetailPanel.tsx:62:5 [38;5;246m][0m
+    [38;5;246m│[0m
+ [38;5;246m62 │[0m [38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m<[38;5;249md[0m[38;5;249mi[0m[38;5;249mv[0m[38;5;249m [0m[38;5;249mc[0m[38;5;249ml[0m[38;5;249ma[0m[38;5;249ms[0m[38;5;249ms[0m[38;5;249mN[0m[38;5;249ma[0m[38;5;249mm[0m[38;5;249me[0m[38;5;249m=[0m[38;5;249m"[0m[38;5;249mf[0m[38;5;249ml[0m[38;5;249me[0m[38;5;249mx[0m[38;5;249m [0m[38;5;249mi[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249mm[0m[38;5;249ms[0m[38;5;249m-[0m[38;5;249mc[0m[38;5;249me[0m[38;5;249mn[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249mr[0m[38;5;249m [0m[38;5;249mj[0m[38;5;249mu[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249mi[0m[38;5;249mf[0m[38;5;249my[0m[38;5;249m-[0m[38;5;249mb[0m[38;5;249me[0m[38;5;249mt[0m[38;5;249mw[0m[38;5;249me[0m[38;5;249me[0m[38;5;249mn[0m[38;5;249m [0m[38;5;249mw[0m[38;5;249m-[0m[38;5;249mf[0m[38;5;249mu[0m[38;5;249ml[0m[38;5;249ml[0m[38;5;249m"[0m[38;5;249m>[0m
+ [38;5;240m   │[0m           ┬  
+ [38;5;240m   │[0m           ╰── 
+ [38;5;240m   │[0m 
+ [38;5;240m   │[0m [38;5;115mHelp[0m: Did you want a JSX fragment `<>...</>`?
+[38;5;246m────╯[0m
+
+  Plugin: vite:oxc
+  File: /home/azimeh/Desktop/Code/SafeCheck/dashboard/src/components/alerts/AlertDetailPanel.tsx
+      at transformWithOxc (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:4103:19)
+      at TransformPluginContext.transform (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:4174:26)
+      at EnvironmentPluginContainer.transform (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:30932:51)
+      at async loadAndTransform (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:20671:26)
+      at async viteTransformMiddleware (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:25205:20)
+5:24:51 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/AlertsView.tsx
+5:24:51 PM [vite] Internal server error: Transform failed with 1 error:
+
+[31m[PARSE_ERROR] [0mExpected `:` but found `{`
+    [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/pages/safecheck/AlertsView.tsx:74:8 [38;5;246m][0m
+    [38;5;246m│[0m
+ [38;5;246m74 │[0m [38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249mc[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249m [0m{[38;5;249m [0m[38;5;249ma[0m[38;5;249ml[0m[38;5;249me[0m[38;5;249mr[0m[38;5;249mt[0m[38;5;249ms[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249mi[0m[38;5;249ms[0m[38;5;249mL[0m[38;5;249mo[0m[38;5;249ma[0m[38;5;249md[0m[38;5;249mi[0m[38;5;249mn[0m[38;5;249mg[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249mr[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249me[0m[38;5;249mt[0m[38;5;249mc[0m[38;5;249mh[0m[38;5;249m [0m[38;5;249m}[0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m [0m[38;5;249mu[0m[38;5;249ms[0m[38;5;249me[0m[38;5;249mA[0m[38;5;249ml[0m[38;5;249me[0m[38;5;249mr[0m[38;5;249mt[0m[38;5;249ms[0m[38;5;249m([0m[38;5;249m{[0m
+ [38;5;240m   │[0m           ┬  
+ [38;5;240m   │[0m           ╰── `:` expected
+[38;5;246m────╯[0m
+
+  Plugin: vite:oxc
+  File: /home/azimeh/Desktop/Code/SafeCheck/dashboard/src/pages/safecheck/AlertsView.tsx
+      at transformWithOxc (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:4103:19)
+      at TransformPluginContext.transform (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:4174:26)
+      at EnvironmentPluginContainer.transform (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:30932:51)
+      at async loadAndTransform (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:20671:26)
+      at async viteTransformMiddleware (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:25205:20)
+5:24:51 PM [vite] (client) hmr update /src/index.css, /src/components/alerts/AlertCard.tsx
+5:24:51 PM [vite] Internal server error: Transform failed with 2 errors:
+
+[31m[PARSE_ERROR] [0mExpected corresponding JSX closing tag for 'p'.
+     [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/alerts/AlertCard.tsx:153:7 [38;5;246m][0m
+     [38;5;246m│[0m
+ [38;5;246m138 │[0m [38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m<[0mp[38;5;249m [0m[38;5;249mc[0m[38;5;249ml[0m[38;5;249ma[0m[38;5;249ms[0m[38;5;249ms[0m[38;5;249mN[0m[38;5;249ma[0m[38;5;249mm[0m[38;5;249me[0m[38;5;249m=[0m[38;5;249m"[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249mx[0m[38;5;249mt[0m[38;5;249m-[0m[38;5;249ms[0m[38;5;249mm[0m[38;5;249m [0m[38;5;249mf[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249mt[0m[38;5;249m-[0m[38;5;249mm[0m[38;5;249me[0m[38;5;249md[0m[38;5;249mi[0m[38;5;249mu[0m[38;5;249mm[0m[38;5;249m [0m[38;5;249mt[0m[38;5;249me[0m[38;5;249mx[0m[38;5;249mt[0m[38;5;249m-[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249mx[0m[38;5;249mt[0m[38;5;249m-[0m[38;5;249mp[0m[38;5;249mr[0m[38;5;249mi[0m[38;5;249mm[0m[38;5;249ma[0m[38;5;249mr[0m[38;5;249my[0m[38;5;249m [0m[38;5;249ml[0m[38;5;249me[0m[38;5;249ma[0m[38;5;249md[0m[38;5;249mi[0m[38;5;249mn[0m[38;5;249mg[0m[38;5;249m-[0m[38;5;249mr[0m[38;5;249me[0m[38;5;249ml[0m[38;5;249ma[0m[38;5;249mx[0m[38;5;249me[0m[38;5;249md[0m[38;5;249m"[0m[38;5;249m>[0m
+ [38;5;240m    │[0m                ┬  
+ [38;5;240m    │[0m                ╰── Opened here
+ [38;5;240m    │[0m 
+ [38;5;246m153 │[0m [38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m<[0m[38;5;249m/[0mdiv[38;5;249m>[0m
+ [38;5;240m    │[0m             ─┬─  
+ [38;5;240m    │[0m              ╰─── Expected `</p>`
+[38;5;246m─────╯[0m
+
+[31m[PARSE_ERROR] [0mUnexpected token. Did you mean `{'}'}` or `&rbrace;`?
+     [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/alerts/AlertCard.tsx:194:1 [38;5;246m][0m
+     [38;5;246m│[0m
+ [38;5;246m194 │[0m [38;5;249m}[0m[38;5;249m;[0m
+ [38;5;240m    │[0m │ 
+ [38;5;240m    │[0m ╰─ 
+[38;5;246m─────╯[0m
+
+  Plugin: vite:oxc
+  File: /home/azimeh/Desktop/Code/SafeCheck/dashboard/src/components/alerts/AlertCard.tsx
+      at transformWithOxc (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:4103:19)
+      at TransformPluginContext.transform (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:4174:26)
+      at EnvironmentPluginContainer.transform (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:30932:51)
+      at async loadAndTransform (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:20671:26)
+      at async viteTransformMiddleware (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:25205:20)
+5:24:51 PM [vite] (client) hmr update /src/index.css, /src/components/alerts/AlertFeed.tsx
+5:24:52 PM [vite] (client) Pre-transform error: Transform failed with 2 errors:
+
+[31m[PARSE_ERROR] [0mExpected corresponding JSX closing tag for 'p'.
+     [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/alerts/AlertCard.tsx:153:7 [38;5;246m][0m
+     [38;5;246m│[0m
+ [38;5;246m138 │[0m [38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m<[0mp[38;5;249m [0m[38;5;249mc[0m[38;5;249ml[0m[38;5;249ma[0m[38;5;249ms[0m[38;5;249ms[0m[38;5;249mN[0m[38;5;249ma[0m[38;5;249mm[0m[38;5;249me[0m[38;5;249m=[0m[38;5;249m"[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249mx[0m[38;5;249mt[0m[38;5;249m-[0m[38;5;249ms[0m[38;5;249mm[0m[38;5;249m [0m[38;5;249mf[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249mt[0m[38;5;249m-[0m[38;5;249mm[0m[38;5;249me[0m[38;5;249md[0m[38;5;249mi[0m[38;5;249mu[0m[38;5;249mm[0m[38;5;249m [0m[38;5;249mt[0m[38;5;249me[0m[38;5;249mx[0m[38;5;249mt[0m[38;5;249m-[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249mx[0m[38;5;249mt[0m[38;5;249m-[0m[38;5;249mp[0m[38;5;249mr[0m[38;5;249mi[0m[38;5;249mm[0m[38;5;249ma[0m[38;5;249mr[0m[38;5;249my[0m[38;5;249m [0m[38;5;249ml[0m[38;5;249me[0m[38;5;249ma[0m[38;5;249md[0m[38;5;249mi[0m[38;5;249mn[0m[38;5;249mg[0m[38;5;249m-[0m[38;5;249mr[0m[38;5;249me[0m[38;5;249ml[0m[38;5;249ma[0m[38;5;249mx[0m[38;5;249me[0m[38;5;249md[0m[38;5;249m"[0m[38;5;249m>[0m
+ [38;5;240m    │[0m                ┬  
+ [38;5;240m    │[0m                ╰── Opened here
+ [38;5;240m    │[0m 
+ [38;5;246m153 │[0m [38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m<[0m[38;5;249m/[0mdiv[38;5;249m>[0m
+ [38;5;240m    │[0m             ─┬─  
+ [38;5;240m    │[0m              ╰─── Expected `</p>`
+[38;5;246m─────╯[0m
+
+[31m[PARSE_ERROR] [0mUnexpected token. Did you mean `{'}'}` or `&rbrace;`?
+     [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/alerts/AlertCard.tsx:194:1 [38;5;246m][0m
+     [38;5;246m│[0m
+ [38;5;246m194 │[0m [38;5;249m}[0m[38;5;249m;[0m
+ [38;5;240m    │[0m │ 
+ [38;5;240m    │[0m ╰─ 
+[38;5;246m─────╯[0m
+
+  Plugin: vite:oxc
+  File: /home/azimeh/Desktop/Code/SafeCheck/dashboard/src/components/alerts/AlertCard.tsx
+5:24:58 PM [vite] (client) hmr update /src/index.css, /src/components/alerts/SeverityFilterBar.tsx
+5:31:54 PM [vite] (client) Pre-transform error: Transform failed with 1 error:
+
+[31m[PARSE_ERROR] [0mExpected `:` but found `{`
+    [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/pages/safecheck/AlertsView.tsx:74:8 [38;5;246m][0m
+    [38;5;246m│[0m
+ [38;5;246m74 │[0m [38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249mc[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249m [0m{[38;5;249m [0m[38;5;249ma[0m[38;5;249ml[0m[38;5;249me[0m[38;5;249mr[0m[38;5;249mt[0m[38;5;249ms[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249mi[0m[38;5;249ms[0m[38;5;249mL[0m[38;5;249mo[0m[38;5;249ma[0m[38;5;249md[0m[38;5;249mi[0m[38;5;249mn[0m[38;5;249mg[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249mr[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249me[0m[38;5;249mt[0m[38;5;249mc[0m[38;5;249mh[0m[38;5;249m [0m[38;5;249m}[0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m [0m[38;5;249mu[0m[38;5;249ms[0m[38;5;249me[0m[38;5;249mA[0m[38;5;249ml[0m[38;5;249me[0m[38;5;249mr[0m[38;5;249mt[0m[38;5;249ms[0m[38;5;249m([0m[38;5;249m{[0m
+ [38;5;240m   │[0m           ┬  
+ [38;5;240m   │[0m           ╰── `:` expected
+[38;5;246m────╯[0m
+
+  Plugin: vite:oxc
+  File: /home/azimeh/Desktop/Code/SafeCheck/dashboard/src/pages/safecheck/AlertsView.tsx
+5:31:54 PM [vite] Internal server error: Transform failed with 1 error:
+
+[31m[PARSE_ERROR] [0mExpected `:` but found `{`
+    [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/pages/safecheck/AlertsView.tsx:74:8 [38;5;246m][0m
+    [38;5;246m│[0m
+ [38;5;246m74 │[0m [38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249mc[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249m [0m{[38;5;249m [0m[38;5;249ma[0m[38;5;249ml[0m[38;5;249me[0m[38;5;249mr[0m[38;5;249mt[0m[38;5;249ms[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249mi[0m[38;5;249ms[0m[38;5;249mL[0m[38;5;249mo[0m[38;5;249ma[0m[38;5;249md[0m[38;5;249mi[0m[38;5;249mn[0m[38;5;249mg[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249mr[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249me[0m[38;5;249mt[0m[38;5;249mc[0m[38;5;249mh[0m[38;5;249m [0m[38;5;249m}[0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m [0m[38;5;249mu[0m[38;5;249ms[0m[38;5;249me[0m[38;5;249mA[0m[38;5;249ml[0m[38;5;249me[0m[38;5;249mr[0m[38;5;249mt[0m[38;5;249ms[0m[38;5;249m([0m[38;5;249m{[0m
+ [38;5;240m   │[0m           ┬  
+ [38;5;240m   │[0m           ╰── `:` expected
+[38;5;246m────╯[0m
+
+  Plugin: vite:oxc
+  File: /home/azimeh/Desktop/Code/SafeCheck/dashboard/src/pages/safecheck/AlertsView.tsx
+      at transformWithOxc (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:4103:19)
+      at TransformPluginContext.transform (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:4174:26)
+      at EnvironmentPluginContainer.transform (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:30932:51)
+      at async loadAndTransform (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:20671:26)
+      at async viteTransformMiddleware (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:25205:20)
+5:33:12 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/AlertsView.tsx
+5:33:12 PM [vite] (client) Pre-transform error: Transform failed with 2 errors:
+
+[31m[PARSE_ERROR] [0mExpected corresponding JSX closing tag for 'p'.
+     [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/alerts/AlertCard.tsx:153:7 [38;5;246m][0m
+     [38;5;246m│[0m
+ [38;5;246m138 │[0m [38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m<[0mp[38;5;249m [0m[38;5;249mc[0m[38;5;249ml[0m[38;5;249ma[0m[38;5;249ms[0m[38;5;249ms[0m[38;5;249mN[0m[38;5;249ma[0m[38;5;249mm[0m[38;5;249me[0m[38;5;249m=[0m[38;5;249m"[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249mx[0m[38;5;249mt[0m[38;5;249m-[0m[38;5;249ms[0m[38;5;249mm[0m[38;5;249m [0m[38;5;249mf[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249mt[0m[38;5;249m-[0m[38;5;249mm[0m[38;5;249me[0m[38;5;249md[0m[38;5;249mi[0m[38;5;249mu[0m[38;5;249mm[0m[38;5;249m [0m[38;5;249mt[0m[38;5;249me[0m[38;5;249mx[0m[38;5;249mt[0m[38;5;249m-[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249mx[0m[38;5;249mt[0m[38;5;249m-[0m[38;5;249mp[0m[38;5;249mr[0m[38;5;249mi[0m[38;5;249mm[0m[38;5;249ma[0m[38;5;249mr[0m[38;5;249my[0m[38;5;249m [0m[38;5;249ml[0m[38;5;249me[0m[38;5;249ma[0m[38;5;249md[0m[38;5;249mi[0m[38;5;249mn[0m[38;5;249mg[0m[38;5;249m-[0m[38;5;249mr[0m[38;5;249me[0m[38;5;249ml[0m[38;5;249ma[0m[38;5;249mx[0m[38;5;249me[0m[38;5;249md[0m[38;5;249m"[0m[38;5;249m>[0m
+ [38;5;240m    │[0m                ┬  
+ [38;5;240m    │[0m                ╰── Opened here
+ [38;5;240m    │[0m 
+ [38;5;246m153 │[0m [38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m<[0m[38;5;249m/[0mdiv[38;5;249m>[0m
+ [38;5;240m    │[0m             ─┬─  
+ [38;5;240m    │[0m              ╰─── Expected `</p>`
+[38;5;246m─────╯[0m
+
+[31m[PARSE_ERROR] [0mUnexpected token. Did you mean `{'}'}` or `&rbrace;`?
+     [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/alerts/AlertCard.tsx:194:1 [38;5;246m][0m
+     [38;5;246m│[0m
+ [38;5;246m194 │[0m [38;5;249m}[0m[38;5;249m;[0m
+ [38;5;240m    │[0m │ 
+ [38;5;240m    │[0m ╰─ 
+[38;5;246m─────╯[0m
+
+  Plugin: vite:oxc
+  File: /home/azimeh/Desktop/Code/SafeCheck/dashboard/src/components/alerts/AlertCard.tsx
+5:33:12 PM [vite] (client) Pre-transform error: Transform failed with 1 error:
+
+[31m[PARSE_ERROR] [0mAdjacent JSX elements must be wrapped in an enclosing tag.
+    [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/alerts/AlertDetailPanel.tsx:62:5 [38;5;246m][0m
+    [38;5;246m│[0m
+ [38;5;246m62 │[0m [38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m<[38;5;249md[0m[38;5;249mi[0m[38;5;249mv[0m[38;5;249m [0m[38;5;249mc[0m[38;5;249ml[0m[38;5;249ma[0m[38;5;249ms[0m[38;5;249ms[0m[38;5;249mN[0m[38;5;249ma[0m[38;5;249mm[0m[38;5;249me[0m[38;5;249m=[0m[38;5;249m"[0m[38;5;249mf[0m[38;5;249ml[0m[38;5;249me[0m[38;5;249mx[0m[38;5;249m [0m[38;5;249mi[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249mm[0m[38;5;249ms[0m[38;5;249m-[0m[38;5;249mc[0m[38;5;249me[0m[38;5;249mn[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249mr[0m[38;5;249m [0m[38;5;249mj[0m[38;5;249mu[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249mi[0m[38;5;249mf[0m[38;5;249my[0m[38;5;249m-[0m[38;5;249mb[0m[38;5;249me[0m[38;5;249mt[0m[38;5;249mw[0m[38;5;249me[0m[38;5;249me[0m[38;5;249mn[0m[38;5;249m [0m[38;5;249mw[0m[38;5;249m-[0m[38;5;249mf[0m[38;5;249mu[0m[38;5;249ml[0m[38;5;249ml[0m[38;5;249m"[0m[38;5;249m>[0m
+ [38;5;240m   │[0m           ┬  
+ [38;5;240m   │[0m           ╰── 
+ [38;5;240m   │[0m 
+ [38;5;240m   │[0m [38;5;115mHelp[0m: Did you want a JSX fragment `<>...</>`?
+[38;5;246m────╯[0m
+
+  Plugin: vite:oxc
+  File: /home/azimeh/Desktop/Code/SafeCheck/dashboard/src/components/alerts/AlertDetailPanel.tsx
+5:33:46 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/AlertsView.tsx
+5:34:02 PM [vite] (client) Pre-transform error: Transform failed with 2 errors:
+
+[31m[PARSE_ERROR] [0mUnterminated string
+     [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/pages/safecheck/AlertsView.tsx:384:8 [38;5;246m][0m
+     [38;5;246m│[0m
+ [38;5;246m384 │[0m [38;5;249mc[0m[38;5;249me[0m[38;5;249m-[0m[38;5;249m2[0m[38;5;249m/[0m[38;5;249m8[0m[38;5;249m0[0m"
+ [38;5;240m    │[0m        ─┬  
+ [38;5;240m    │[0m         ╰── 
+[38;5;246m─────╯[0m
+
+[31m[PARSE_ERROR] [0mExpected a semicolon or an implicit semicolon after a statement, but found none
+     [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/pages/safecheck/AlertsView.tsx:384:8 [38;5;246m][0m
+     [38;5;246m│[0m
+ [38;5;246m384 │[0m [38;5;249mc[0m[38;5;249me[0m[38;5;249m-[0m[38;5;249m2[0m[38;5;249m/[0m[38;5;249m8[0m[38;5;249m0[0m[38;5;249m"[0m
+ [38;5;240m    │[0m        │ 
+ [38;5;240m    │[0m        ╰─ 
+ [38;5;240m    │[0m 
+ [38;5;240m    │[0m [38;5;115mHelp[0m: Try inserting a semicolon here
+[38;5;246m─────╯[0m
+
+  Plugin: vite:oxc
+  File: /home/azimeh/Desktop/Code/SafeCheck/dashboard/src/pages/safecheck/AlertsView.tsx
+5:34:03 PM [vite] Internal server error: Transform failed with 2 errors:
+
+[31m[PARSE_ERROR] [0mUnterminated string
+     [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/pages/safecheck/AlertsView.tsx:384:8 [38;5;246m][0m
+     [38;5;246m│[0m
+ [38;5;246m384 │[0m [38;5;249mc[0m[38;5;249me[0m[38;5;249m-[0m[38;5;249m2[0m[38;5;249m/[0m[38;5;249m8[0m[38;5;249m0[0m"
+ [38;5;240m    │[0m        ─┬  
+ [38;5;240m    │[0m         ╰── 
+[38;5;246m─────╯[0m
+
+[31m[PARSE_ERROR] [0mExpected a semicolon or an implicit semicolon after a statement, but found none
+     [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/pages/safecheck/AlertsView.tsx:384:8 [38;5;246m][0m
+     [38;5;246m│[0m
+ [38;5;246m384 │[0m [38;5;249mc[0m[38;5;249me[0m[38;5;249m-[0m[38;5;249m2[0m[38;5;249m/[0m[38;5;249m8[0m[38;5;249m0[0m[38;5;249m"[0m
+ [38;5;240m    │[0m        │ 
+ [38;5;240m    │[0m        ╰─ 
+ [38;5;240m    │[0m 
+ [38;5;240m    │[0m [38;5;115mHelp[0m: Try inserting a semicolon here
+[38;5;246m─────╯[0m
+
+  Plugin: vite:oxc
+  File: /home/azimeh/Desktop/Code/SafeCheck/dashboard/src/pages/safecheck/AlertsView.tsx
+      at transformWithOxc (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:4103:19)
+      at TransformPluginContext.transform (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:4174:26)
+      at EnvironmentPluginContainer.transform (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:30932:51)
+      at async loadAndTransform (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:20671:26)
+      at async viteTransformMiddleware (file:///home/azimeh/Desktop/Code/SafeCheck/dashboard/node_modules/vite/dist/node/chunks/node.js:25205:20)
+5:35:55 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/AlertsView.tsx
+5:36:30 PM [vite] (client) hmr update /src/index.css, /src/components/alerts/AlertDetailPanel.tsx
+5:36:40 PM [vite] (client) hmr update /src/index.css, /src/components/alerts/AlertCard.tsx
+5:37:01 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/AlertsView.tsx
+5:40:46 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/CommandsHistory.tsx, /src/pages/safecheck/ReadingsHistory.tsx, /src/pages/safecheck/LiveView.tsx, /src/pages/safecheck/AlertsView.tsx, /src/components/safecheck/ScenarioRunner.tsx
+5:40:47 PM [vite] (client) hmr update /src/index.css, /src/components/alerts/SeverityFilterBar.tsx
+5:40:52 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/AlertsView.tsx, /src/pages/safecheck/ReadingsHistory.tsx, /src/components/safecheck/RecentAlertsStrip.tsx, /src/components/alerts/AlertCard.tsx, /src/components/alerts/AlertDetailPanel.tsx, /src/components/historical/CommandLogTable.tsx
+5:41:00 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+5:41:33 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/ReadingsHistory.tsx
+5:41:43 PM [vite] (client) hmr update /src/index.css, /src/components/historical/CommandLogTable.tsx
+5:41:56 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/CommandsHistory.tsx
+5:42:21 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/ReadingsHistory.tsx
+5:42:59 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/ReadingsHistory.tsx
+5:46:25 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/CommandsHistory.tsx, /src/pages/safecheck/ReadingsHistory.tsx, /src/pages/safecheck/LiveView.tsx, /src/App.tsx, /src/pages/safecheck/AlertsView.tsx, /src/components/safecheck/ScenarioRunner.tsx
+5:46:25 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/AlertsView.tsx
+5:46:27 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/AlertsView.tsx, /src/pages/safecheck/ReadingsHistory.tsx, /src/components/safecheck/RecentAlertsStrip.tsx, /src/components/alerts/AlertCard.tsx, /src/components/alerts/AlertDetailPanel.tsx, /src/components/historical/CommandLogTable.tsx, /src/pages/safecheck/CommandsHistory.tsx
+5:46:32 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+5:46:32 PM [vite] (client) hmr update /src/index.css, /src/components/alerts/AlertDetailPanel.tsx
+5:46:32 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/CommandsHistory.tsx
+5:46:32 PM [vite] (client) hmr update /src/index.css, /src/components/alerts/AlertCard.tsx
+5:46:33 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/AlertsView.tsx
+5:46:34 PM [vite] (client) hmr update /src/index.css, /src/pages/safecheck/ReadingsHistory.tsx
+5:46:34 PM [vite] (client) hmr update /src/index.css, /src/components/historical/CommandLogTable.tsx

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useAlerts, useAlertDetail } from "../../hooks/useAlerts";
-import type { AlertOut, Severity } from "../../types/safecheck.types";
 import type { AlertOut } from "../../types/safecheck.types";
 import {
 	AlertFeed,
@@ -21,7 +20,6 @@ import {
 	ChevronRight,
 	CheckCheck,
 	Calendar,
-	Filter,
 	Trash2,
 	X,
 	CheckSquare,
@@ -40,11 +38,6 @@ export const AlertsView: React.FC = () => {
 	const [selectedAlertId, setSelectedAlertId] = useState<number | null>(
 		queryAlertId,
 	);
-	const [severityFilters, setSeverityFilters] = useState<Severity[]>([
-		"info",
-		"warning",
-		"critical",
-	]);
 
 	// Severity Tab navigation ("all" | "critical" | "warning" | "info")
 	const [activeSeverityTab, setActiveSeverityTab] =
@@ -68,14 +61,10 @@ export const AlertsView: React.FC = () => {
 	// Unread tracking
 	const { unreadCount, markAsRead, markAllAsRead } = useAlertStore();
 
-	// Alerts feed - polls every 5 seconds
-	const { alerts, isLoading } = useAlerts({
 	// Alerts feed - polls every 5 seconds (fetches all severities so tab counts are live)
 	const { alerts, isLoading, refetch } = useAlerts({
 		enabled: true,
 		interval: 5000,
-		severityFilters,
-		limit: 100,
 		limit: 200,
 	});
 
@@ -89,14 +78,6 @@ export const AlertsView: React.FC = () => {
 	// Alert detail - fetches when an alert is selected
 	const { alertDetail } = useAlertDetail(selectedAlertId);
 
-	const handleFilterToggle = (severity: Severity) => {
-		setSeverityFilters((prev) =>
-			prev.includes(severity)
-				? prev.filter((s) => s !== severity)
-				: [...prev, severity],
-		);
-	};
-
 	const handleAlertClick = (alert: AlertOut) => {
 		markAsRead(alert.id);
 		setSelectedAlertId(alert.id);
@@ -108,12 +89,6 @@ export const AlertsView: React.FC = () => {
 		setSearchParams({});
 	};
 
-	const handleMarkAllRead = () => {
-		markAllAsRead(alerts.map((a) => a.id));
-	};
-
-	// Date-time filtering
-	const filteredAlerts = useMemo(() => {
 	// 1. Time-filtered alerts
 	const timeFilteredAlerts = useMemo(() => {
 		const now = Date.now();
@@ -145,13 +120,14 @@ export const AlertsView: React.FC = () => {
 		});
 	}, [alerts, timePreset, customStartDate, customEndDate]);
 
-	// Reset page when any filter changes
 	// Counts for each severity tab
 	const severityCounts = useMemo(() => {
 		return {
 			all: timeFilteredAlerts.length,
-			critical: timeFilteredAlerts.filter((a) => a.severity === "critical").length,
-			warning: timeFilteredAlerts.filter((a) => a.severity === "warning").length,
+			critical: timeFilteredAlerts.filter((a) => a.severity === "critical")
+				.length,
+			warning: timeFilteredAlerts.filter((a) => a.severity === "warning")
+				.length,
 			info: timeFilteredAlerts.filter((a) => a.severity === "info").length,
 		};
 	}, [timeFilteredAlerts]);
@@ -167,7 +143,6 @@ export const AlertsView: React.FC = () => {
 	// Reset page when tab or time preset changes
 	useEffect(() => {
 		setCurrentPage(1);
-	}, [severityFilters, timePreset, customStartDate, customEndDate]);
 	}, [activeSeverityTab, timePreset, customStartDate, customEndDate]);
 
 	// Pagination calculations
@@ -290,7 +265,6 @@ export const AlertsView: React.FC = () => {
 	return (
 		<Layout>
 			<div className="space-y-6">
-				{/* Header */}
 				{/* Page Header */}
 				<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
 					<div>
@@ -305,8 +279,6 @@ export const AlertsView: React.FC = () => {
 							)}
 						</div>
 						<p className="text-sm text-text-secondary mt-1">
-							Plain-language intrusion advisor showing detected anomalies and
-							state-machine violations.
 							Intrusion detection feed displaying physics-correlated anomalies,
 							state-machine violations, and protocol alerts.
 						</p>
@@ -329,30 +301,17 @@ export const AlertsView: React.FC = () => {
 					</div>
 				</div>
 
-				{/* Filters Section: Severity Bar + Date-Time Filter Bar */}
-				<div className="bg-surface-1 rounded-2xl border border-border-subtle shadow-xs p-5 space-y-4 transition-colors">
-					<div>
-						<div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-text-tertiary mb-2.5">
-							<Filter className="w-3.5 h-3.5" />
-							<span>Filter by Severity</span>
-						</div>
 				{/* Filter & Navigation Card: Severity Tabs + Time Window Filter */}
 				<div className="bg-surface-1 rounded-2xl border border-border-subtle shadow-xs overflow-hidden transition-colors">
 					{/* Usual Standard Severity Tabs */}
 					<div className="px-5 pt-2 bg-surface-1">
 						<SeverityFilterBar
-							activeFilters={severityFilters}
-							onFilterToggle={handleFilterToggle}
 							activeTab={activeSeverityTab}
 							onTabChange={setActiveSeverityTab}
 							counts={severityCounts}
 						/>
 					</div>
 
-					<div className="pt-3 border-t border-border-subtle/70">
-						<div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-text-tertiary mb-2.5">
-							<Clock className="w-3.5 h-3.5" />
-							<span>Time Range Window</span>
 					{/* Time Range Window Bar */}
 					<div className="p-4 sm:px-5 bg-surface-1/60 border-t border-border-subtle/70">
 						<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -382,27 +341,6 @@ export const AlertsView: React.FC = () => {
 									</button>
 								))}
 							</div>
-						</div>
-						<div className="flex flex-wrap items-center gap-2">
-							{[
-								{ id: "all", label: "All Time" },
-								{ id: "15m", label: "Last 15m" },
-								{ id: "1h", label: "Last 1 Hour" },
-								{ id: "24h", label: "Last 24 Hours" },
-								{ id: "custom", label: "Custom Range" },
-							].map((preset) => (
-								<button
-									key={preset.id}
-									onClick={() => setTimePreset(preset.id as TimeRangePreset)}
-									className={`px-3 py-1.5 rounded-lg text-xs font-medium cursor-pointer transition-all border ${
-										timePreset === preset.id
-											? "bg-primary text-[var(--surface-0)] border-primary font-semibold shadow-xs"
-											: "bg-surface-2 text-text-secondary border-border-subtle hover:text-text-primary hover:bg-surface-2/80"
-									}`}
-								>
-									{preset.label}
-								</button>
-							))}
 						</div>
 
 						{/* Custom Date Range Picker */}
@@ -452,9 +390,6 @@ export const AlertsView: React.FC = () => {
 					</div>
 				</div>
 
-				{/* Alert Feed Card with Pagination Controls */}
-				<div className="bg-surface-1 rounded-2xl border border-border-subtle shadow-xs p-6 space-y-5 transition-colors">
-					{/* Feed Header */}
 				{/* Floating Bulk Action Bar (Visible when >= 1 alerts are selected) */}
 				{selectedAlertIds.size > 0 && (
 					<div className="sticky top-4 z-20 bg-surface-1 border-2 border-primary/50 shadow-lg rounded-xl p-3.5 flex flex-wrap items-center justify-between gap-3 animate-in fade-in slide-in-from-top-2">
@@ -513,21 +448,6 @@ export const AlertsView: React.FC = () => {
 				<div className="bg-surface-1 rounded-2xl border border-border-subtle shadow-xs p-5 sm:p-6 space-y-4 transition-colors">
 					{/* Table Controls / Select All Bar */}
 					<div className="flex items-center justify-between text-xs text-text-secondary border-b border-border-subtle pb-3">
-						<span>
-							Showing{" "}
-							<strong className="text-text-primary font-mono">
-								{startDisplayIndex}
-							</strong>{" "}
-							-{" "}
-							<strong className="text-text-primary font-mono">
-								{endDisplayIndex}
-							</strong>{" "}
-							of{" "}
-							<strong className="text-text-primary font-mono">
-								{filteredAlerts.length}
-							</strong>{" "}
-							alerts
-						</span>
 						<div className="flex items-center gap-2.5">
 							{paginatedAlerts.length > 0 && (
 								<button
@@ -601,39 +521,30 @@ export const AlertsView: React.FC = () => {
 								{/* Page Numbers */}
 								<div className="flex items-center gap-1 px-1">
 									{Array.from({ length: totalPages }, (_, i) => i + 1)
-										.filter(
-											(page) =>
 										.filter((page) => {
 											if (totalPages <= 5) return true;
 											return (
 												page === 1 ||
 												page === totalPages ||
-												Math.abs(page - safeCurrentPage) <= 1,
-										)
 												Math.abs(page - safeCurrentPage) <= 1
 											);
 										})
 										.map((page, idx, arr) => {
-											const prevPage = arr[idx - 1];
-											const showEllipsis = prevPage && page - prevPage > 1;
 											const prev = arr[idx - 1];
 											const showEllipsis = prev && page - prev > 1;
 
 											return (
 												<React.Fragment key={page}>
 													{showEllipsis && (
-														<span className="px-1 text-text-tertiary">...</span>
 														<span className="text-xs text-text-tertiary px-1 font-mono">
 															...
 														</span>
 													)}
 													<button
 														onClick={() => setCurrentPage(page)}
-														className={`w-8 h-8 rounded-lg text-xs font-mono font-medium cursor-pointer transition-all ${
 														className={`w-8 h-8 rounded-lg text-xs font-mono font-medium cursor-pointer transition-colors ${
 															safeCurrentPage === page
 																? "bg-primary text-[var(--surface-0)] font-bold shadow-xs"
-																: "bg-surface-2 text-text-secondary hover:text-text-primary hover:bg-surface-2/80"
 																: "text-text-secondary hover:bg-surface-2 hover:text-text-primary"
 														}`}
 													>
@@ -660,10 +571,8 @@ export const AlertsView: React.FC = () => {
 					)}
 				</div>
 
-				{/* Alert Detail Panel */}
 				{/* Detailed Alert Forensics Modal */}
 				<AlertDetailPanel
-					isOpen={selectedAlertId !== null}
 					alert={alertDetail}
 					isOpen={!!selectedAlertId && !!alertDetail}
 					onClose={handleCloseDetail}

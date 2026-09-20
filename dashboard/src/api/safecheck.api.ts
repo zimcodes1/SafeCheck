@@ -54,11 +54,41 @@ export const safecheckAPI = {
     return response.data;
   },
 
+  deleteReading: async (id: number): Promise<{ status: string; message: string }> => {
+    const response = await axiosInstance.delete(`/history/readings/${id}`);
+    return response.data;
+  },
+
+  batchDeleteReadings: async (ids: number[]): Promise<{ status: string; deleted_count: number }> => {
+    const response = await axiosInstance.post("/history/readings/batch-delete", { ids });
+    return response.data;
+  },
+
+  clearAllReadings: async (): Promise<{ status: string; deleted_count: number }> => {
+    const response = await axiosInstance.delete("/history/readings");
+    return response.data;
+  },
+
   // Historical commands - get command history
   getCommandsHistory: async (filters?: HistoryFilters): Promise<Command[]> => {
     const response = await axiosInstance.get("/history/commands", {
       params: filters,
     });
+    return response.data;
+  },
+
+  deleteCommand: async (id: number): Promise<{ status: string; message: string }> => {
+    const response = await axiosInstance.delete(`/history/commands/${id}`);
+    return response.data;
+  },
+
+  batchDeleteCommands: async (ids: number[]): Promise<{ status: string; deleted_count: number }> => {
+    const response = await axiosInstance.post("/history/commands/batch-delete", { ids });
+    return response.data;
+  },
+
+  clearAllCommands: async (): Promise<{ status: string; deleted_count: number }> => {
+    const response = await axiosInstance.delete("/history/commands");
     return response.data;
   },
 
