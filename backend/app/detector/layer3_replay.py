@@ -46,25 +46,39 @@ def check_for_replay(
     # count pump activity across the window (including the new reading)
     pump_count = 0
     total_count = 0
+    levels = []
+
     for r in window:
-        ps = _state_value(r, "pump_state")
-        if ps:
+        if _state_value(r, "pump_state"):
             pump_count += 1
+        lvl = _state_value(r, "water_level")
+        if lvl is not None:
+            levels.append(float(lvl))
         total_count += 1
+
     # include the new reading in counts
     if _state_value(newest, "pump_state"):
         pump_count += 1
+    if newest_level is not None:
+        levels.append(float(newest_level))
     total_count += 1
 
-    # compute cumulative change across the whole window (oldest -> newest)
-    cumulative_delta = newest_level - oldest_level
+    if not levels:
+        return True, None
 
-    # condition: pump active in majority and level barely changed
-    pump_majority = pump_count > (total_count // 2)
+    max_level = max(levels)
+    min_level = min(levels)
+    level_variation = max_level - min_level
 
-    if pump_majority and cumulative_delta < float(min_cumulative_change):
+    # A replay anomaly occurs when the pump is continuously engaged throughout the sample
+    # window, but the reported water level remains completely frozen / unchanged.
+    # Note: If the tank is already at capacity (>=99%), level cannot physically rise.
+    pump_active_throughout = (pump_count == total_count)
+    tank_at_capacity = newest_level >= 99.0
+
+    if pump_active_throughout and not tank_at_capacity and level_variation < float(min_cumulative_change):
         return False, (
-            f"Sensor anomaly: pump has been active but water level changed only {cumulative_delta:.2f} over {total_count} samples. "
+            f"Sensor anomaly: pump has been continuously active but water level remained frozen (variation {level_variation:.2f} over {total_count} samples). "
             "Possible sensor replay, transmission failure, or device hang — investigate sensors and connectivity."
         )
 

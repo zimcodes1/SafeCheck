@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { safecheckAPI } from "../api/safecheck.api";
+import { alertStore } from "../store/alertStore";
 import type { AlertOut, AlertDetail, Severity } from "../types/safecheck.types";
 
 interface UseAlertsOptions {
@@ -44,6 +45,7 @@ export const useAlerts = (options: UseAlertsOptions = {}) => {
       const data = await safecheckAPI.getAlerts({ limit });
       if (isMountedRef.current) {
         setRawAlerts(data);
+        alertStore.syncAlerts(data);
         setError(null);
       }
     } catch (err) {

@@ -601,3 +601,155 @@
 2026-09-20 14:31:41,920 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
 2026-09-20 14:31:41,920 | INFO | PHASE_PAUSE | resting at high level before drain duration=6.8s
 2026-09-20 14:31:48,742 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0
+2026-09-20 14:32:36,793 | INFO | ACTION | end_drain register=1 value=0 water_level=30.0
+2026-09-20 14:32:36,794 | INFO | PHASE_PAUSE | post-cycle settling duration=7.8s
+2026-09-20 14:32:44,636 | INFO | CYCLE_COMPLETE | cycle=8
+2026-09-20 14:32:44,638 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 14:32:44,638 | INFO | PHASE_PAUSE | resting before refill duration=4.3s
+2026-09-20 14:32:48,987 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 14:32:48,989 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 14:33:37,041 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
+2026-09-20 14:33:37,041 | INFO | PHASE_PAUSE | resting at high level before drain duration=5.5s
+2026-09-20 14:33:42,573 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0
+2026-09-20 14:34:29,393 | INFO | ACTION | end_drain register=1 value=0 water_level=32.0
+2026-09-20 14:34:29,394 | INFO | PHASE_PAUSE | post-cycle settling duration=7.7s
+2026-09-20 14:34:37,083 | INFO | CYCLE_COMPLETE | cycle=9
+2026-09-20 14:34:37,086 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=32.0
+2026-09-20 14:34:37,086 | INFO | GUARD_WAIT | water_level=32.0 threshold=30.0
+2026-09-20 14:34:38,089 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=31.0
+2026-09-20 14:34:38,089 | INFO | GUARD_WAIT | water_level=31.0 threshold=30.0
+2026-09-20 14:34:39,092 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 14:34:39,092 | INFO | PHASE_PAUSE | resting before refill duration=6.8s
+2026-09-20 14:34:45,934 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 14:34:45,935 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 14:35:33,996 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
+2026-09-20 14:35:33,996 | INFO | PHASE_PAUSE | resting at high level before drain duration=5.9s
+2026-09-20 14:35:39,905 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0
+2026-09-20 14:36:27,958 | INFO | ACTION | end_drain register=1 value=0 water_level=30.0
+2026-09-20 14:36:27,959 | INFO | PHASE_PAUSE | post-cycle settling duration=6.7s
+2026-09-20 14:36:34,658 | INFO | CYCLE_COMPLETE | cycle=10
+2026-09-20 14:36:34,661 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 14:36:34,661 | INFO | PHASE_PAUSE | resting before refill duration=4.9s
+2026-09-20 14:36:39,544 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 14:36:39,546 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 14:37:27,611 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
+2026-09-20 14:37:27,611 | INFO | PHASE_PAUSE | resting at high level before drain duration=5.6s
+2026-09-20 14:37:33,180 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0
+2026-09-20 14:38:21,239 | INFO | ACTION | end_drain register=1 value=0 water_level=30.0
+2026-09-20 14:38:21,240 | INFO | PHASE_PAUSE | post-cycle settling duration=4.6s
+2026-09-20 14:38:25,815 | INFO | CYCLE_COMPLETE | cycle=11
+2026-09-20 14:38:25,821 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 14:38:25,821 | INFO | PHASE_PAUSE | resting before refill duration=7.2s
+2026-09-20 14:38:33,039 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 14:38:33,040 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 14:39:22,542 | INFO | ACTION | end_fill register=0 value=0 water_level=54.0
+2026-09-20 14:39:22,543 | INFO | PHASE_PAUSE | resting at high level before drain duration=4.1s
+2026-09-20 14:39:26,621 | INFO | ACTION | begin_drain register=1 value=1 water_level=54.0
+2026-09-20 14:39:50,647 | INFO | ACTION | end_drain register=1 value=0 water_level=30.0
+2026-09-20 14:39:50,648 | INFO | PHASE_PAUSE | post-cycle settling duration=6.1s
+2026-09-20 14:39:56,773 | INFO | CYCLE_COMPLETE | cycle=12
+2026-09-20 14:39:56,775 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 14:39:56,775 | INFO | PHASE_PAUSE | resting before refill duration=7.1s
+2026-09-20 14:40:03,846 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 14:40:03,847 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 14:40:51,902 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
+2026-09-20 14:40:51,902 | INFO | PHASE_PAUSE | resting at high level before drain duration=5.4s
+2026-09-20 14:40:57,305 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0
+2026-09-20 14:41:43,635 | INFO | ACTION | end_drain register=1 value=0 water_level=32.0
+2026-09-20 14:41:43,635 | INFO | PHASE_PAUSE | post-cycle settling duration=4.3s
+2026-09-20 14:41:47,925 | INFO | CYCLE_COMPLETE | cycle=13
+2026-09-20 14:41:47,927 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=32.0
+2026-09-20 14:41:47,927 | INFO | GUARD_WAIT | water_level=32.0 threshold=30.0
+2026-09-20 14:41:48,929 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=31.0
+2026-09-20 14:41:48,929 | INFO | GUARD_WAIT | water_level=31.0 threshold=30.0
+2026-09-20 14:41:49,931 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 14:41:49,931 | INFO | PHASE_PAUSE | resting before refill duration=7.7s
+2026-09-20 14:41:57,643 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 14:41:57,645 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 14:42:44,194 | INFO | ACTION | end_fill register=0 value=0 water_level=77.0
+2026-09-20 14:42:44,194 | INFO | PHASE_PAUSE | resting at high level before drain duration=4.6s
+2026-09-20 14:42:48,845 | INFO | ACTION | begin_drain register=1 value=1 water_level=77.0
+2026-09-20 14:43:35,904 | INFO | ACTION | end_drain register=1 value=0 water_level=30.0
+2026-09-20 14:43:35,904 | INFO | PHASE_PAUSE | post-cycle settling duration=7.8s
+2026-09-20 14:43:43,738 | INFO | CYCLE_COMPLETE | cycle=14
+2026-09-20 14:43:43,741 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 14:43:43,741 | INFO | PHASE_PAUSE | resting before refill duration=8.0s
+2026-09-20 14:43:51,701 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 14:43:51,702 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 14:44:39,764 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
+2026-09-20 14:44:39,764 | INFO | PHASE_PAUSE | resting at high level before drain duration=7.5s
+2026-09-20 14:44:47,233 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0
+2026-09-20 14:45:34,490 | INFO | ACTION | end_drain register=1 value=0 water_level=30.0
+2026-09-20 14:45:34,490 | INFO | PHASE_PAUSE | post-cycle settling duration=6.5s
+2026-09-20 14:45:40,955 | INFO | CYCLE_COMPLETE | cycle=15
+2026-09-20 14:45:40,957 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 14:45:40,958 | INFO | PHASE_PAUSE | resting before refill duration=5.8s
+2026-09-20 14:45:46,774 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 14:45:46,776 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 14:46:03,061 | INFO | SHUTDOWN | KeyboardInterrupt received; closing Modbus connection
+2026-09-20 14:46:05,316 | INFO | STARTUP | plant=127.0.0.1:5020 source_port=6001 safe_to_fill=30.0 max_cycles=None
+2026-09-20 14:46:05,319 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=1s
+2026-09-20 14:46:06,320 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=2s
+2026-09-20 14:46:08,321 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 14:46:13,322 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 14:46:18,323 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 14:46:23,324 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 14:46:28,325 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 14:46:33,326 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 14:46:38,327 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 14:46:43,328 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 14:46:43,528 | INFO | SHUTDOWN | KeyboardInterrupt received; closing Modbus connection
+2026-09-20 14:46:57,681 | INFO | STARTUP | plant=127.0.0.1:5020 source_port=6001 safe_to_fill=30.0 max_cycles=None
+2026-09-20 14:46:57,684 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=1s
+2026-09-20 14:46:58,685 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=2s
+2026-09-20 14:47:00,685 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 14:47:02,119 | INFO | SHUTDOWN | KeyboardInterrupt received; closing Modbus connection
+2026-09-20 14:48:03,698 | INFO | STARTUP | plant=127.0.0.1:5020 source_port=6001 safe_to_fill=30.0 max_cycles=None
+2026-09-20 14:48:03,701 | INFO | CONNECTED | plant=127.0.0.1:5020 source_port=6001
+2026-09-20 14:48:03,703 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=50.0
+2026-09-20 14:48:03,703 | INFO | GUARD_WAIT | water_level=50.0 threshold=30.0
+2026-09-20 14:48:04,706 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=49.0
+2026-09-20 14:48:04,706 | INFO | GUARD_WAIT | water_level=49.0 threshold=30.0
+2026-09-20 14:48:05,708 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=48.0
+2026-09-20 14:48:05,708 | INFO | GUARD_WAIT | water_level=48.0 threshold=30.0
+2026-09-20 14:48:06,711 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=47.0
+2026-09-20 14:48:06,711 | INFO | GUARD_WAIT | water_level=47.0 threshold=30.0
+2026-09-20 14:48:07,713 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=46.0
+2026-09-20 14:48:07,713 | INFO | GUARD_WAIT | water_level=46.0 threshold=30.0
+2026-09-20 14:48:08,716 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=45.0
+2026-09-20 14:48:08,716 | INFO | GUARD_WAIT | water_level=45.0 threshold=30.0
+2026-09-20 14:48:09,719 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=44.0
+2026-09-20 14:48:09,719 | INFO | GUARD_WAIT | water_level=44.0 threshold=30.0
+2026-09-20 14:48:10,721 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=43.0
+2026-09-20 14:48:10,721 | INFO | GUARD_WAIT | water_level=43.0 threshold=30.0
+2026-09-20 14:48:11,726 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=42.0
+2026-09-20 14:48:11,727 | INFO | GUARD_WAIT | water_level=42.0 threshold=30.0
+2026-09-20 14:48:12,728 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=41.0
+2026-09-20 14:48:12,729 | INFO | GUARD_WAIT | water_level=41.0 threshold=30.0
+2026-09-20 14:48:13,730 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=40.0
+2026-09-20 14:48:13,731 | INFO | GUARD_WAIT | water_level=40.0 threshold=30.0
+2026-09-20 14:48:14,732 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=39.0
+2026-09-20 14:48:14,732 | INFO | GUARD_WAIT | water_level=39.0 threshold=30.0
+2026-09-20 14:48:15,735 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=38.0
+2026-09-20 14:48:15,735 | INFO | GUARD_WAIT | water_level=38.0 threshold=30.0
+2026-09-20 14:48:16,737 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=37.0
+2026-09-20 14:48:16,737 | INFO | GUARD_WAIT | water_level=37.0 threshold=30.0
+2026-09-20 14:48:17,739 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=36.0
+2026-09-20 14:48:17,739 | INFO | GUARD_WAIT | water_level=36.0 threshold=30.0
+2026-09-20 14:48:18,741 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=35.0
+2026-09-20 14:48:18,741 | INFO | GUARD_WAIT | water_level=35.0 threshold=30.0
+2026-09-20 14:48:19,743 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=34.0
+2026-09-20 14:48:19,743 | INFO | GUARD_WAIT | water_level=34.0 threshold=30.0
+2026-09-20 14:48:20,745 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=33.0
+2026-09-20 14:48:20,745 | INFO | GUARD_WAIT | water_level=33.0 threshold=30.0
+2026-09-20 14:48:21,747 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=32.0
+2026-09-20 14:48:21,747 | INFO | GUARD_WAIT | water_level=32.0 threshold=30.0
+2026-09-20 14:48:22,752 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=31.0
+2026-09-20 14:48:22,753 | INFO | GUARD_WAIT | water_level=31.0 threshold=30.0
+2026-09-20 14:48:23,755 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 14:48:23,756 | INFO | PHASE_PAUSE | resting before refill duration=4.1s
+2026-09-20 14:48:27,890 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 14:48:27,892 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 14:49:15,950 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
+2026-09-20 14:49:15,950 | INFO | PHASE_PAUSE | resting at high level before drain duration=6.2s
+2026-09-20 14:49:22,184 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0

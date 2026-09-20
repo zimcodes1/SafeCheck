@@ -4,10 +4,12 @@ import { Activity, Bell, History, Database } from "lucide-react";
 import { StatusIndicator } from "./ui/StatusIndicator";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { usePlantStore } from "../store/plantStore";
+import { useAlertStore } from "../store/alertStore";
 
 export const TopBar: FC = () => {
 	const location = useLocation();
 	const { isConnected } = usePlantStore();
+	const { unreadCount } = useAlertStore();
 
 	const isActive = (path: string) => location.pathname === path;
 
@@ -62,8 +64,21 @@ export const TopBar: FC = () => {
 									: "hover:text-text-primary"
 							}`}
 						>
-							<Bell className="w-3.5 h-3.5" />
+							<div className="relative flex items-center">
+								<Bell className="w-3.5 h-3.5" />
+								{unreadCount > 0 && (
+									<span className="absolute -top-1.5 -right-1.5 flex h-2 w-2">
+										<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-critical opacity-75"></span>
+										<span className="relative inline-flex rounded-full h-2 w-2 bg-critical"></span>
+									</span>
+								)}
+							</div>
 							<span>Alerts</span>
+							{unreadCount > 0 && (
+								<span className="px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-critical text-white leading-none">
+									{unreadCount > 99 ? "99+" : unreadCount}
+								</span>
+							)}
 						</Link>
 						<Link
 							to="/history/readings"

@@ -80,7 +80,7 @@ async def poll_once() -> Optional[Reading]:
     # After persisting, gather a short window of recent readings to evaluate
     try:
         with Session(engine) as session:
-            stmt = select(Reading).order_by(Reading.timestamp.desc()).limit(5)
+            stmt = select(Reading).order_by(Reading.timestamp.desc()).limit(10)
             rows = session.exec(stmt).all()
             # convert to ReadingOut (oldest first)
             rows_out = [ReadingOut.model_validate(r) for r in reversed(rows)]

@@ -15,7 +15,7 @@ router = APIRouter(prefix="/alerts", tags=["Alerts"])
 @router.get("", response_model=List[AlertOut])
 async def list_alerts(
     severity: Optional[str] = Query(None),
-    limit: int = Query(10, ge=1, le=100),
+    limit: int = Query(50, ge=1, le=1000),
 ) -> List[AlertOut]:
     with Session(engine) as session:
         query = select(Alert)

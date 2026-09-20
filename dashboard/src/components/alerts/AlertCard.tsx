@@ -2,6 +2,7 @@ import React from "react";
 import type { AlertOut } from "../../types/safecheck.types";
 import { Badge } from "../ui/Badge";
 import { getRelativeTime } from "../../utils/timeUtils";
+import { useAlertStore } from "../../store/alertStore";
 import {
 	AlertOctagon,
 	AlertTriangle,
@@ -16,6 +17,8 @@ interface AlertCardProps {
 }
 
 export const AlertCard: React.FC<AlertCardProps> = ({ alert, onClick }) => {
+	const { isAlertRead } = useAlertStore();
+	const isRead = isAlertRead(alert.id);
 	const isNeedsReview = alert.confidence === "needs_review";
 
 	const getSeverityIcon = () => {
@@ -70,6 +73,16 @@ export const AlertCard: React.FC<AlertCardProps> = ({ alert, onClick }) => {
 						) : (
 							<Badge variant="success" size="sm">
 								Certain
+							</Badge>
+						)}
+
+						{!isRead && (
+							<Badge
+								variant="critical"
+								size="sm"
+								className="font-bold tracking-wider animate-pulse"
+							>
+								NEW
 							</Badge>
 						)}
 

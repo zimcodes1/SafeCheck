@@ -58,30 +58,41 @@ def check_for_drift(
     dt = max(1.0, t_new - t_old)
     rate = (newest_level - oldest_level) / dt
 
-    # pump activity majority
+    # pump activity across the window
     pump_count = 0
+    valve_count = 0
     total = 0
     for r in window:
         if _state_value(r, "pump_state"):
             pump_count += 1
+        if _state_value(r, "valve_state"):
+            valve_count += 1
         total += 1
     if _state_value(newest, "pump_state"):
         pump_count += 1
+    if _state_value(newest, "valve_state"):
+        valve_count += 1
     total += 1
 
-    pump_majority = pump_count > (total // 2)
+    # An uncommanded slow rise (leak / drift) occurs when the pump is completely OFF
+    # throughout the window, the valve is closed, but water level is creeping upward.
+    pump_completely_off = (pump_count == 0)
+    level_delta = newest_level - oldest_level
 
-    # If pump is mostly off but level is rising -> leak
-    if not pump_majority and rate > drift_rate_threshold:
+    if pump_completely_off and rate > drift_rate_threshold and level_delta >= 0.5:
         return False, (
-            f"Slow rise detected while pump is mostly OFF: level increased {newest_level - oldest_level:.2f} over {dt:.0f}s (rate {rate:.4f}/s). "
+            f"Slow rise detected while pump is OFF: level increased {level_delta:.2f} over {dt:.0f}s (rate {rate:.4f}/s). "
             "Possible leak, sensor bias, or background inflow."
         )
 
-    # If pump is mostly on but level not rising sufficiently -> underperform
-    if pump_majority and rate < drift_rate_threshold:
+    # An underperformance anomaly occurs when the pump is continuously ON throughout the window,
+    # the tank is not yet full, but the rate of rise is suspiciously below threshold.
+    pump_active_throughout = (pump_count == total)
+    tank_at_capacity = newest_level >= 98.0
+
+    if pump_active_throughout and not tank_at_capacity and rate < drift_rate_threshold:
         return False, (
-            f"Underperformance detected while pump is mostly ON: level changed {newest_level - oldest_level:.2f} over {dt:.0f}s (rate {rate:.4f}/s). "
+            f"Underperformance detected while pump is ON: level changed {level_delta:.2f} over {dt:.0f}s (rate {rate:.4f}/s). "
             "Possible pump failure, blockage, or measurement issue."
         )
 
