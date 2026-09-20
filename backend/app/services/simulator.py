@@ -56,9 +56,9 @@ def run_scenario(name: str) -> Dict[str, Any]:
         return {"scenario": name, "command": bad_res, "alert": bad_alert}
 
     if name == "replay_stuck":
-        base = _make_reading(50.0, True, True, _now(-60))
+        base = _make_reading(50.0, True, False, _now(-60))
         window = [base, base, base]
-        new = _make_reading(50.0, True, True, _now(0))
+        new = _make_reading(50.0, True, False, _now(0))
         _, alert = evaluate_reading(new, window)
         return {"scenario": name, "alert": alert}
 

@@ -1,75 +1,162 @@
-# React + TypeScript + Vite
+# SafeCheck Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + TypeScript dashboard for the SafeCheck industrial intrusion detection system.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Live Plant Monitoring**: Real-time water tank telemetry with pump and valve status
+- **Security Alerts Feed**: View and filter security alerts with severity levels
+- **Historical Data**: Command and readings history with export functionality
+- **Attack Simulation**: Built-in scenario runner for testing detection capabilities
+- **Dark/Light Theme**: System-aware theme switching
+- **Responsive Design**: Mobile-friendly interface
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 with TypeScript
+- Vite for build tooling
+- Tailwind CSS v4 for styling
+- React Router for navigation
+- Axios for API communication
+- Zustand for state management
+- React Hot Toast for notifications
 
-## Expanding the ESLint configuration
+## Setup & Development
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js 18+
+- Yarn package manager
+- Backend API server running on port 8000
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+cd dashboard
+yarn install
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+### Development Mode
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+yarn dev
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+The dashboard will be available at `http://localhost:5173`
+
+### Production Build
+
+```bash
+yarn build
+```
+
+Build outputs to `dist/` directory.
+
+### Preview Production Build
+
+```bash
+yarn preview
+```
+
+## API Configuration
+
+The dashboard is configured to proxy API calls to the backend:
+
+- **Development**: Vite proxy routes `/api` to `http://localhost:8000`
+- **Production**: Set `VITE_API_URL` environment variable for different backend URL
+
+### Environment Variables
+
+Create `.env.local` file:
+
+```env
+VITE_API_URL=http://localhost:8000
+```
+
+## Project Structure
 
 ```
+src/
+├── api/              # API client and configuration
+├── components/       # Reusable UI components
+│   ├── alerts/      # Alert-related components
+│   ├── common/      # Common UI elements
+│   ├── historical/  # History view components
+│   ├── layout/      # Layout components
+│   ├── safecheck/   # SafeCheck-specific components
+│   └── ui/          # UI primitives
+├── contexts/        # React contexts (theme)
+├── hooks/           # Custom React hooks
+├── pages/           # Page components
+│   └── safecheck/   # SafeCheck pages
+├── services/        # External services
+├── store/           # State management
+├── types/           # TypeScript type definitions
+├── utils/           # Utility functions
+├── views/           # View components
+├── App.tsx          # Main application component
+└── main.tsx         # Application entry point
+```
+
+## Pages
+
+- `/demo` - Component showcase and design system
+- `/live` - Live plant monitoring with real-time telemetry
+- `/alerts` - Security alerts feed with filtering
+- `/history/commands` - Command history with export
+- `/history/readings` - Sensor readings history with export
+
+## Backend Integration
+
+The dashboard connects to the SafeCheck backend API:
+
+- `GET /api/plant/live` - Live plant state
+- `GET /api/alerts` - Security alerts
+- `GET /api/history/readings` - Historical readings
+- `GET /api/history/commands` - Command history
+- `POST /api/simulate/scenario` - Attack simulation
+
+## Theme System
+
+The dashboard supports dark/light themes with system preference detection:
+
+- **System**: Follows OS preference
+- **Light**: Force light mode
+- **Dark**: Force dark mode
+
+Theme switcher is available in the top navigation bar.
+
+## State Management
+
+- **Zustand** for global plant state
+- **React Context** for theme management
+- **Custom hooks** for API polling and data fetching
+
+## Development Notes
+
+- The development server proxies API calls to `http://localhost:8000`
+- Hot module replacement is enabled for fast development
+- TypeScript strict mode is enabled
+- ESLint is configured for code quality
+
+## Troubleshooting
+
+### Backend Connection Issues
+
+If you see "Plant Disconnected" errors:
+
+1. Ensure the backend server is running on port 8000
+2. Check that the plant simulator is running on port 5020
+3. Verify the Vite proxy configuration in `vite.config.ts`
+
+### Build Errors
+
+If you encounter build errors:
+
+1. Clear the node_modules and reinstall: `rm -rf node_modules && yarn install`
+2. Clear the Vite cache: `rm -rf node_modules/.vite`
+3. Check TypeScript errors: `yarn tsc --noEmit`
+
+## License
+
+Part of the SafeCheck project for ICSC Hackathon 2026.

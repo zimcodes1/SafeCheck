@@ -1,16 +1,20 @@
 import logging
 from typing import Optional
 
-from app.services.modbus_client import read_plant_state
+from app.services.modbus_client import read_holding_registers, read_plant_state
+from app.services.packet_sniffer import sniffer_is_running
 from app.models import Reading
+from app.models.command import CommandType
 from sqlmodel import Session, select
 from app.database import engine
-from app.detector.engine import evaluate_reading
+from app.detector.engine import evaluate_command, evaluate_reading
+from app.schemas.command import CommandIn
 from app.schemas.reading import ReadingOut
 from app.config import Settings
 
 logger = logging.getLogger(__name__)
 settings = Settings()
+_last_known_commands: dict[str, int | None] = {"pump": None, "valve": None}
 
 
 async def poll_once() -> Optional[Reading]:
@@ -46,21 +50,47 @@ async def poll_once() -> Optional[Reading]:
         return None
 
     logger.debug("poll_once: persisted reading id=%s water=%s", persisted_id, persisted_water)
+
+    # Packet capture is the primary command sensor.  If it cannot run (for
+    # example without CAP_NET_RAW), holding-register diffing preserves a
+    # coarser but still passive detection path.
+    try:
+        pump_command, valve_command = await read_holding_registers(settings.plant_host, settings.plant_port)
+        current_commands = {"pump": pump_command, "valve": valve_command}
+        for command_type, value in current_commands.items():
+            previous = _last_known_commands[command_type]
+            if previous is not None and value != previous and not sniffer_is_running():
+                command = CommandIn(
+                    command_type=CommandType(command_type),
+                    value=bool(value),
+                    source_id="holding-register-diff-fallback",
+                )
+                state = {
+                    "water_level": float(water_level),
+                    "pump_state": bool(pump_status),
+                    "valve_state": bool(valve_status),
+                }
+                _, alert = evaluate_command(command, current_plant_state=state)
+                if alert:
+                    logger.warning("poll_once: fallback command alert: %s", alert)
+            _last_known_commands[command_type] = value
+    except Exception as exc:
+        logger.warning("poll_once: failed to read holding registers for fallback detection: %s", exc)
+
     # After persisting, gather a short window of recent readings to evaluate
     try:
         with Session(engine) as session:
-            stmt = select(Reading).order_by(Reading.timestamp.desc()).limit(5)
+            stmt = select(Reading).order_by(Reading.timestamp.desc()).limit(10)
             rows = session.exec(stmt).all()
             # convert to ReadingOut (oldest first)
             rows_out = [ReadingOut.model_validate(r) for r in reversed(rows)]
             new_reading = ReadingOut.model_validate(reading)
 
-        _, alert_payload = evaluate_reading(new_reading, rows_out)
+        _, alert_payload = evaluate_reading(new_reading, rows_out, cooldown_seconds=30)
         if alert_payload:
             logger.warning("poll_once: alert from evaluate_reading: %s", alert_payload)
     except Exception:
         logger.exception("poll_once: failed to evaluate reading")
 
     return reading
-
 
