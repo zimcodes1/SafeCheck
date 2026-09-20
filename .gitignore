@@ -22,3 +22,4 @@ attacks/injection/__pycache__/
 attacks/common/__pycache__/
 legitimate_client/__pycache__/
 attacks/malformed_packet/__pycache__/
+backend/.env

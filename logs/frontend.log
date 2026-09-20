@@ -1,8 +1,7 @@
 npm notice run safecheck@0.0.0 dev
 npm notice run vite
-4:08:30 PM [vite] (client) Re-optimizing dependencies because vite config has changed
 
-  VITE v8.2.2  ready in 676 ms
+  VITE v8.2.2  ready in 476 ms
 
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose

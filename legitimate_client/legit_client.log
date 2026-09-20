@@ -3166,3 +3166,946 @@
 2026-09-20 16:36:54,295 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
 2026-09-20 16:36:59,296 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
 2026-09-20 16:37:04,297 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:37:08,204 | INFO | ACTION | end_drain register=1 value=0 water_level=86.0
+2026-09-20 16:37:08,204 | INFO | PHASE_PAUSE | post-cycle settling duration=7.7s
+2026-09-20 16:37:09,298 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:37:14,304 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:37:15,910 | INFO | CYCLE_COMPLETE | cycle=26
+2026-09-20 16:37:15,913 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:15,914 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:16,916 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:16,917 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:17,921 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:17,921 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:18,924 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:18,924 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:19,305 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:37:19,927 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:19,927 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:20,930 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:20,930 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:21,933 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:21,934 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:22,937 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:22,937 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:23,940 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:23,941 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:24,306 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:37:24,944 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:24,945 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:25,947 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:25,948 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:26,951 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:26,951 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:27,954 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:27,955 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:28,958 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:28,958 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:29,307 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:37:29,961 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:29,962 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:30,964 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:30,965 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:31,967 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:31,968 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:32,971 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:32,971 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:33,974 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:33,974 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:34,308 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:37:34,979 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:34,979 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:35,983 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:35,983 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:36,986 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:36,987 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:37,989 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:37,990 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:38,993 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:38,993 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:39,308 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:37:39,996 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:39,997 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:41,000 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:41,000 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:42,003 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:42,003 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:43,006 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=94.0
+2026-09-20 16:37:43,006 | INFO | GUARD_WAIT | water_level=94.0 threshold=30.0
+2026-09-20 16:37:44,009 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=93.0
+2026-09-20 16:37:44,010 | INFO | GUARD_WAIT | water_level=93.0 threshold=30.0
+2026-09-20 16:37:44,309 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:37:45,013 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=92.0
+2026-09-20 16:37:45,013 | INFO | GUARD_WAIT | water_level=92.0 threshold=30.0
+2026-09-20 16:37:46,015 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=91.0
+2026-09-20 16:37:46,015 | INFO | GUARD_WAIT | water_level=91.0 threshold=30.0
+2026-09-20 16:37:47,018 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=90.0
+2026-09-20 16:37:47,018 | INFO | GUARD_WAIT | water_level=90.0 threshold=30.0
+2026-09-20 16:37:48,021 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=89.0
+2026-09-20 16:37:48,021 | INFO | GUARD_WAIT | water_level=89.0 threshold=30.0
+2026-09-20 16:37:49,024 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=88.0
+2026-09-20 16:37:49,024 | INFO | GUARD_WAIT | water_level=88.0 threshold=30.0
+2026-09-20 16:37:49,310 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:37:50,027 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=87.0
+2026-09-20 16:37:50,027 | INFO | GUARD_WAIT | water_level=87.0 threshold=30.0
+2026-09-20 16:37:51,030 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=86.0
+2026-09-20 16:37:51,030 | INFO | GUARD_WAIT | water_level=86.0 threshold=30.0
+2026-09-20 16:37:52,033 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=85.0
+2026-09-20 16:37:52,033 | INFO | GUARD_WAIT | water_level=85.0 threshold=30.0
+2026-09-20 16:37:53,036 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=84.0
+2026-09-20 16:37:53,036 | INFO | GUARD_WAIT | water_level=84.0 threshold=30.0
+2026-09-20 16:37:54,039 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=83.0
+2026-09-20 16:37:54,039 | INFO | GUARD_WAIT | water_level=83.0 threshold=30.0
+2026-09-20 16:37:54,311 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:37:55,042 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=82.0
+2026-09-20 16:37:55,043 | INFO | GUARD_WAIT | water_level=82.0 threshold=30.0
+2026-09-20 16:37:56,045 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=81.0
+2026-09-20 16:37:56,046 | INFO | GUARD_WAIT | water_level=81.0 threshold=30.0
+2026-09-20 16:37:57,052 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=80.0
+2026-09-20 16:37:57,053 | INFO | GUARD_WAIT | water_level=80.0 threshold=30.0
+2026-09-20 16:37:58,055 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=79.0
+2026-09-20 16:37:58,056 | INFO | GUARD_WAIT | water_level=79.0 threshold=30.0
+2026-09-20 16:37:59,059 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=78.0
+2026-09-20 16:37:59,059 | INFO | GUARD_WAIT | water_level=78.0 threshold=30.0
+2026-09-20 16:37:59,312 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:38:00,065 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=77.0
+2026-09-20 16:38:00,066 | INFO | GUARD_WAIT | water_level=77.0 threshold=30.0
+2026-09-20 16:38:01,069 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=76.0
+2026-09-20 16:38:01,070 | INFO | GUARD_WAIT | water_level=76.0 threshold=30.0
+2026-09-20 16:38:02,073 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=75.0
+2026-09-20 16:38:02,073 | INFO | GUARD_WAIT | water_level=75.0 threshold=30.0
+2026-09-20 16:38:03,076 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=74.0
+2026-09-20 16:38:03,076 | INFO | GUARD_WAIT | water_level=74.0 threshold=30.0
+2026-09-20 16:38:04,079 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=73.0
+2026-09-20 16:38:04,079 | INFO | GUARD_WAIT | water_level=73.0 threshold=30.0
+2026-09-20 16:38:04,313 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:38:05,082 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=72.0
+2026-09-20 16:38:05,083 | INFO | GUARD_WAIT | water_level=72.0 threshold=30.0
+2026-09-20 16:38:06,085 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=71.0
+2026-09-20 16:38:06,085 | INFO | GUARD_WAIT | water_level=71.0 threshold=30.0
+2026-09-20 16:38:07,088 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=70.0
+2026-09-20 16:38:07,088 | INFO | GUARD_WAIT | water_level=70.0 threshold=30.0
+2026-09-20 16:38:08,096 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=69.0
+2026-09-20 16:38:08,096 | INFO | GUARD_WAIT | water_level=69.0 threshold=30.0
+2026-09-20 16:38:09,099 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=68.0
+2026-09-20 16:38:09,099 | INFO | GUARD_WAIT | water_level=68.0 threshold=30.0
+2026-09-20 16:38:09,314 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:38:10,102 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=67.0
+2026-09-20 16:38:10,102 | INFO | GUARD_WAIT | water_level=67.0 threshold=30.0
+2026-09-20 16:38:11,105 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=66.0
+2026-09-20 16:38:11,105 | INFO | GUARD_WAIT | water_level=66.0 threshold=30.0
+2026-09-20 16:38:12,108 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=65.0
+2026-09-20 16:38:12,108 | INFO | GUARD_WAIT | water_level=65.0 threshold=30.0
+2026-09-20 16:38:13,110 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=64.0
+2026-09-20 16:38:13,111 | INFO | GUARD_WAIT | water_level=64.0 threshold=30.0
+2026-09-20 16:38:14,116 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=63.0
+2026-09-20 16:38:14,117 | INFO | GUARD_WAIT | water_level=63.0 threshold=30.0
+2026-09-20 16:38:14,315 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:38:15,119 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=62.0
+2026-09-20 16:38:15,120 | INFO | GUARD_WAIT | water_level=62.0 threshold=30.0
+2026-09-20 16:38:16,123 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=61.0
+2026-09-20 16:38:16,123 | INFO | GUARD_WAIT | water_level=61.0 threshold=30.0
+2026-09-20 16:38:16,123 | WARNING | GUARD_TIMEOUT | water level still above threshold after 60s; closing valve to proceed safely
+2026-09-20 16:38:16,125 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=61.0
+2026-09-20 16:38:16,126 | INFO | PHASE_PAUSE | resting before refill duration=7.9s
+2026-09-20 16:38:19,317 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:38:24,026 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=61.0
+2026-09-20 16:38:24,028 | INFO | ACTION | begin_fill register=0 value=1 water_level=61.0
+2026-09-20 16:38:24,317 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:38:29,318 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:38:34,319 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:38:39,320 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:38:41,051 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
+2026-09-20 16:38:41,052 | INFO | PHASE_PAUSE | resting at high level before drain duration=7.9s
+2026-09-20 16:38:44,321 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:38:48,906 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0
+2026-09-20 16:38:49,322 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:38:54,323 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:38:59,324 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:39:04,325 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:39:09,326 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:39:14,327 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:39:19,328 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:39:24,329 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:39:29,329 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:39:34,330 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:39:36,966 | INFO | ACTION | end_drain register=1 value=0 water_level=30.0
+2026-09-20 16:39:36,966 | INFO | PHASE_PAUSE | post-cycle settling duration=5.6s
+2026-09-20 16:39:39,331 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:39:42,542 | INFO | CYCLE_COMPLETE | cycle=27
+2026-09-20 16:39:42,545 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 16:39:42,545 | INFO | PHASE_PAUSE | resting before refill duration=4.4s
+2026-09-20 16:39:44,332 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:39:46,953 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 16:39:46,955 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 16:39:49,333 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:39:54,334 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:39:59,335 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:40:04,337 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:40:09,338 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:40:14,339 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:40:19,339 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:40:24,340 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:40:29,341 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:40:34,342 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:40:35,016 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
+2026-09-20 16:40:35,016 | INFO | PHASE_PAUSE | resting at high level before drain duration=5.3s
+2026-09-20 16:40:39,343 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:40:40,298 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0
+2026-09-20 16:40:44,344 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:40:49,345 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:40:54,345 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:40:59,346 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:41:04,347 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:41:09,348 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:41:14,349 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:41:19,350 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:41:24,351 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:41:27,412 | INFO | ACTION | end_drain register=1 value=0 water_level=31.0
+2026-09-20 16:41:27,413 | INFO | PHASE_PAUSE | post-cycle settling duration=7.1s
+2026-09-20 16:41:29,351 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:41:34,353 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:41:34,558 | INFO | CYCLE_COMPLETE | cycle=28
+2026-09-20 16:41:34,560 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=31.0
+2026-09-20 16:41:34,560 | INFO | GUARD_WAIT | water_level=31.0 threshold=30.0
+2026-09-20 16:41:35,564 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 16:41:35,564 | INFO | PHASE_PAUSE | resting before refill duration=7.2s
+2026-09-20 16:41:39,354 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:41:42,798 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 16:41:42,800 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 16:41:44,355 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:41:49,355 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:41:54,356 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:41:59,357 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:42:04,358 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:42:09,358 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:42:14,360 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:42:19,361 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:42:24,361 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:42:28,816 | INFO | ACTION | end_fill register=0 value=0 water_level=76.0
+2026-09-20 16:42:28,816 | INFO | PHASE_PAUSE | resting at high level before drain duration=5.6s
+2026-09-20 16:42:29,362 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:42:34,363 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:42:34,378 | INFO | ACTION | begin_drain register=1 value=1 water_level=76.0
+2026-09-20 16:42:39,364 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:42:44,365 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:42:49,366 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:42:54,367 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:42:59,368 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:43:04,369 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:43:09,370 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:43:14,371 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:43:19,372 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:43:20,438 | INFO | ACTION | end_drain register=1 value=0 water_level=30.0
+2026-09-20 16:43:20,438 | INFO | PHASE_PAUSE | post-cycle settling duration=4.2s
+2026-09-20 16:43:24,372 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:43:24,605 | INFO | CYCLE_COMPLETE | cycle=29
+2026-09-20 16:43:24,608 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 16:43:24,608 | INFO | PHASE_PAUSE | resting before refill duration=6.7s
+2026-09-20 16:43:29,373 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:43:31,357 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 16:43:31,359 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 16:43:34,374 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:43:39,375 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:43:44,376 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:43:49,377 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:43:54,378 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:43:59,378 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:44:04,379 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:44:09,380 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:44:14,381 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:44:19,382 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:44:19,421 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
+2026-09-20 16:44:19,421 | INFO | PHASE_PAUSE | resting at high level before drain duration=5.5s
+2026-09-20 16:44:24,383 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:44:24,897 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0
+2026-09-20 16:44:29,384 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:44:34,385 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:44:39,386 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:44:44,387 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:44:49,388 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:44:54,389 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:44:59,390 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:45:04,391 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:45:09,392 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:45:12,952 | INFO | ACTION | end_drain register=1 value=0 water_level=30.0
+2026-09-20 16:45:12,953 | INFO | PHASE_PAUSE | post-cycle settling duration=7.5s
+2026-09-20 16:45:14,392 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:45:19,393 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:45:20,405 | INFO | CYCLE_COMPLETE | cycle=30
+2026-09-20 16:45:20,408 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 16:45:20,408 | INFO | PHASE_PAUSE | resting before refill duration=6.0s
+2026-09-20 16:45:24,394 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:45:26,372 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 16:45:26,376 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 16:45:29,395 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:45:34,396 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:45:39,397 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:45:44,398 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:45:49,399 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:45:54,400 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:45:59,401 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:46:04,402 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:46:09,403 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:46:14,404 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:46:14,441 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
+2026-09-20 16:46:14,441 | INFO | PHASE_PAUSE | resting at high level before drain duration=4.7s
+2026-09-20 16:46:19,149 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0
+2026-09-20 16:46:19,404 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:46:24,406 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:46:29,407 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:46:34,408 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:46:39,408 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:46:44,409 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:46:49,410 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:46:54,411 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:46:59,412 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:47:04,413 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:47:07,217 | INFO | ACTION | end_drain register=1 value=0 water_level=30.0
+2026-09-20 16:47:07,217 | INFO | PHASE_PAUSE | post-cycle settling duration=5.6s
+2026-09-20 16:47:09,414 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:47:12,816 | INFO | CYCLE_COMPLETE | cycle=31
+2026-09-20 16:47:12,818 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 16:47:12,819 | INFO | PHASE_PAUSE | resting before refill duration=6.4s
+2026-09-20 16:47:14,414 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:47:19,263 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 16:47:19,267 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 16:47:19,415 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:47:24,416 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:47:29,417 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:47:34,418 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:47:39,420 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:47:44,421 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:47:49,422 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:47:54,425 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:47:59,426 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:48:04,427 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:48:07,336 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
+2026-09-20 16:48:07,337 | INFO | PHASE_PAUSE | resting at high level before drain duration=6.0s
+2026-09-20 16:48:09,428 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:48:13,384 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0
+2026-09-20 16:48:14,429 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:48:19,430 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:48:24,431 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:48:29,431 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:48:34,432 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:48:39,433 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:48:44,434 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:48:49,435 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:48:54,436 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:48:59,436 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:49:01,135 | INFO | ACTION | end_drain register=1 value=0 water_level=31.0
+2026-09-20 16:49:01,135 | INFO | PHASE_PAUSE | post-cycle settling duration=5.1s
+2026-09-20 16:49:04,437 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:49:06,202 | INFO | CYCLE_COMPLETE | cycle=32
+2026-09-20 16:49:06,204 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=31.0
+2026-09-20 16:49:06,204 | INFO | GUARD_WAIT | water_level=31.0 threshold=30.0
+2026-09-20 16:49:07,207 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 16:49:07,207 | INFO | PHASE_PAUSE | resting before refill duration=7.3s
+2026-09-20 16:49:09,438 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:49:14,439 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:49:14,492 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 16:49:14,494 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 16:49:19,440 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:49:24,441 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:49:29,441 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:49:34,442 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:49:39,443 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:49:44,444 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:49:49,445 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:49:54,446 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:49:59,447 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:50:02,549 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
+2026-09-20 16:50:02,550 | INFO | PHASE_PAUSE | resting at high level before drain duration=4.1s
+2026-09-20 16:50:04,448 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:50:06,653 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0
+2026-09-20 16:50:09,449 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:50:14,450 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:50:19,450 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:50:24,451 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:50:29,452 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:50:34,453 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:50:39,454 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:50:44,455 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:50:49,456 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:50:51,869 | INFO | ACTION | end_drain register=1 value=0 water_level=33.0
+2026-09-20 16:50:51,870 | INFO | PHASE_PAUSE | post-cycle settling duration=7.7s
+2026-09-20 16:50:54,456 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:50:59,457 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:50:59,575 | INFO | CYCLE_COMPLETE | cycle=33
+2026-09-20 16:50:59,578 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=33.0
+2026-09-20 16:50:59,578 | INFO | GUARD_WAIT | water_level=33.0 threshold=30.0
+2026-09-20 16:51:00,581 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=32.0
+2026-09-20 16:51:00,581 | INFO | GUARD_WAIT | water_level=32.0 threshold=30.0
+2026-09-20 16:51:01,584 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=31.0
+2026-09-20 16:51:01,584 | INFO | GUARD_WAIT | water_level=31.0 threshold=30.0
+2026-09-20 16:51:02,587 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 16:51:02,587 | INFO | PHASE_PAUSE | resting before refill duration=7.8s
+2026-09-20 16:51:04,458 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:51:09,459 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:51:10,386 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 16:51:10,388 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 16:51:14,460 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:51:19,461 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:51:24,461 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:51:29,462 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:51:34,463 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:51:39,464 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:51:44,465 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:51:49,466 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:51:54,467 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:51:58,453 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
+2026-09-20 16:51:58,453 | INFO | PHASE_PAUSE | resting at high level before drain duration=6.5s
+2026-09-20 16:51:59,468 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:52:04,468 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:52:05,000 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0
+2026-09-20 16:52:09,469 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:52:14,470 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:52:19,471 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:52:24,472 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:52:29,473 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:52:34,474 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:52:39,475 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:52:44,475 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:52:49,476 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:52:53,055 | INFO | ACTION | end_drain register=1 value=0 water_level=30.0
+2026-09-20 16:52:53,056 | INFO | PHASE_PAUSE | post-cycle settling duration=5.7s
+2026-09-20 16:52:54,477 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:52:58,792 | INFO | CYCLE_COMPLETE | cycle=34
+2026-09-20 16:52:58,796 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 16:52:58,797 | INFO | PHASE_PAUSE | resting before refill duration=6.9s
+2026-09-20 16:52:59,478 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:53:04,479 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:53:05,649 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 16:53:05,652 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 16:53:09,479 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:53:14,480 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:53:19,481 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:53:24,482 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:53:29,483 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:53:34,484 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:53:39,484 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:53:44,485 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:53:49,486 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:53:51,843 | INFO | ACTION | end_fill register=0 value=0 water_level=77.0
+2026-09-20 16:53:51,844 | INFO | PHASE_PAUSE | resting at high level before drain duration=4.3s
+2026-09-20 16:53:54,487 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:53:56,181 | INFO | ACTION | begin_drain register=1 value=1 water_level=77.0
+2026-09-20 16:53:59,488 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:54:04,489 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:54:09,489 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:54:14,490 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:54:19,491 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:54:24,492 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:54:29,492 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:54:34,493 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:54:39,494 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:54:43,235 | INFO | ACTION | end_drain register=1 value=0 water_level=30.0
+2026-09-20 16:54:43,235 | INFO | PHASE_PAUSE | post-cycle settling duration=6.4s
+2026-09-20 16:54:44,495 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:54:49,496 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:54:49,679 | INFO | CYCLE_COMPLETE | cycle=35
+2026-09-20 16:54:49,681 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 16:54:49,681 | INFO | PHASE_PAUSE | resting before refill duration=6.1s
+2026-09-20 16:54:54,497 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:54:55,751 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 16:54:55,754 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 16:54:59,498 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:55:04,499 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:55:09,500 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:55:14,500 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:55:19,501 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:55:24,502 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:55:29,503 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:55:34,504 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:55:39,505 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:55:43,818 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
+2026-09-20 16:55:43,818 | INFO | PHASE_PAUSE | resting at high level before drain duration=5.8s
+2026-09-20 16:55:44,506 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:55:49,507 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:55:49,639 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0
+2026-09-20 16:55:54,508 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:55:59,509 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:56:04,510 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:56:09,511 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:56:14,512 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:56:19,512 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:56:24,513 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:56:29,514 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:56:34,515 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:56:37,701 | INFO | ACTION | end_drain register=1 value=0 water_level=30.0
+2026-09-20 16:56:37,701 | INFO | PHASE_PAUSE | post-cycle settling duration=6.8s
+2026-09-20 16:56:39,516 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:56:44,517 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:56:44,531 | INFO | CYCLE_COMPLETE | cycle=36
+2026-09-20 16:56:44,534 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 16:56:44,534 | INFO | PHASE_PAUSE | resting before refill duration=5.9s
+2026-09-20 16:56:49,518 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:56:50,466 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 16:56:50,468 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 16:56:54,519 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:56:59,520 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:57:04,520 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:57:09,521 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:57:14,522 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:57:19,523 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:57:24,524 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:57:29,525 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:57:34,526 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:57:37,316 | INFO | ACTION | end_fill register=0 value=0 water_level=77.0
+2026-09-20 16:57:37,316 | INFO | PHASE_PAUSE | resting at high level before drain duration=5.1s
+2026-09-20 16:57:39,526 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:57:42,408 | INFO | ACTION | begin_drain register=1 value=1 water_level=77.0
+2026-09-20 16:57:44,527 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:57:49,528 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:57:54,529 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:57:59,530 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:58:04,531 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:58:09,532 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:58:14,532 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:58:19,533 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:58:24,534 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:58:29,470 | INFO | ACTION | end_drain register=1 value=0 water_level=30.0
+2026-09-20 16:58:29,470 | INFO | PHASE_PAUSE | post-cycle settling duration=7.4s
+2026-09-20 16:58:29,535 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:58:34,536 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:58:36,833 | INFO | CYCLE_COMPLETE | cycle=37
+2026-09-20 16:58:36,836 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 16:58:36,837 | INFO | PHASE_PAUSE | resting before refill duration=6.4s
+2026-09-20 16:58:39,537 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:58:43,256 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 16:58:43,260 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 16:58:44,538 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:58:49,539 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:58:54,539 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:58:59,540 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:59:04,541 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:59:09,542 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:59:14,543 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:59:19,544 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:59:24,545 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:59:29,546 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:59:31,322 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
+2026-09-20 16:59:31,322 | INFO | PHASE_PAUSE | resting at high level before drain duration=5.3s
+2026-09-20 16:59:34,547 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:59:36,623 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0
+2026-09-20 16:59:39,548 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:59:44,549 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:59:49,550 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:59:54,551 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 16:59:59,553 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:00:04,554 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:00:09,555 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:00:14,556 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:00:19,557 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:00:24,557 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:00:24,681 | INFO | ACTION | end_drain register=1 value=0 water_level=30.0
+2026-09-20 17:00:24,681 | INFO | PHASE_PAUSE | post-cycle settling duration=5.1s
+2026-09-20 17:00:29,558 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:00:29,828 | INFO | CYCLE_COMPLETE | cycle=38
+2026-09-20 17:00:29,831 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 17:00:29,831 | INFO | PHASE_PAUSE | resting before refill duration=4.2s
+2026-09-20 17:00:34,018 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 17:00:34,020 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 17:00:34,559 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:00:39,560 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:00:44,560 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:00:49,561 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:00:54,562 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:00:59,563 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:01:04,564 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:01:09,565 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:01:14,566 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:01:19,566 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:01:20,654 | INFO | ACTION | end_fill register=0 value=0 water_level=77.0
+2026-09-20 17:01:20,655 | INFO | PHASE_PAUSE | resting at high level before drain duration=5.7s
+2026-09-20 17:01:24,567 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:01:26,335 | INFO | ACTION | begin_drain register=1 value=1 water_level=77.0
+2026-09-20 17:01:29,568 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:01:34,569 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:01:39,570 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:01:44,571 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:01:49,571 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:01:54,572 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:01:59,573 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:02:04,574 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:02:09,575 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:02:13,389 | INFO | ACTION | end_drain register=1 value=0 water_level=30.0
+2026-09-20 17:02:13,390 | INFO | PHASE_PAUSE | post-cycle settling duration=7.5s
+2026-09-20 17:02:14,576 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:02:19,577 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:02:20,847 | INFO | CYCLE_COMPLETE | cycle=39
+2026-09-20 17:02:20,850 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 17:02:20,850 | INFO | PHASE_PAUSE | resting before refill duration=7.0s
+2026-09-20 17:02:24,577 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:02:27,828 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 17:02:27,831 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 17:02:29,578 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:02:34,579 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:02:39,580 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:02:44,581 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:02:49,582 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:02:54,583 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:02:59,584 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:03:04,585 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:03:09,585 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:03:14,586 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:03:15,887 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
+2026-09-20 17:03:15,888 | INFO | PHASE_PAUSE | resting at high level before drain duration=5.3s
+2026-09-20 17:03:19,587 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:03:21,238 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0
+2026-09-20 17:03:24,589 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:03:29,590 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:03:34,591 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:03:39,591 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:03:44,592 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:03:49,593 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:03:54,594 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:03:59,595 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:04:04,596 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:04:07,510 | INFO | ACTION | end_drain register=1 value=0 water_level=32.0
+2026-09-20 17:04:07,510 | INFO | PHASE_PAUSE | post-cycle settling duration=7.9s
+2026-09-20 17:04:09,597 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:04:14,598 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:04:15,428 | INFO | CYCLE_COMPLETE | cycle=40
+2026-09-20 17:04:15,431 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=32.0
+2026-09-20 17:04:15,431 | INFO | GUARD_WAIT | water_level=32.0 threshold=30.0
+2026-09-20 17:04:16,434 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=31.0
+2026-09-20 17:04:16,434 | INFO | GUARD_WAIT | water_level=31.0 threshold=30.0
+2026-09-20 17:04:17,437 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 17:04:17,438 | INFO | PHASE_PAUSE | resting before refill duration=7.5s
+2026-09-20 17:04:19,599 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:04:24,600 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:04:24,988 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 17:04:24,989 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 17:04:29,600 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:04:34,601 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:04:39,602 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:04:44,603 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:04:49,604 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:04:54,605 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:04:59,606 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:05:04,607 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:05:09,608 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:05:13,045 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
+2026-09-20 17:05:13,046 | INFO | PHASE_PAUSE | resting at high level before drain duration=7.2s
+2026-09-20 17:05:14,608 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:05:19,609 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:05:20,226 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0
+2026-09-20 17:05:24,610 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:05:29,611 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:05:34,612 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:05:39,613 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:05:44,614 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:05:49,615 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:05:54,616 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:05:59,617 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:06:04,617 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:06:08,282 | INFO | ACTION | end_drain register=1 value=0 water_level=30.0
+2026-09-20 17:06:08,283 | INFO | PHASE_PAUSE | post-cycle settling duration=4.9s
+2026-09-20 17:06:09,618 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:06:13,173 | INFO | CYCLE_COMPLETE | cycle=41
+2026-09-20 17:06:13,181 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 17:06:13,181 | INFO | PHASE_PAUSE | resting before refill duration=6.5s
+2026-09-20 17:06:14,619 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:06:19,620 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:06:19,647 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 17:06:19,649 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 17:06:24,621 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:06:29,622 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:06:34,623 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:06:39,624 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:06:44,625 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:06:49,625 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:06:54,626 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:06:59,627 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:07:04,628 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:07:07,710 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
+2026-09-20 17:07:07,710 | INFO | PHASE_PAUSE | resting at high level before drain duration=5.4s
+2026-09-20 17:07:09,629 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:07:13,093 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0
+2026-09-20 17:07:14,630 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:07:19,632 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:07:24,633 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:07:29,634 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:07:34,635 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:07:39,636 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:07:44,636 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:07:49,637 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:07:54,638 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:07:58,737 | INFO | ACTION | end_drain register=1 value=0 water_level=33.0
+2026-09-20 17:07:58,738 | INFO | PHASE_PAUSE | post-cycle settling duration=7.3s
+2026-09-20 17:07:59,639 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:08:04,640 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:08:06,043 | INFO | CYCLE_COMPLETE | cycle=42
+2026-09-20 17:08:06,046 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=33.0
+2026-09-20 17:08:06,047 | INFO | GUARD_WAIT | water_level=33.0 threshold=30.0
+2026-09-20 17:08:07,049 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=32.0
+2026-09-20 17:08:07,050 | INFO | GUARD_WAIT | water_level=32.0 threshold=30.0
+2026-09-20 17:08:08,053 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=31.0
+2026-09-20 17:08:08,053 | INFO | GUARD_WAIT | water_level=31.0 threshold=30.0
+2026-09-20 17:08:09,055 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 17:08:09,056 | INFO | PHASE_PAUSE | resting before refill duration=5.4s
+2026-09-20 17:08:09,641 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:08:14,433 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 17:08:14,435 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 17:08:14,642 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:08:19,642 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:08:24,643 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:08:29,644 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:08:34,645 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:08:39,646 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:08:44,647 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:08:49,648 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:08:54,649 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:08:59,649 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:09:02,350 | INFO | ACTION | end_fill register=0 value=0 water_level=78.0
+2026-09-20 17:09:02,350 | INFO | PHASE_PAUSE | resting at high level before drain duration=7.4s
+2026-09-20 17:09:04,650 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:09:09,651 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:09:09,795 | INFO | ACTION | begin_drain register=1 value=1 water_level=78.0
+2026-09-20 17:09:14,652 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:09:19,653 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:09:24,654 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:09:29,655 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:09:34,655 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:09:39,656 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:09:44,657 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:09:49,658 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:09:54,659 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:09:57,856 | INFO | ACTION | end_drain register=1 value=0 water_level=30.0
+2026-09-20 17:09:57,857 | INFO | PHASE_PAUSE | post-cycle settling duration=7.6s
+2026-09-20 17:09:59,660 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:10:04,661 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:10:05,496 | INFO | CYCLE_COMPLETE | cycle=43
+2026-09-20 17:10:05,499 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 17:10:05,499 | INFO | PHASE_PAUSE | resting before refill duration=7.7s
+2026-09-20 17:10:09,662 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:10:13,231 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 17:10:13,232 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 17:10:14,663 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:10:19,664 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:10:24,665 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:10:29,666 | INFO | CONNECTED | plant=127.0.0.1:5020 source_port=6001
+2026-09-20 17:10:29,669 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=50.0
+2026-09-20 17:10:29,670 | INFO | GUARD_WAIT | water_level=50.0 threshold=30.0
+2026-09-20 17:10:30,673 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=49.0
+2026-09-20 17:10:30,673 | INFO | GUARD_WAIT | water_level=49.0 threshold=30.0
+2026-09-20 17:10:31,677 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=48.0
+2026-09-20 17:10:31,677 | INFO | GUARD_WAIT | water_level=48.0 threshold=30.0
+2026-09-20 17:10:32,515 | INFO | STARTUP | plant=127.0.0.1:5020 source_port=6001 safe_to_fill=30.0 max_cycles=None
+2026-09-20 17:10:32,516 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=1s
+2026-09-20 17:10:32,679 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=47.0
+2026-09-20 17:10:32,680 | INFO | GUARD_WAIT | water_level=47.0 threshold=30.0
+2026-09-20 17:10:33,518 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=2s
+2026-09-20 17:10:33,683 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=46.0
+2026-09-20 17:10:33,685 | INFO | GUARD_WAIT | water_level=46.0 threshold=30.0
+2026-09-20 17:10:34,690 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=45.0
+2026-09-20 17:10:34,690 | INFO | GUARD_WAIT | water_level=45.0 threshold=30.0
+2026-09-20 17:10:35,519 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:10:35,695 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=44.0
+2026-09-20 17:10:35,695 | INFO | GUARD_WAIT | water_level=44.0 threshold=30.0
+2026-09-20 17:10:36,698 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=43.0
+2026-09-20 17:10:36,699 | INFO | GUARD_WAIT | water_level=43.0 threshold=30.0
+2026-09-20 17:10:37,701 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=42.0
+2026-09-20 17:10:37,701 | INFO | GUARD_WAIT | water_level=42.0 threshold=30.0
+2026-09-20 17:10:38,704 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=41.0
+2026-09-20 17:10:38,704 | INFO | GUARD_WAIT | water_level=41.0 threshold=30.0
+2026-09-20 17:10:39,707 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=40.0
+2026-09-20 17:10:39,707 | INFO | GUARD_WAIT | water_level=40.0 threshold=30.0
+2026-09-20 17:10:40,520 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:10:40,710 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=39.0
+2026-09-20 17:10:40,710 | INFO | GUARD_WAIT | water_level=39.0 threshold=30.0
+2026-09-20 17:10:41,713 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=38.0
+2026-09-20 17:10:41,713 | INFO | GUARD_WAIT | water_level=38.0 threshold=30.0
+2026-09-20 17:10:42,715 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=37.0
+2026-09-20 17:10:42,715 | INFO | GUARD_WAIT | water_level=37.0 threshold=30.0
+2026-09-20 17:10:43,718 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=36.0
+2026-09-20 17:10:43,719 | INFO | GUARD_WAIT | water_level=36.0 threshold=30.0
+2026-09-20 17:10:44,722 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=35.0
+2026-09-20 17:10:44,722 | INFO | GUARD_WAIT | water_level=35.0 threshold=30.0
+2026-09-20 17:10:45,521 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:10:45,725 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=34.0
+2026-09-20 17:10:45,725 | INFO | GUARD_WAIT | water_level=34.0 threshold=30.0
+2026-09-20 17:10:46,728 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=33.0
+2026-09-20 17:10:46,728 | INFO | GUARD_WAIT | water_level=33.0 threshold=30.0
+2026-09-20 17:10:47,730 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=32.0
+2026-09-20 17:10:47,731 | INFO | GUARD_WAIT | water_level=32.0 threshold=30.0
+2026-09-20 17:10:48,734 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=31.0
+2026-09-20 17:10:48,734 | INFO | GUARD_WAIT | water_level=31.0 threshold=30.0
+2026-09-20 17:10:49,738 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 17:10:49,738 | INFO | PHASE_PAUSE | resting before refill duration=6.7s
+2026-09-20 17:10:50,522 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:10:55,522 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:10:56,481 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 17:10:56,483 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 17:11:00,523 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:04,404 | WARNING | CONNECTION_LOST | Plant connection is not available; reconnecting and restarting current cycle
+2026-09-20 17:11:04,405 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=1s
+2026-09-20 17:11:05,409 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=2s
+2026-09-20 17:11:05,524 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:07,410 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:10,525 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:12,411 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:15,526 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:17,412 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:20,527 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:22,413 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:25,528 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:27,413 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:30,529 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:32,414 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:35,529 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:37,415 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:40,530 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:42,416 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:45,531 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:47,417 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:48,227 | INFO | ACTION | end_fill register=0 value=0 water_level=36.0
+2026-09-20 17:11:48,227 | INFO | PHASE_PAUSE | resting at high level before drain duration=7.8s
+2026-09-20 17:11:50,532 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:52,418 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:55,533 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:11:56,046 | INFO | ACTION | begin_drain register=1 value=1 water_level=29.0
+2026-09-20 17:11:56,048 | INFO | ACTION | end_drain register=1 value=0 water_level=29.0
+2026-09-20 17:11:56,049 | INFO | PHASE_PAUSE | post-cycle settling duration=5.8s
+2026-09-20 17:11:57,419 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:00,534 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:01,843 | INFO | CYCLE_COMPLETE | cycle=1
+2026-09-20 17:12:01,846 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=29.0
+2026-09-20 17:12:01,846 | INFO | PHASE_PAUSE | resting before refill duration=5.4s
+2026-09-20 17:12:02,420 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:05,535 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:07,248 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=29.0
+2026-09-20 17:12:07,249 | INFO | ACTION | begin_fill register=0 value=1 water_level=29.0
+2026-09-20 17:12:07,420 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:10,536 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:12,421 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:15,537 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:17,422 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:20,537 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:22,423 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:25,539 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:27,424 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:30,540 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:32,425 | INFO | CONNECTED | plant=127.0.0.1:5020 source_port=6001
+2026-09-20 17:12:32,428 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=50.0
+2026-09-20 17:12:32,428 | INFO | GUARD_WAIT | water_level=50.0 threshold=30.0
+2026-09-20 17:12:33,430 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=49.0
+2026-09-20 17:12:33,431 | INFO | GUARD_WAIT | water_level=49.0 threshold=30.0
+2026-09-20 17:12:34,435 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=48.0
+2026-09-20 17:12:34,435 | INFO | GUARD_WAIT | water_level=48.0 threshold=30.0
+2026-09-20 17:12:35,438 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=47.0
+2026-09-20 17:12:35,439 | INFO | GUARD_WAIT | water_level=47.0 threshold=30.0
+2026-09-20 17:12:35,540 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:36,442 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=46.0
+2026-09-20 17:12:36,442 | INFO | GUARD_WAIT | water_level=46.0 threshold=30.0
+2026-09-20 17:12:37,445 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=45.0
+2026-09-20 17:12:37,445 | INFO | GUARD_WAIT | water_level=45.0 threshold=30.0
+2026-09-20 17:12:37,647 | INFO | STARTUP | plant=127.0.0.1:5020 source_port=6001 safe_to_fill=30.0 max_cycles=None
+2026-09-20 17:12:37,648 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=1s
+2026-09-20 17:12:38,449 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=44.0
+2026-09-20 17:12:38,449 | INFO | GUARD_WAIT | water_level=44.0 threshold=30.0
+2026-09-20 17:12:38,649 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=2s
+2026-09-20 17:12:39,452 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=43.0
+2026-09-20 17:12:39,452 | INFO | GUARD_WAIT | water_level=43.0 threshold=30.0
+2026-09-20 17:12:40,455 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=42.0
+2026-09-20 17:12:40,455 | INFO | GUARD_WAIT | water_level=42.0 threshold=30.0
+2026-09-20 17:12:40,541 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:40,650 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:41,459 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=41.0
+2026-09-20 17:12:41,459 | INFO | GUARD_WAIT | water_level=41.0 threshold=30.0
+2026-09-20 17:12:42,462 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=40.0
+2026-09-20 17:12:42,463 | INFO | GUARD_WAIT | water_level=40.0 threshold=30.0
+2026-09-20 17:12:43,467 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=39.0
+2026-09-20 17:12:43,468 | INFO | GUARD_WAIT | water_level=39.0 threshold=30.0
+2026-09-20 17:12:44,470 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=38.0
+2026-09-20 17:12:44,470 | INFO | GUARD_WAIT | water_level=38.0 threshold=30.0
+2026-09-20 17:12:45,472 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=37.0
+2026-09-20 17:12:45,473 | INFO | GUARD_WAIT | water_level=37.0 threshold=30.0
+2026-09-20 17:12:45,542 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:45,650 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:46,476 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=36.0
+2026-09-20 17:12:46,476 | INFO | GUARD_WAIT | water_level=36.0 threshold=30.0
+2026-09-20 17:12:47,479 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=35.0
+2026-09-20 17:12:47,479 | INFO | GUARD_WAIT | water_level=35.0 threshold=30.0
+2026-09-20 17:12:48,482 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=34.0
+2026-09-20 17:12:48,482 | INFO | GUARD_WAIT | water_level=34.0 threshold=30.0
+2026-09-20 17:12:49,488 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=33.0
+2026-09-20 17:12:49,490 | INFO | GUARD_WAIT | water_level=33.0 threshold=30.0
+2026-09-20 17:12:50,494 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=32.0
+2026-09-20 17:12:50,494 | INFO | GUARD_WAIT | water_level=32.0 threshold=30.0
+2026-09-20 17:12:50,543 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:50,651 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:51,497 | INFO | ACTION | extended_drain_open_valve register=1 value=1 water_level=31.0
+2026-09-20 17:12:51,498 | INFO | GUARD_WAIT | water_level=31.0 threshold=30.0
+2026-09-20 17:12:52,500 | INFO | ACTION | guard_drain_close_valve register=1 value=0 water_level=30.0
+2026-09-20 17:12:52,500 | INFO | PHASE_PAUSE | resting before refill duration=5.8s
+2026-09-20 17:12:54,261 | WARNING | CONNECTION_LOST | Plant connection is not available; reconnecting and restarting current cycle
+2026-09-20 17:12:54,262 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=1s
+2026-09-20 17:12:55,263 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=2s
+2026-09-20 17:12:55,544 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:55,652 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:57,264 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:12:58,299 | INFO | ACTION | pre_fill_secure_valve register=1 value=0 water_level=30.0
+2026-09-20 17:12:58,300 | INFO | ACTION | begin_fill register=0 value=1 water_level=30.0
+2026-09-20 17:13:00,545 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:00,655 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:02,265 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:05,546 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:05,656 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:07,266 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:10,547 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:10,657 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:12,267 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:15,548 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:15,658 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:17,271 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:20,548 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:20,659 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:22,272 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:25,549 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:25,660 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:27,273 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:30,550 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:30,661 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:32,274 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:35,551 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:35,661 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:37,275 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:40,552 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:40,663 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:42,276 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:45,293 | INFO | ACTION | end_fill register=0 value=0 water_level=77.0
+2026-09-20 17:13:45,293 | INFO | PHASE_PAUSE | resting at high level before drain duration=4.7s
+2026-09-20 17:13:45,553 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:45,663 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:47,276 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:50,036 | INFO | ACTION | begin_drain register=1 value=1 water_level=76.0
+2026-09-20 17:13:50,554 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:50,664 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:52,277 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:55,555 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:55,665 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:13:57,278 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:00,556 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:00,666 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:02,279 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:05,557 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:05,667 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:07,280 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:10,557 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:10,668 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:12,282 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:15,558 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:15,669 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:17,283 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:20,559 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:20,670 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:22,284 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:25,560 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:25,671 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:27,285 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:30,562 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:30,672 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s
+2026-09-20 17:14:32,286 | WARNING | CONNECT_RETRY | reason=Modbus TCP connection was refused retry_in=5s

@@ -23,12 +23,31 @@ def main() -> None:
     client = PlantClient(args.host, args.plant_port, SOURCE_PORTS["replay"], logger)
     try:
         proxy.start()
-        logger.warning("REPLAY_ARMED | point the Backend/observer at 127.0.0.1:%s while the Plant is in a normal pump-on state", args.listen_port)
+        logger.warning(
+            "REPLAY_ARMED | MITM proxy listening on 127.0.0.1:%s -> forwarding to Plant %s:%s.",
+            args.listen_port,
+            args.host,
+            args.plant_port,
+        )
+        logger.info(
+            "REPLAY_WAITING | Waiting up to %.0fs for Backend poller on 127.0.0.1:%s to capture a legitimate reading snapshot...",
+            args.snapshot_wait,
+            args.listen_port,
+        )
         if not proxy.snapshot_ready.wait(args.snapshot_wait):
-            raise TimeoutError("no input-register response was captured through the proxy")
+            logger.error(
+                "REPLAY_TIMEOUT | No Modbus read requests were received on port %s within %.0fs.\n"
+                "-> In this loopback simulation, the Backend must be configured to poll the proxy port:\n"
+                "   PLANT_PORT=%s uv run uvicorn app.main:app (or update backend/.env)\n"
+                "-> See attacks/README.md for the complete real-world MITM explanation.",
+                args.listen_port,
+                args.snapshot_wait,
+                args.listen_port,
+            )
+            return
         client.connect()
         begin_hidden_drain(client)
-        logger.warning("REPLAY_ACTIVE | first input-register response is frozen while the real valve is open")
+        logger.warning("REPLAY_ACTIVE | Telemetry is now frozen at proxy while the real plant valve is forced open.")
         while True:
             time.sleep(1)
     except KeyboardInterrupt:
