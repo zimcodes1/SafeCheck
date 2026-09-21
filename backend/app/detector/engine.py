@@ -1,0 +1,223 @@
+from datetime import datetime, timezone
+from typing import List, Optional, Tuple
+
+from app.database import engine
+from app.detector.layer1_sanity import check_sanity
+from app.detector.layer2_state_machine import check_state_validity
+from app.models.alert import Alert, ConfidenceEnum, RulesEnum, SeverityEnum
+from app.models.command import Command, CommandType
+from app.schemas.command import CommandIn
+from sqlmodel import Session, select, col
+from app.detector.layer3_replay import check_for_replay
+from app.models.reading import Reading
+from app.schemas.reading import ReadingOut
+from app.detector.layer4_drift import check_for_drift
+
+
+def evaluate_malformed_packet(raw_bytes: bytes, source_id: str, reason: str) -> dict:
+    """Persist a Layer-1 alert for bytes that cannot form a safe command."""
+    raw_hex = raw_bytes.hex(" ") or "<empty>"
+    alert = Alert(
+        severity=SeverityEnum.WARNING,
+        rule_triggered=RulesEnum.SANITY_CHECK,
+        related_command_id=None,
+        message=f"Malformed Modbus TCP packet from {source_id}: {reason}. Raw hex: {raw_hex}",
+        confidence=ConfidenceEnum.CERTAIN,
+    )
+    with Session(engine) as session:
+        session.add(alert)
+        session.commit()
+        session.refresh(alert)
+        return {
+            "id": alert.id,
+            "severity": alert.severity,
+            "rule_triggered": alert.rule_triggered,
+            "related_command_id": alert.related_command_id,
+            "message": alert.message,
+            "confidence": alert.confidence,
+        }
+
+
+def evaluate_command(
+    command: CommandIn,
+    current_plant_state: Optional[dict] = None,
+) -> Tuple[Optional[dict], Optional[dict]]:
+    """Evaluate a command against Layers 1 and 2 and persist the results.
+
+    Returns plain dictionaries containing the saved command and, if applicable,
+    the created alert. This avoids DetachedInstanceError after the DB session closes.
+    """
+    record = Command(
+        command_type=command.command_type,
+        value=command.value,
+        source_id=command.source_id,
+        flagged=False,
+    )
+
+    sanity_ok, sanity_reason = check_sanity(command)
+    if not sanity_ok:
+        # Do not persist malformed commands that fail basic validation; create
+        # an alert instead so operators can investigate the bad input.
+        alert = Alert(
+            severity=SeverityEnum.WARNING,
+            rule_triggered=RulesEnum.SANITY_CHECK,
+            related_command_id=None,
+            message=(
+                f"Invalid command: {sanity_reason}. "
+                "The command failed basic validation and was rejected."
+            ),
+            confidence=ConfidenceEnum.CERTAIN,
+        )
+        with Session(engine) as session:
+            session.add(alert)
+            session.commit()
+            session.refresh(alert)
+
+            alert_payload = {
+                "id": alert.id,
+                "severity": alert.severity,
+                "rule_triggered": alert.rule_triggered,
+                "related_command_id": alert.related_command_id,
+                "message": alert.message,
+                "confidence": alert.confidence,
+            }
+        return None, alert_payload
+
+    if current_plant_state is None:
+        current_plant_state = {
+            "valve_state": False,
+            "pump_state": False,
+            "water_level": 0.0,
+            "danger_level_threshold": 95.0,
+        }
+
+    state_ok, state_reason = check_state_validity(command, current_plant_state)
+    if not state_ok:
+        record.flagged = True
+        alert = Alert(
+            severity=SeverityEnum.CRITICAL,
+            rule_triggered=RulesEnum.STATE_MACHINE,
+            related_command_id=None,
+            message=state_reason or "State-machine validation failed.",
+            confidence=ConfidenceEnum.CERTAIN,
+        )
+        with Session(engine) as session:
+            session.add(record)
+            session.commit()
+            session.refresh(record)
+            alert.related_command_id = record.id
+            session.add(alert)
+            session.commit()
+            session.refresh(alert)
+
+            command_payload = {
+                "id": record.id,
+                "command_type": record.command_type,
+                "value": record.value,
+                "source_id": record.source_id,
+                "flagged": record.flagged,
+            }
+            alert_payload = {
+                "id": alert.id,
+                "severity": alert.severity,
+                "rule_triggered": alert.rule_triggered,
+                "related_command_id": alert.related_command_id,
+                "message": alert.message,
+                "confidence": alert.confidence,
+            }
+        return command_payload, alert_payload
+
+    with Session(engine) as session:
+        session.add(record)
+        session.commit()
+        session.refresh(record)
+        command_payload = {
+            "id": record.id,
+            "command_type": record.command_type,
+            "value": record.value,
+            "source_id": record.source_id,
+            "flagged": record.flagged,
+        }
+    return command_payload, None
+
+
+def evaluate_reading(
+    reading: ReadingOut,
+    window: List[ReadingOut],
+    cooldown_seconds: int = 0,
+) -> Tuple[Optional[dict], Optional[dict]]:
+    """Evaluate a newly persisted `reading` using replay detection (Layer 3) and drift (Layer 4).
+
+    Returns a tuple `(command_payload, alert_payload)` where `alert_payload` is
+    non-None when an alert was created. `command_payload` is unused here but kept
+    for signature compatibility; both are plain dicts when returned.
+
+    If `cooldown_seconds > 0`, duplicate alerts for the same rule within that window
+    are suppressed to prevent alert flooding during continuous passive anomalies.
+    """
+    # Run replay detector (Layer 3)
+    ok_replay, reason_replay = check_for_replay(reading, window)
+
+    # Run drift detector (Layer 4)
+    ok_drift, reason_drift = check_for_drift(reading, window)
+
+    # If both detectors are OK, nothing to do
+    if ok_replay and ok_drift:
+        return None, None
+
+    # Layer 3 (Replay) takes precedence over Layer 4 (Drift): stuck/frozen readings represent a replay
+    if not ok_replay:
+        rule = RulesEnum.REPLAY
+        reason = reason_replay
+    else:
+        rule = RulesEnum.DRIFT
+        reason = reason_drift
+
+    # Set confidence: replay/drift are typically "needs_review"; rule-machine
+    # and sanity failures are treated as certain.
+    conf = (
+        ConfidenceEnum.NEEDS_REVIEW
+        if rule in (RulesEnum.DRIFT, RulesEnum.REPLAY)
+        else ConfidenceEnum.CERTAIN
+    )
+
+    with Session(engine) as session:
+        # Check cooldown to prevent duplicate alert storms for continuous anomalies
+        if cooldown_seconds > 0:
+            stmt = (
+                select(Alert)
+                .where(Alert.rule_triggered == rule)
+                .order_by(col(Alert.timestamp).desc())
+                .limit(1)
+            )
+            last_alert = session.exec(stmt).first()
+            if last_alert and last_alert.timestamp:
+                now_utc = datetime.now(timezone.utc)
+                ts = (
+                    last_alert.timestamp
+                    if last_alert.timestamp.tzinfo
+                    else last_alert.timestamp.replace(tzinfo=timezone.utc)
+                )
+                if (now_utc - ts).total_seconds() < cooldown_seconds:
+                    # Suppress duplicate alert within cooldown period
+                    return None, None
+
+        alert = Alert(
+            severity=SeverityEnum.WARNING,
+            rule_triggered=rule,
+            related_command_id=None,
+            message=reason or "Anomaly detected",
+            confidence=conf,
+        )
+        session.add(alert)
+        session.commit()
+        session.refresh(alert)
+        alert_payload = {
+            "id": alert.id,
+            "severity": alert.severity,
+            "rule_triggered": alert.rule_triggered,
+            "related_command_id": alert.related_command_id,
+            "message": alert.message,
+            "confidence": alert.confidence,
+        }
+    return None, alert_payload

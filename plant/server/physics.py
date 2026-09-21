@@ -33,14 +33,18 @@ class TankState:
         self._refresh_danger_state()
 
     def _refresh_danger_state(self) -> None:
-        """Mark the current condition as dangerous when configured thresholds are breached."""
+        """Danger = pump active + valve closed + tank already near full.
+
+        This is the real unsafe condition for the plant: the tank has no room to
+        take more incoming water. A closed valve at low or mid water is normal and
+        safe; only when the water is already near capacity is it dangerous.
+        """
         danger_threshold = PlantConfig.danger_level_threshold
         valve_closed = not self.valve_state
         pump_running = self.pump_state
         high_water = self.water_level >= danger_threshold
 
-        # Increment 8 danger condition: pump on + valve closed, or tank near-full with valve closed.
-        self.is_in_danger = valve_closed and (pump_running or high_water)
+        self.is_in_danger = pump_running and valve_closed and high_water
 
 
 if __name__ == "__main__":

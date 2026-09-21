@@ -6,6 +6,9 @@ Provides a Modbus device whose live TankState is mirrored into holding and input
 import asyncio
 import contextlib
 import logging
+import inspect
+import os
+import socket
 import warnings
 
 # Filter pymodbus v4 transition deprecation warning for datastore context
@@ -19,15 +22,42 @@ from server.physics import TankState
 from server.registers import (
     PUMP_COMMAND_REGISTER,
     VALVE_COMMAND_REGISTER,
-    WATER_LEVEL_REGISTER,
-    PUMP_STATUS_REGISTER,
-    VALVE_STATUS_REGISTER,
 )
 
 tank_state = TankState(water_level=50.0)
 
 logging.getLogger("pymodbus").setLevel(logging.ERROR)
 logger = setup_logger(name="plant.server")
+
+MIRROR_PORT = int(os.getenv("PACKET_MIRROR_PORT", "5029"))
+_mirror_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+
+def _find_peer_in_stack() -> str:
+    frame = inspect.currentframe()
+    if frame:
+        frame = frame.f_back
+    while frame:
+        if "self" in frame.f_locals:
+            obj = frame.f_locals["self"]
+            transport = getattr(obj, "transport", None)
+            if transport and hasattr(transport, "get_extra_info"):
+                peer = transport.get_extra_info("peername")
+                if peer:
+                    return f"{peer[0]}:{peer[1]}"
+        frame = frame.f_back
+    return "127.0.0.1:0"
+
+
+def _trace_incoming_packet(sending: bool, data: bytes) -> bytes:
+    if not sending and data:
+        try:
+            peer_str = _find_peer_in_stack()
+            payload = f"{peer_str}\n".encode() + data
+            _mirror_sock.sendto(payload, ("127.0.0.1", MIRROR_PORT))
+        except Exception:
+            pass
+    return data
 
 
 def _live_input_registers() -> list[int]:
@@ -113,6 +143,7 @@ async def run_server_async(host: str | None = None, port: int | None = None):
         await StartAsyncTcpServer(
             context=context,
             address=(host, port),
+            trace_packet=_trace_incoming_packet,
         )
     finally:
         tick_task.cancel()

@@ -4,5 +4,5 @@ from app.schemas.plant import PlantLiveResponse
 
 class ReadingOut(PlantLiveResponse):
     """Response model for historical reading records."""
-    id: int
+    id: int | None
     source: str = "plant"

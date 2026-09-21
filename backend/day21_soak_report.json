@@ -1,0 +1,19 @@
+{
+  "start_time": "2026-09-03T06:47:14.379682+00:00",
+  "duration_seconds": 10,
+  "legit_commands_sent": 9,
+  "attacks_sent": 4,
+  "readings_polled": 9,
+  "alerts_generated": 0,
+  "alerts_by_rule": {
+    "sanity_check": 1,
+    "state_machine": 1,
+    "replay": 1,
+    "drift": 1
+  },
+  "false_positives": 0,
+  "attacks_detected": 4,
+  "total_readings_in_db": 12952,
+  "total_commands_in_db": 32,
+  "total_alerts_in_db": 46
+}
