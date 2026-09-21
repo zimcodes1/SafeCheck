@@ -11,9 +11,9 @@ This repository contains the backend and intrusion detection engine for the Safe
 
 ```text
 ┌─────────────┐        ┌──────────────┐        ┌─────────────┐
-│  Attackers  │──────▶│              │        │             │
-│ (4 vectors) │        │  THE PLANT   │◀──────│ Legit Client │
-└─────────────┘        │ (Modbus TCP  │        │  (Operator)  │
+│  Attackers  │──────▶ │              │        │             │
+│ (4 vectors) │        │  THE PLANT   │◀────── │ Legit Client│
+└─────────────┘        │ (Modbus TCP  │        │  (Operator) │
                        │  port 5020)  │        └─────────────┘
                        └──────┬───────┘
                               │ passively captured in real time
@@ -55,58 +55,49 @@ backend/
 ├── day21_soak_report.json             # sustained soak testing metrics
 ├── logs/                              # session-aware structured log files
 ├── app/
-│   ├── __init__.py
-│   ├── main.py                        # FastAPI application entry point & router setup
-│   ├── config.py                      # environment-driven runtime configuration
-│   ├── database.py                    # SQLModel database engine & session provider
-│   ├── logger.py                      # structured session logging & request middleware
-│   │
-│   ├── models/                        # SQLModel ORM database table schemas
-│   │   ├── __init__.py
-│   │   ├── reading.py                 # `readings` table definition
-│   │   ├── command.py                 # `commands` table definition
-│   │   └── alert.py                   # `alerts` table definition
-│   │
-│   ├── schemas/                       # Pydantic request & response models
-│   │   ├── __init__.py
-│   │   ├── plant.py                   # PlantLiveResponse schema
-│   │   ├── reading.py                 # ReadingOut schema
-│   │   ├── command.py                 # CommandIn, CommandOut schemas
-│   │   └── alert.py                   # AlertOut, AlertDetail schemas
-│   │
-│   ├── routes/                        # FastAPI route controllers
-│   │   ├── __init__.py
-│   │   ├── plant.py                   # GET /plant/live controller
-│   │   ├── commands.py                # POST /commands/report controller
-│   │   ├── history.py                 # GET /history/readings & /commands
-│   │   ├── alerts.py                  # GET /alerts & /alerts/{id}
-│   │   └── simulate.py                # POST /simulate/scenario controller
-│   │
-│   ├── services/                      # Background asynchronous services
-│   │   ├── __init__.py
-│   │   ├── modbus_client.py           # Modbus TCP input/holding-register readers
-│   │   ├── modbus_parser.py           # Strict Modbus TCP request parser
-│   │   ├── packet_sniffer.py          # Scapy passive command sensor
-│   │   ├── poller.py                  # Telemetry poller and fallback command sensor
-│   │   └── simulator.py               # programmatic scenario runner for Day 19
-│   │
-│   └── detector/                      # The 4-Layer Detection Engine
-│       ├── __init__.py
-│       ├── layer1_sanity.py           # Layer 1: structural & bounds verification
-│       ├── layer2_state_machine.py    # Layer 2: physical state-machine safety lookup
-│       ├── layer3_replay.py           # Layer 3: sensor freeze & replay detection
-│       ├── layer4_drift.py            # Layer 4: slow drift & cumulative rate analysis
-│       └── engine.py                  # detector orchestrator & alert synthesizer
-│
-├── scripts/
-│   ├── simulate_all.py                # runs all 8 attack & validation scenarios
-│   └── run_day21_soak.py              # runs sustained unattended soak test
-│
-└── tests/
-    ├── test_day17_confidence.py       # tests confidence handling for anomalies
-    ├── test_day18_detectors.py        # unit tests across Layers 1–4
-    ├── test_day21_integration.py      # full end-to-end integration test suite
-    └── test_modbus_parser.py          # packet parser unit tests
+    ├── __init__.py
+    ├── main.py                        # FastAPI application entry point & router setup
+    ├── config.py                      # environment-driven runtime configuration
+    ├── database.py                    # SQLModel database engine & session provider
+    ├── logger.py                      # structured session logging & request middleware
+    │
+    ├── models/                        # SQLModel ORM database table schemas
+    │   ├── __init__.py
+    │   ├── reading.py                 # `readings` table definition
+    │   ├── command.py                 # `commands` table definition
+    │   └── alert.py                   # `alerts` table definition
+    │
+    ├── schemas/                       # Pydantic request & response models
+    │   ├── __init__.py
+    │   ├── plant.py                   # PlantLiveResponse schema
+    │   ├── reading.py                 # ReadingOut schema
+    │   ├── command.py                 # CommandIn, CommandOut schemas
+    │   └── alert.py                   # AlertOut, AlertDetail schemas
+    │
+    ├── routes/                        # FastAPI route controllers
+    │   ├── __init__.py
+    │   ├── plant.py                   # GET /plant/live controller
+    │   ├── commands.py                # POST /commands/report controller
+    │   ├── history.py                 # GET /history/readings & /commands
+    │   ├── alerts.py                  # GET /alerts & /alerts/{id}
+    │   └── simulate.py                # POST /simulate/scenario controller
+    │
+    ├── services/                      # Background asynchronous services
+    │   ├── __init__.py
+    │   ├── modbus_client.py           # Modbus TCP input/holding-register readers
+    │   ├── modbus_parser.py           # Strict Modbus TCP request parser
+    │   ├── packet_sniffer.py          # Scapy passive command sensor
+    │   ├── poller.py                  # Telemetry poller and fallback command sensor
+    │   └── simulator.py               # programmatic scenario runner for Day 19
+    │
+    └── detector/                      # The 4-Layer Detection Engine
+        ├── __init__.py
+        ├── layer1_sanity.py           # Layer 1: structural & bounds verification
+        ├── layer2_state_machine.py    # Layer 2: physical state-machine safety lookup
+        ├── layer3_replay.py           # Layer 3: sensor freeze & replay detection
+        ├── layer4_drift.py            # Layer 4: slow drift & cumulative rate analysis
+        └── engine.py                  # detector orchestrator & alert synthesizer
+
 ```
 
 ---
@@ -248,33 +239,6 @@ uv run uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 
 The server will automatically initialize `safecheck.db`, start the passive packet sensor, and start the telemetry poller. SQLite uses WAL mode and a busy timeout so the two sources can safely persist alerts and readings.
 
-### 3. Run Automated Tests & Integration Verifications
-
-To run unit and detector layer tests:
-
-```bash
-uv run python tests/test_day17_confidence.py
-uv run python tests/test_day18_detectors.py
-```
-
-To run the full 8-scenario detector verification:
-
-```bash
-uv run python scripts/simulate_all.py
-```
-
-To run the **Day 21 Full Integration Test Suite** (end-to-end with Modbus Plant):
-
-```bash
-uv run python tests/test_day21_integration.py
-```
-
-To run an **Extended Soak Test** (e.g. 60 seconds or up to 15 minutes):
-
-```bash
-uv run python scripts/run_day21_soak.py --duration 60
-```
-
 ---
 
 ## 6. Operational Notes for Demos
@@ -308,9 +272,6 @@ uv run python run.py
 cd SafeCheck/backend
 uv run uvicorn app.main:app --host 0.0.0.0 --port 8000
 
-# Terminal 3: Run Full Integration Test Suite
-cd SafeCheck/backend
-uv run python tests/test_day21_integration.py
 ```
 
 Check `logs/` for structured execution traces and `day21_integration_results.json` for verified test reports.
